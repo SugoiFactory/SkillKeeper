@@ -1,0 +1,16 @@
+c:\users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\bin\Debug\SkillKeeper.exe.config
+c:\users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\bin\Debug\SkillKeeper.exe
+c:\users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\bin\Debug\SkillKeeper.pdb
+c:\users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.csprojResolveAssemblyReference.cache
+c:\users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.SkillKeeper.resources
+c:\users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.Properties.Resources.resources
+c:\users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.csproj.GenerateResource.Cache
+c:\users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.exe
+c:\users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.pdb
+c:\users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\bin\Debug\Moserware.Skills.dll
+c:\users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\bin\Debug\Moserware.Skills.pdb
+C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\bin\Debug\SkillKeeper.exe.manifest
+C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\bin\Debug\SkillKeeper.application
+C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.exe.manifest
+C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.application
+C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.SKTioImporter.resources
