@@ -14,6 +14,7 @@ namespace SkillKeeper
         private String player1, player2;
         private UInt16 winner = 0;
         private Int32 p1Score, p2Score, p1score2, p2score2;
+        private String id = "000";
 
         public DateTime Timestamp
         {
@@ -73,6 +74,12 @@ namespace SkillKeeper
         {
             get { return p2score2; }
             set { p2score2 = value; }
+        }
+
+        public String ID
+        {
+            get { return id; }
+            set { id = value; }
         }
     }
 }

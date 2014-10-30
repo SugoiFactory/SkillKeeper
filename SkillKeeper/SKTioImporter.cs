@@ -223,6 +223,8 @@ namespace SkillKeeper
                 else
                     m.Winner = 2;
 
+                m.ID = Guid.NewGuid().ToString("N");
+
                 if (match.Element("IsChampionship").Value == "True")
                 {
                     hasFinals1 = true;

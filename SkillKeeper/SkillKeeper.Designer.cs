@@ -99,6 +99,9 @@
             this.label13 = new System.Windows.Forms.Label();
             this.modifySelector = new System.Windows.Forms.ComboBox();
             this.historyTab = new System.Windows.Forms.TabPage();
+            this.historyMoveDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.historyMoveTourneyButton = new System.Windows.Forms.Button();
+            this.historyApplyButton = new System.Windows.Forms.Button();
             this.historyViewAllCheck = new System.Windows.Forms.CheckBox();
             this.label27 = new System.Windows.Forms.Label();
             this.historyDatePicker = new System.Windows.Forms.DateTimePicker();
@@ -124,12 +127,12 @@
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.aboutTab = new System.Windows.Forms.TabPage();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.openWorldDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveWorldDialog = new System.Windows.Forms.SaveFileDialog();
             this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.exportCSVDialog = new System.Windows.Forms.SaveFileDialog();
-            this.textBox1 = new System.Windows.Forms.TextBox();
             this.tabControl1.SuspendLayout();
             this.fileTab.SuspendLayout();
             this.resultsTab.SuspendLayout();
@@ -826,6 +829,9 @@
             // 
             // historyTab
             // 
+            this.historyTab.Controls.Add(this.historyMoveDatePicker);
+            this.historyTab.Controls.Add(this.historyMoveTourneyButton);
+            this.historyTab.Controls.Add(this.historyApplyButton);
             this.historyTab.Controls.Add(this.historyViewAllCheck);
             this.historyTab.Controls.Add(this.label27);
             this.historyTab.Controls.Add(this.historyDatePicker);
@@ -837,6 +843,36 @@
             this.historyTab.Text = "History";
             this.historyTab.UseVisualStyleBackColor = true;
             this.historyTab.Click += new System.EventHandler(this.historyTab_Click);
+            // 
+            // historyMoveDatePicker
+            // 
+            this.historyMoveDatePicker.Location = new System.Drawing.Point(248, 390);
+            this.historyMoveDatePicker.Name = "historyMoveDatePicker";
+            this.historyMoveDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.historyMoveDatePicker.TabIndex = 6;
+            this.historyMoveDatePicker.ValueChanged += new System.EventHandler(this.historyMoveDatePicker_ValueChanged);
+            // 
+            // historyMoveTourneyButton
+            // 
+            this.historyMoveTourneyButton.Enabled = false;
+            this.historyMoveTourneyButton.Location = new System.Drawing.Point(104, 387);
+            this.historyMoveTourneyButton.Name = "historyMoveTourneyButton";
+            this.historyMoveTourneyButton.Size = new System.Drawing.Size(138, 23);
+            this.historyMoveTourneyButton.TabIndex = 5;
+            this.historyMoveTourneyButton.Text = "Move tournament date";
+            this.historyMoveTourneyButton.UseVisualStyleBackColor = true;
+            this.historyMoveTourneyButton.Click += new System.EventHandler(this.historyMoveTourneyButton_Click);
+            // 
+            // historyApplyButton
+            // 
+            this.historyApplyButton.Enabled = false;
+            this.historyApplyButton.Location = new System.Drawing.Point(6, 387);
+            this.historyApplyButton.Name = "historyApplyButton";
+            this.historyApplyButton.Size = new System.Drawing.Size(92, 23);
+            this.historyApplyButton.TabIndex = 4;
+            this.historyApplyButton.Text = "Apply Changes";
+            this.historyApplyButton.UseVisualStyleBackColor = true;
+            this.historyApplyButton.Click += new System.EventHandler(this.historyApplyButton_Click);
             // 
             // historyViewAllCheck
             // 
@@ -881,10 +917,13 @@
             this.orderDataGridViewTextBoxColumn});
             this.historyGridView.DataSource = this.matchBindingSource;
             this.historyGridView.Location = new System.Drawing.Point(3, 28);
+            this.historyGridView.MultiSelect = false;
             this.historyGridView.Name = "historyGridView";
-            this.historyGridView.ReadOnly = true;
-            this.historyGridView.Size = new System.Drawing.Size(720, 382);
+            this.historyGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
+            this.historyGridView.Size = new System.Drawing.Size(720, 353);
             this.historyGridView.TabIndex = 0;
+            this.historyGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.historyGridView_CellContentClick);
+            this.historyGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.historyGridView_CurrentCellDirtyStateChanged);
             // 
             // player1DataGridViewTextBoxColumn
             // 
@@ -910,7 +949,6 @@
             this.winnerDataGridViewTextBoxColumn.DataPropertyName = "Winner";
             this.winnerDataGridViewTextBoxColumn.HeaderText = "Winner";
             this.winnerDataGridViewTextBoxColumn.Name = "winnerDataGridViewTextBoxColumn";
-            this.winnerDataGridViewTextBoxColumn.ReadOnly = true;
             this.winnerDataGridViewTextBoxColumn.Width = 64;
             // 
             // descriptionDataGridViewTextBoxColumn
@@ -919,7 +957,6 @@
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.ReadOnly = true;
             this.descriptionDataGridViewTextBoxColumn.Width = 83;
             // 
             // Column1
@@ -937,7 +974,6 @@
             this.orderDataGridViewTextBoxColumn.DataPropertyName = "Order";
             this.orderDataGridViewTextBoxColumn.HeaderText = "Order";
             this.orderDataGridViewTextBoxColumn.Name = "orderDataGridViewTextBoxColumn";
-            this.orderDataGridViewTextBoxColumn.ReadOnly = true;
             this.orderDataGridViewTextBoxColumn.Width = 56;
             // 
             // matchBindingSource
@@ -1086,6 +1122,17 @@
             this.aboutTab.Text = "About";
             this.aboutTab.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(317, 3);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(406, 407);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Text = resources.GetString("textBox1.Text");
+            // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
@@ -1097,19 +1144,6 @@
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
             // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(317, 3);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(406, 407);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = "v0.0.2 (10/29/2014)\r\n- Implemented tio file importing.\r\n- Allowed for full histor" +
-    "y view.\r\n- Implemented exporting leaderboard to CSV.\r\n\r\nv0.0.1 (10/28/2014)\r\n- F" +
-    "irst public release!";
-            // 
             // SkillKeeper
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -1120,7 +1154,7 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SkillKeeper";
-            this.Text = "SkillKeeper92 v0.0.2";
+            this.Text = "SkillKeeper92 v0.0.3";
             this.tabControl1.ResumeLayout(false);
             this.fileTab.ResumeLayout(false);
             this.resultsTab.ResumeLayout(false);
@@ -1243,15 +1277,18 @@
         private System.Windows.Forms.Button fileImportTioButton;
         private System.Windows.Forms.OpenFileDialog importFileDialog;
         private System.Windows.Forms.CheckBox historyViewAllCheck;
+        private System.Windows.Forms.Button exportButton;
+        private System.Windows.Forms.SaveFileDialog exportCSVDialog;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button historyMoveTourneyButton;
+        private System.Windows.Forms.Button historyApplyButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn player1DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn player2DataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn winnerDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn descriptionDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button exportButton;
-        private System.Windows.Forms.SaveFileDialog exportCSVDialog;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.DateTimePicker historyMoveDatePicker;
     }
 }
 

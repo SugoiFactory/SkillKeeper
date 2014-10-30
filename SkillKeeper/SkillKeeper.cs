@@ -35,6 +35,7 @@ namespace SkillKeeper
             InitializeComponent();
             manualDatePicker.Value = DateTime.Today;
             historyDatePicker.Value = DateTime.Today;
+            historyMoveDatePicker.Value = DateTime.Today;
             personBindingSource.DataSource = new BindingList<Person>(playerList);
             openWorldDialog.Reset();
             exportCSVDialog.Reset();
@@ -248,6 +249,12 @@ namespace SkillKeeper
                     Match match = new Match();
                     match.Timestamp = DateTime.Parse(m.Attribute("Timestamp").Value);
                     match.Order = UInt32.Parse(m.Attribute("Order").Value);
+                    if(m.Attribute("Description") != null)
+                        match.Description = m.Attribute("Description").Value;
+                    if (m.Attribute("ID") != null)
+                        match.ID = m.Attribute("ID").Value;
+                    else
+                        match.ID = Guid.NewGuid().ToString("N");
                     match.Player1 = m.Attribute("Player1").Value;
                     match.Player2 = m.Attribute("Player2").Value;
                     match.Winner = UInt16.Parse(m.Attribute("Winner").Value);
@@ -280,8 +287,10 @@ namespace SkillKeeper
                             new XAttribute("Alts", player.AltsString)
                         )),
                         new XElement("Matches", from match in matchList select new XElement("Match",
+                            new XAttribute("ID", match.ID),
                             new XAttribute("Timestamp", match.Timestamp.ToString()),
                             new XAttribute("Order", match.Order),
+                            new XAttribute("Description", match.Description),
                             new XAttribute("Player1", match.Player1),
                             new XAttribute("Player2", match.Player2),
                             new XAttribute("Winner", match.Winner)
@@ -633,11 +642,78 @@ namespace SkillKeeper
         private void historyDatePicker_ValueChanged(object sender, EventArgs e)
         {
             buildHistory();
+
+            if (historyMoveDatePicker.Value != historyDatePicker.Value)
+                historyMoveTourneyButton.Enabled = true;
+            else
+                historyMoveTourneyButton.Enabled = false;
         }
 
         private void historyViewAllCheck_CheckedChanged(object sender, EventArgs e)
         {
             buildHistory();
+        }
+
+        private void historyGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
+        {
+            historyApplyButton.Enabled = true;
+        }
+
+        private void historyGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+            if(historyGridView.SelectedRows.Count > 0)
+                historyDatePicker.Value = DateTime.Parse(historyGridView.SelectedRows[0].Cells[4].Value.ToString());
+        }
+
+        private void historyMoveDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            if (historyMoveDatePicker.Value != historyDatePicker.Value)
+                historyMoveTourneyButton.Enabled = true;
+            else
+                historyMoveTourneyButton.Enabled = false;
+        }
+
+        private void historyMoveTourneyButton_Click(object sender, EventArgs e)
+        {
+            String tourneyName = historyGridView.SelectedRows[0].Cells[3].Value.ToString();
+            foreach (Match m in matchList)
+            {
+                if (m.Description == tourneyName)
+                    m.Timestamp = historyMoveDatePicker.Value;
+            }
+
+            historyDatePicker.Value = historyMoveDatePicker.Value;
+            matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma);
+            buildHistory();
+            playerList = playerList.OrderByDescending(s => s.Score).ToList();
+            personBindingSource.DataSource = new BindingList<Person>(playerList);   
+        }
+
+        private void historyApplyButton_Click(object sender, EventArgs e)
+        {
+            foreach (Match m in (BindingList<Match>) matchBindingSource.DataSource)
+            {
+                foreach (Match m2 in matchList)
+                {
+                    if (m.ID == m2.ID)
+                    {
+                        m2.Winner = m.Winner;
+                        m2.Order = m.Order;
+
+                        break;
+                    }
+                }
+            }
+
+            historyApplyButton.Enabled = false;
+
+            historyDatePicker.Value = historyMoveDatePicker.Value;
+            matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma);
+            buildHistory();
+            playerList = playerList.OrderByDescending(s => s.Score).ToList();
+            personBindingSource.DataSource = new BindingList<Person>(playerList); 
         }
 
         // ------------------------------------
