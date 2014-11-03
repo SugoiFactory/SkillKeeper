@@ -1,5 +1,5 @@
-C:\Users\tcheng\Documents\Visual Studio 2012\Projects\SkillKeeper\Skills\bin\Debug\Moserware.Skills.dll
-C:\Users\tcheng\Documents\Visual Studio 2012\Projects\SkillKeeper\Skills\bin\Debug\Moserware.Skills.pdb
-C:\Users\tcheng\Documents\Visual Studio 2012\Projects\SkillKeeper\Skills\obj\Debug\Skills.csprojResolveAssemblyReference.cache
-C:\Users\tcheng\Documents\Visual Studio 2012\Projects\SkillKeeper\Skills\obj\Debug\Moserware.Skills.dll
-C:\Users\tcheng\Documents\Visual Studio 2012\Projects\SkillKeeper\Skills\obj\Debug\Moserware.Skills.pdb
+C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\Skills\bin\Debug\Moserware.Skills.dll
+C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\Skills\bin\Debug\Moserware.Skills.pdb
+C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\Skills\obj\Debug\Skills.csprojResolveAssemblyReference.cache
+C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\Skills\obj\Debug\Moserware.Skills.dll
+C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\Skills\obj\Debug\Moserware.Skills.pdb

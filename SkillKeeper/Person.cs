@@ -12,6 +12,9 @@ namespace SkillKeeper
         private UInt32 wins = 0, losses = 0, draws = 0;
         private Double mu, sigma;
         private List<String> alts = new List<String>();
+        private DateTime lastMatch = DateTime.FromBinary(0);
+        private Int32 multiplier = 200;
+        private Boolean invisible = false;
 
         public String Name
         {
@@ -63,7 +66,12 @@ namespace SkillKeeper
 
         public Int32 Score
         {
-            get { return (Int32) ((mu - sigma * 3) * 10); }
+            get
+            {
+                if ((mu - sigma * 3) < 0)
+                    return 0;
+                return (Int32)((mu - sigma * 3) * multiplier);
+            }
         }
 
         public Int32 WinPercent
@@ -101,6 +109,23 @@ namespace SkillKeeper
 
                 alts = result;
             }
+        }
+
+        public DateTime LastMatch
+        {
+            get { return lastMatch; }
+            set { lastMatch = value; }
+        }
+
+        public Int32 Multiplier
+        {
+            set { multiplier = value; }
+        }
+
+        public Boolean Invisible
+        {
+            get { return invisible; }
+            set { invisible = value; }
         }
     }
 }

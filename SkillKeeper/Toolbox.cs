@@ -24,7 +24,7 @@ namespace SkillKeeper
             return result;
         }
 
-        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma)
+        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Int32 multiplier)
         {
             foreach (Person person in playerList)
             {
@@ -33,6 +33,7 @@ namespace SkillKeeper
                 person.Wins = 0;
                 person.Losses = 0;
                 person.Draws = 0;
+                person.Multiplier = multiplier;
             }
 
             foreach (Match match in matchList)
@@ -77,6 +78,9 @@ namespace SkillKeeper
 
                 match.P1Score2 = p1.Score;
                 match.P2Score2 = p2.Score;
+
+                p1.LastMatch = match.Timestamp;
+                p2.LastMatch = match.Timestamp;
 
                 foreach (Person person in playerList)
                 {

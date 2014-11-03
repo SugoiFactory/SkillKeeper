@@ -1,0 +1,6 @@
+H:\Visual Studio 2012\Projects\WindowsFormsApplication1\ChallongeApiWrapper\bin\Debug\ChallongeApiWrapper.dll
+H:\Visual Studio 2012\Projects\WindowsFormsApplication1\ChallongeApiWrapper\bin\Debug\ChallongeApiWrapper.pdb
+H:\Visual Studio 2012\Projects\WindowsFormsApplication1\ChallongeApiWrapper\bin\Debug\RestSharp.dll
+H:\Visual Studio 2012\Projects\WindowsFormsApplication1\ChallongeApiWrapper\bin\Debug\RestSharp.xml
+H:\Visual Studio 2012\Projects\WindowsFormsApplication1\ChallongeApiWrapper\obj\Debug\ChallongeApiWrapper.dll
+H:\Visual Studio 2012\Projects\WindowsFormsApplication1\ChallongeApiWrapper\obj\Debug\ChallongeApiWrapper.pdb

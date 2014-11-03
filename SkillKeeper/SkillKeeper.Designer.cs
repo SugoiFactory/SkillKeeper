@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SkillKeeper));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.fileTab = new System.Windows.Forms.TabPage();
+            this.fileImportGlickoButton = new System.Windows.Forms.Button();
             this.fileImportChallongeButton = new System.Windows.Forms.Button();
             this.fileImportTioButton = new System.Windows.Forms.Button();
             this.fileSaveButton = new System.Windows.Forms.Button();
@@ -76,6 +77,9 @@
             this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
             this.modifyTab = new System.Windows.Forms.TabPage();
+            this.modifyHideCheck = new System.Windows.Forms.CheckBox();
+            this.modifyCombineButton = new System.Windows.Forms.Button();
+            this.modifyCombineSelector = new System.Windows.Forms.ComboBox();
             this.label26 = new System.Windows.Forms.Label();
             this.modifyAltsBox = new System.Windows.Forms.TextBox();
             this.modifyDeleteButton = new System.Windows.Forms.Button();
@@ -125,7 +129,17 @@
             this.totalGamesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.winPercentDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn7 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.LastMatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.settingsTab = new System.Windows.Forms.TabPage();
+            this.settingsDecayNever = new System.Windows.Forms.RadioButton();
+            this.settingsDecayYearly = new System.Windows.Forms.RadioButton();
+            this.settingsDecayMonthly = new System.Windows.Forms.RadioButton();
+            this.settingsDecayWeekly = new System.Windows.Forms.RadioButton();
+            this.settingsDecayDaily = new System.Windows.Forms.RadioButton();
+            this.label29 = new System.Windows.Forms.Label();
+            this.settingsMultiplierBox = new System.Windows.Forms.TextBox();
+            this.label28 = new System.Windows.Forms.Label();
             this.aboutTab = new System.Windows.Forms.TabPage();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -144,6 +158,7 @@
             this.leaderboardTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leaderBoardGrid)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
+            this.settingsTab.SuspendLayout();
             this.aboutTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
@@ -156,16 +171,21 @@
             this.tabControl1.Controls.Add(this.modifyTab);
             this.tabControl1.Controls.Add(this.historyTab);
             this.tabControl1.Controls.Add(this.leaderboardTab);
+            this.tabControl1.Controls.Add(this.settingsTab);
             this.tabControl1.Controls.Add(this.aboutTab);
             this.tabControl1.Location = new System.Drawing.Point(12, 12);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(734, 439);
+            this.tabControl1.Size = new System.Drawing.Size(924, 492);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_SelectedIndexChanged);
             // 
             // fileTab
             // 
+            this.fileTab.BackColor = System.Drawing.Color.Transparent;
+            this.fileTab.BackgroundImage = global::SkillKeeper.Properties.Resources._10441020_675436692528705_2717092519737109560_n;
+            this.fileTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fileTab.Controls.Add(this.fileImportGlickoButton);
             this.fileTab.Controls.Add(this.fileImportChallongeButton);
             this.fileTab.Controls.Add(this.fileImportTioButton);
             this.fileTab.Controls.Add(this.fileSaveButton);
@@ -174,24 +194,33 @@
             this.fileTab.Location = new System.Drawing.Point(4, 22);
             this.fileTab.Name = "fileTab";
             this.fileTab.Padding = new System.Windows.Forms.Padding(3);
-            this.fileTab.Size = new System.Drawing.Size(726, 413);
+            this.fileTab.Size = new System.Drawing.Size(916, 466);
             this.fileTab.TabIndex = 0;
             this.fileTab.Text = "File";
-            this.fileTab.UseVisualStyleBackColor = true;
+            // 
+            // fileImportGlickoButton
+            // 
+            this.fileImportGlickoButton.Location = new System.Drawing.Point(348, 222);
+            this.fileImportGlickoButton.Name = "fileImportGlickoButton";
+            this.fileImportGlickoButton.Size = new System.Drawing.Size(147, 23);
+            this.fileImportGlickoButton.TabIndex = 5;
+            this.fileImportGlickoButton.Text = "Import GlickoMan File";
+            this.fileImportGlickoButton.UseVisualStyleBackColor = true;
+            this.fileImportGlickoButton.Click += new System.EventHandler(this.fileImportGlickoButton_Click);
             // 
             // fileImportChallongeButton
             // 
-            this.fileImportChallongeButton.Enabled = false;
-            this.fileImportChallongeButton.Location = new System.Drawing.Point(74, 193);
+            this.fileImportChallongeButton.Location = new System.Drawing.Point(348, 193);
             this.fileImportChallongeButton.Name = "fileImportChallongeButton";
             this.fileImportChallongeButton.Size = new System.Drawing.Size(147, 23);
             this.fileImportChallongeButton.TabIndex = 4;
             this.fileImportChallongeButton.Text = "Import Challonge Bracket";
             this.fileImportChallongeButton.UseVisualStyleBackColor = true;
+            this.fileImportChallongeButton.Click += new System.EventHandler(this.fileImportChallongeButton_Click);
             // 
             // fileImportTioButton
             // 
-            this.fileImportTioButton.Location = new System.Drawing.Point(74, 164);
+            this.fileImportTioButton.Location = new System.Drawing.Point(348, 164);
             this.fileImportTioButton.Name = "fileImportTioButton";
             this.fileImportTioButton.Size = new System.Drawing.Size(147, 23);
             this.fileImportTioButton.TabIndex = 3;
@@ -201,7 +230,7 @@
             // 
             // fileSaveButton
             // 
-            this.fileSaveButton.Location = new System.Drawing.Point(236, 135);
+            this.fileSaveButton.Location = new System.Drawing.Point(510, 135);
             this.fileSaveButton.Name = "fileSaveButton";
             this.fileSaveButton.Size = new System.Drawing.Size(75, 23);
             this.fileSaveButton.TabIndex = 2;
@@ -211,7 +240,7 @@
             // 
             // fileLoadButton
             // 
-            this.fileLoadButton.Location = new System.Drawing.Point(155, 135);
+            this.fileLoadButton.Location = new System.Drawing.Point(429, 135);
             this.fileLoadButton.Name = "fileLoadButton";
             this.fileLoadButton.Size = new System.Drawing.Size(75, 23);
             this.fileLoadButton.TabIndex = 1;
@@ -221,7 +250,7 @@
             // 
             // fileNewButton
             // 
-            this.fileNewButton.Location = new System.Drawing.Point(74, 135);
+            this.fileNewButton.Location = new System.Drawing.Point(348, 135);
             this.fileNewButton.Name = "fileNewButton";
             this.fileNewButton.Size = new System.Drawing.Size(75, 23);
             this.fileNewButton.TabIndex = 0;
@@ -263,7 +292,7 @@
             this.resultsTab.Location = new System.Drawing.Point(4, 22);
             this.resultsTab.Name = "resultsTab";
             this.resultsTab.Padding = new System.Windows.Forms.Padding(3);
-            this.resultsTab.Size = new System.Drawing.Size(726, 413);
+            this.resultsTab.Size = new System.Drawing.Size(916, 466);
             this.resultsTab.TabIndex = 1;
             this.resultsTab.Text = "Manual Results";
             this.resultsTab.UseVisualStyleBackColor = true;
@@ -271,7 +300,7 @@
             // label25
             // 
             this.label25.AutoSize = true;
-            this.label25.Location = new System.Drawing.Point(241, 27);
+            this.label25.Location = new System.Drawing.Point(338, 27);
             this.label25.Name = "label25";
             this.label25.Size = new System.Drawing.Size(72, 13);
             this.label25.TabIndex = 28;
@@ -279,7 +308,7 @@
             // 
             // matchQualBox
             // 
-            this.matchQualBox.Location = new System.Drawing.Point(244, 43);
+            this.matchQualBox.Location = new System.Drawing.Point(341, 43);
             this.matchQualBox.Name = "matchQualBox";
             this.matchQualBox.ReadOnly = true;
             this.matchQualBox.Size = new System.Drawing.Size(238, 20);
@@ -287,7 +316,7 @@
             // 
             // manualDatePicker
             // 
-            this.manualDatePicker.Location = new System.Drawing.Point(244, 171);
+            this.manualDatePicker.Location = new System.Drawing.Point(341, 171);
             this.manualDatePicker.Name = "manualDatePicker";
             this.manualDatePicker.Size = new System.Drawing.Size(238, 20);
             this.manualDatePicker.TabIndex = 6;
@@ -295,7 +324,7 @@
             // label24
             // 
             this.label24.AutoSize = true;
-            this.label24.Location = new System.Drawing.Point(241, 155);
+            this.label24.Location = new System.Drawing.Point(338, 155);
             this.label24.Name = "label24";
             this.label24.Size = new System.Drawing.Size(63, 13);
             this.label24.TabIndex = 25;
@@ -304,7 +333,7 @@
             // label23
             // 
             this.label23.AutoSize = true;
-            this.label23.Location = new System.Drawing.Point(241, 109);
+            this.label23.Location = new System.Drawing.Point(338, 109);
             this.label23.Name = "label23";
             this.label23.Size = new System.Drawing.Size(93, 13);
             this.label23.TabIndex = 24;
@@ -312,7 +341,7 @@
             // 
             // ManualDescBox
             // 
-            this.ManualDescBox.Location = new System.Drawing.Point(244, 125);
+            this.ManualDescBox.Location = new System.Drawing.Point(341, 125);
             this.ManualDescBox.Name = "ManualDescBox";
             this.ManualDescBox.Size = new System.Drawing.Size(238, 20);
             this.ManualDescBox.TabIndex = 5;
@@ -320,7 +349,7 @@
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(678, 210);
+            this.label12.Location = new System.Drawing.Point(868, 210);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(42, 13);
             this.label12.TabIndex = 22;
@@ -328,7 +357,7 @@
             // 
             // p2WLDBox
             // 
-            this.p2WLDBox.Location = new System.Drawing.Point(572, 207);
+            this.p2WLDBox.Location = new System.Drawing.Point(762, 207);
             this.p2WLDBox.Name = "p2WLDBox";
             this.p2WLDBox.ReadOnly = true;
             this.p2WLDBox.Size = new System.Drawing.Size(100, 20);
@@ -354,7 +383,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(685, 184);
+            this.label8.Location = new System.Drawing.Point(875, 184);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(35, 13);
             this.label8.TabIndex = 18;
@@ -362,7 +391,7 @@
             // 
             // p2MuDisplay
             // 
-            this.p2MuDisplay.Location = new System.Drawing.Point(572, 129);
+            this.p2MuDisplay.Location = new System.Drawing.Point(762, 129);
             this.p2MuDisplay.Name = "p2MuDisplay";
             this.p2MuDisplay.ReadOnly = true;
             this.p2MuDisplay.Size = new System.Drawing.Size(100, 20);
@@ -370,7 +399,7 @@
             // 
             // p2SigmaDisplay
             // 
-            this.p2SigmaDisplay.Location = new System.Drawing.Point(572, 155);
+            this.p2SigmaDisplay.Location = new System.Drawing.Point(762, 155);
             this.p2SigmaDisplay.Name = "p2SigmaDisplay";
             this.p2SigmaDisplay.ReadOnly = true;
             this.p2SigmaDisplay.Size = new System.Drawing.Size(100, 20);
@@ -378,7 +407,7 @@
             // 
             // p2ScoreDisplay
             // 
-            this.p2ScoreDisplay.Location = new System.Drawing.Point(572, 181);
+            this.p2ScoreDisplay.Location = new System.Drawing.Point(762, 181);
             this.p2ScoreDisplay.Name = "p2ScoreDisplay";
             this.p2ScoreDisplay.ReadOnly = true;
             this.p2ScoreDisplay.Size = new System.Drawing.Size(100, 20);
@@ -387,7 +416,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(684, 158);
+            this.label9.Location = new System.Drawing.Point(874, 158);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(36, 13);
             this.label9.TabIndex = 14;
@@ -396,7 +425,7 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(698, 132);
+            this.label10.Location = new System.Drawing.Point(888, 132);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(22, 13);
             this.label10.TabIndex = 13;
@@ -456,7 +485,7 @@
             // drawButton
             // 
             this.drawButton.Enabled = false;
-            this.drawButton.Location = new System.Drawing.Point(326, 69);
+            this.drawButton.Location = new System.Drawing.Point(423, 69);
             this.drawButton.Name = "drawButton";
             this.drawButton.Size = new System.Drawing.Size(75, 23);
             this.drawButton.TabIndex = 3;
@@ -467,7 +496,7 @@
             // p2WinButton
             // 
             this.p2WinButton.Enabled = false;
-            this.p2WinButton.Location = new System.Drawing.Point(407, 69);
+            this.p2WinButton.Location = new System.Drawing.Point(504, 69);
             this.p2WinButton.Name = "p2WinButton";
             this.p2WinButton.Size = new System.Drawing.Size(75, 23);
             this.p2WinButton.TabIndex = 4;
@@ -478,7 +507,7 @@
             // p1WinButton
             // 
             this.p1WinButton.Enabled = false;
-            this.p1WinButton.Location = new System.Drawing.Point(244, 69);
+            this.p1WinButton.Location = new System.Drawing.Point(341, 69);
             this.p1WinButton.Name = "p1WinButton";
             this.p1WinButton.Size = new System.Drawing.Size(75, 23);
             this.p1WinButton.TabIndex = 2;
@@ -489,7 +518,7 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(675, 55);
+            this.label4.Location = new System.Drawing.Point(865, 55);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(45, 13);
             this.label4.TabIndex = 3;
@@ -500,9 +529,9 @@
             this.player2Selector.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
             this.player2Selector.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
             this.player2Selector.FormattingEnabled = true;
-            this.player2Selector.Location = new System.Drawing.Point(488, 71);
+            this.player2Selector.Location = new System.Drawing.Point(585, 71);
             this.player2Selector.Name = "player2Selector";
-            this.player2Selector.Size = new System.Drawing.Size(232, 21);
+            this.player2Selector.Size = new System.Drawing.Size(325, 21);
             this.player2Selector.TabIndex = 1;
             this.player2Selector.SelectedIndexChanged += new System.EventHandler(this.player2Box_SelectedIndexChanged);
             // 
@@ -522,7 +551,7 @@
             this.player1Selector.FormattingEnabled = true;
             this.player1Selector.Location = new System.Drawing.Point(6, 71);
             this.player1Selector.Name = "player1Selector";
-            this.player1Selector.Size = new System.Drawing.Size(232, 21);
+            this.player1Selector.Size = new System.Drawing.Size(329, 21);
             this.player1Selector.TabIndex = 0;
             this.player1Selector.SelectedIndexChanged += new System.EventHandler(this.player1Box_SelectedIndexChanged);
             // 
@@ -537,7 +566,7 @@
             this.addTab.Controls.Add(this.label1);
             this.addTab.Location = new System.Drawing.Point(4, 22);
             this.addTab.Name = "addTab";
-            this.addTab.Size = new System.Drawing.Size(726, 413);
+            this.addTab.Size = new System.Drawing.Size(916, 466);
             this.addTab.TabIndex = 2;
             this.addTab.Text = "Add Player";
             this.addTab.UseVisualStyleBackColor = true;
@@ -545,7 +574,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(41, 178);
+            this.label17.Location = new System.Drawing.Point(157, 179);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(64, 13);
             this.label17.TabIndex = 6;
@@ -553,7 +582,7 @@
             // 
             // addCharacterBox
             // 
-            this.addCharacterBox.Location = new System.Drawing.Point(114, 175);
+            this.addCharacterBox.Location = new System.Drawing.Point(230, 176);
             this.addCharacterBox.Name = "addCharacterBox";
             this.addCharacterBox.Size = new System.Drawing.Size(309, 20);
             this.addCharacterBox.TabIndex = 3;
@@ -561,7 +590,7 @@
             // addPlayerButton
             // 
             this.addPlayerButton.Enabled = false;
-            this.addPlayerButton.Location = new System.Drawing.Point(518, 121);
+            this.addPlayerButton.Location = new System.Drawing.Point(634, 122);
             this.addPlayerButton.Name = "addPlayerButton";
             this.addPlayerButton.Size = new System.Drawing.Size(75, 23);
             this.addPlayerButton.TabIndex = 4;
@@ -571,7 +600,7 @@
             // 
             // addPlayerBox
             // 
-            this.addPlayerBox.Location = new System.Drawing.Point(114, 149);
+            this.addPlayerBox.Location = new System.Drawing.Point(230, 150);
             this.addPlayerBox.Name = "addPlayerBox";
             this.addPlayerBox.Size = new System.Drawing.Size(309, 20);
             this.addPlayerBox.TabIndex = 2;
@@ -579,7 +608,7 @@
             // 
             // addTeamBox
             // 
-            this.addTeamBox.Location = new System.Drawing.Point(114, 123);
+            this.addTeamBox.Location = new System.Drawing.Point(230, 124);
             this.addTeamBox.Name = "addTeamBox";
             this.addTeamBox.Size = new System.Drawing.Size(309, 20);
             this.addTeamBox.TabIndex = 1;
@@ -587,7 +616,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(41, 152);
+            this.label2.Location = new System.Drawing.Point(157, 153);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(67, 13);
             this.label2.TabIndex = 1;
@@ -596,7 +625,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 126);
+            this.label1.Location = new System.Drawing.Point(157, 127);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(65, 13);
             this.label1.TabIndex = 0;
@@ -604,6 +633,9 @@
             // 
             // modifyTab
             // 
+            this.modifyTab.Controls.Add(this.modifyHideCheck);
+            this.modifyTab.Controls.Add(this.modifyCombineButton);
+            this.modifyTab.Controls.Add(this.modifyCombineSelector);
             this.modifyTab.Controls.Add(this.label26);
             this.modifyTab.Controls.Add(this.modifyAltsBox);
             this.modifyTab.Controls.Add(this.modifyDeleteButton);
@@ -628,10 +660,42 @@
             this.modifyTab.Controls.Add(this.modifySelector);
             this.modifyTab.Location = new System.Drawing.Point(4, 22);
             this.modifyTab.Name = "modifyTab";
-            this.modifyTab.Size = new System.Drawing.Size(726, 413);
+            this.modifyTab.Size = new System.Drawing.Size(916, 466);
             this.modifyTab.TabIndex = 3;
             this.modifyTab.Text = "View/Modify Player";
             this.modifyTab.UseVisualStyleBackColor = true;
+            // 
+            // modifyHideCheck
+            // 
+            this.modifyHideCheck.AutoSize = true;
+            this.modifyHideCheck.Location = new System.Drawing.Point(78, 190);
+            this.modifyHideCheck.Name = "modifyHideCheck";
+            this.modifyHideCheck.Size = new System.Drawing.Size(165, 17);
+            this.modifyHideCheck.TabIndex = 35;
+            this.modifyHideCheck.Text = "Hide Player from Leaderboard";
+            this.modifyHideCheck.UseVisualStyleBackColor = true;
+            // 
+            // modifyCombineButton
+            // 
+            this.modifyCombineButton.Enabled = false;
+            this.modifyCombineButton.Location = new System.Drawing.Point(25, 351);
+            this.modifyCombineButton.Name = "modifyCombineButton";
+            this.modifyCombineButton.Size = new System.Drawing.Size(102, 23);
+            this.modifyCombineButton.TabIndex = 34;
+            this.modifyCombineButton.Text = "Combine Into";
+            this.modifyCombineButton.UseVisualStyleBackColor = true;
+            this.modifyCombineButton.Click += new System.EventHandler(this.modifyCombineButton_Click);
+            // 
+            // modifyCombineSelector
+            // 
+            this.modifyCombineSelector.AutoCompleteMode = System.Windows.Forms.AutoCompleteMode.Suggest;
+            this.modifyCombineSelector.AutoCompleteSource = System.Windows.Forms.AutoCompleteSource.ListItems;
+            this.modifyCombineSelector.FormattingEnabled = true;
+            this.modifyCombineSelector.Location = new System.Drawing.Point(133, 353);
+            this.modifyCombineSelector.Name = "modifyCombineSelector";
+            this.modifyCombineSelector.Size = new System.Drawing.Size(232, 21);
+            this.modifyCombineSelector.TabIndex = 33;
+            this.modifyCombineSelector.SelectedIndexChanged += new System.EventHandler(this.modifyCombineSelector_SelectedIndexChanged);
             // 
             // label26
             // 
@@ -652,7 +716,7 @@
             // modifyDeleteButton
             // 
             this.modifyDeleteButton.Enabled = false;
-            this.modifyDeleteButton.Location = new System.Drawing.Point(181, 358);
+            this.modifyDeleteButton.Location = new System.Drawing.Point(179, 395);
             this.modifyDeleteButton.Name = "modifyDeleteButton";
             this.modifyDeleteButton.Size = new System.Drawing.Size(102, 23);
             this.modifyDeleteButton.TabIndex = 7;
@@ -663,7 +727,7 @@
             // modifyPlayerButton
             // 
             this.modifyPlayerButton.Enabled = false;
-            this.modifyPlayerButton.Location = new System.Drawing.Point(73, 358);
+            this.modifyPlayerButton.Location = new System.Drawing.Point(71, 395);
             this.modifyPlayerButton.Name = "modifyPlayerButton";
             this.modifyPlayerButton.Size = new System.Drawing.Size(102, 23);
             this.modifyPlayerButton.TabIndex = 6;
@@ -674,7 +738,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(684, 23);
+            this.label22.Location = new System.Drawing.Point(874, 23);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(39, 13);
             this.label22.TabIndex = 30;
@@ -682,12 +746,12 @@
             // 
             // modifyDetailBox
             // 
-            this.modifyDetailBox.Location = new System.Drawing.Point(392, 40);
+            this.modifyDetailBox.Location = new System.Drawing.Point(392, 39);
             this.modifyDetailBox.Multiline = true;
             this.modifyDetailBox.Name = "modifyDetailBox";
             this.modifyDetailBox.ReadOnly = true;
             this.modifyDetailBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.modifyDetailBox.Size = new System.Drawing.Size(331, 370);
+            this.modifyDetailBox.Size = new System.Drawing.Size(521, 424);
             this.modifyDetailBox.TabIndex = 29;
             this.modifyDetailBox.WordWrap = false;
             // 
@@ -838,7 +902,7 @@
             this.historyTab.Controls.Add(this.historyGridView);
             this.historyTab.Location = new System.Drawing.Point(4, 22);
             this.historyTab.Name = "historyTab";
-            this.historyTab.Size = new System.Drawing.Size(726, 413);
+            this.historyTab.Size = new System.Drawing.Size(916, 466);
             this.historyTab.TabIndex = 6;
             this.historyTab.Text = "History";
             this.historyTab.UseVisualStyleBackColor = true;
@@ -846,7 +910,7 @@
             // 
             // historyMoveDatePicker
             // 
-            this.historyMoveDatePicker.Location = new System.Drawing.Point(248, 390);
+            this.historyMoveDatePicker.Location = new System.Drawing.Point(713, 443);
             this.historyMoveDatePicker.Name = "historyMoveDatePicker";
             this.historyMoveDatePicker.Size = new System.Drawing.Size(200, 20);
             this.historyMoveDatePicker.TabIndex = 6;
@@ -855,7 +919,7 @@
             // historyMoveTourneyButton
             // 
             this.historyMoveTourneyButton.Enabled = false;
-            this.historyMoveTourneyButton.Location = new System.Drawing.Point(104, 387);
+            this.historyMoveTourneyButton.Location = new System.Drawing.Point(569, 440);
             this.historyMoveTourneyButton.Name = "historyMoveTourneyButton";
             this.historyMoveTourneyButton.Size = new System.Drawing.Size(138, 23);
             this.historyMoveTourneyButton.TabIndex = 5;
@@ -866,11 +930,11 @@
             // historyApplyButton
             // 
             this.historyApplyButton.Enabled = false;
-            this.historyApplyButton.Location = new System.Drawing.Point(6, 387);
+            this.historyApplyButton.Location = new System.Drawing.Point(3, 440);
             this.historyApplyButton.Name = "historyApplyButton";
-            this.historyApplyButton.Size = new System.Drawing.Size(92, 23);
+            this.historyApplyButton.Size = new System.Drawing.Size(66, 23);
             this.historyApplyButton.TabIndex = 4;
-            this.historyApplyButton.Text = "Apply Changes";
+            this.historyApplyButton.Text = "Refresh";
             this.historyApplyButton.UseVisualStyleBackColor = true;
             this.historyApplyButton.Click += new System.EventHandler(this.historyApplyButton_Click);
             // 
@@ -920,7 +984,7 @@
             this.historyGridView.MultiSelect = false;
             this.historyGridView.Name = "historyGridView";
             this.historyGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.historyGridView.Size = new System.Drawing.Size(720, 353);
+            this.historyGridView.Size = new System.Drawing.Size(910, 406);
             this.historyGridView.TabIndex = 0;
             this.historyGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.historyGridView_CellContentClick);
             this.historyGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.historyGridView_CurrentCellDirtyStateChanged);
@@ -986,14 +1050,14 @@
             this.leaderboardTab.Controls.Add(this.leaderBoardGrid);
             this.leaderboardTab.Location = new System.Drawing.Point(4, 22);
             this.leaderboardTab.Name = "leaderboardTab";
-            this.leaderboardTab.Size = new System.Drawing.Size(726, 413);
+            this.leaderboardTab.Size = new System.Drawing.Size(916, 466);
             this.leaderboardTab.TabIndex = 4;
             this.leaderboardTab.Text = "Leaderboard";
             this.leaderboardTab.UseVisualStyleBackColor = true;
             // 
             // exportButton
             // 
-            this.exportButton.Location = new System.Drawing.Point(3, 390);
+            this.exportButton.Location = new System.Drawing.Point(3, 440);
             this.exportButton.Name = "exportButton";
             this.exportButton.Size = new System.Drawing.Size(104, 23);
             this.exportButton.TabIndex = 1;
@@ -1016,14 +1080,15 @@
             this.dataGridViewTextBoxColumn6,
             this.totalGamesDataGridViewTextBoxColumn,
             this.winPercentDataGridViewTextBoxColumn,
-            this.dataGridViewTextBoxColumn7});
+            this.dataGridViewTextBoxColumn7,
+            this.LastMatch});
             this.leaderBoardGrid.DataSource = this.personBindingSource;
             this.leaderBoardGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
             this.leaderBoardGrid.Location = new System.Drawing.Point(3, 3);
             this.leaderBoardGrid.Name = "leaderBoardGrid";
             this.leaderBoardGrid.ReadOnly = true;
             this.leaderBoardGrid.ShowEditingIcon = false;
-            this.leaderBoardGrid.Size = new System.Drawing.Size(720, 381);
+            this.leaderBoardGrid.Size = new System.Drawing.Size(910, 431);
             this.leaderBoardGrid.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn2
@@ -1107,9 +1172,122 @@
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
             this.dataGridViewTextBoxColumn7.Width = 58;
             // 
+            // LastMatch
+            // 
+            this.LastMatch.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.LastMatch.DataPropertyName = "LastMatch";
+            this.LastMatch.HeaderText = "Last Match";
+            this.LastMatch.Name = "LastMatch";
+            this.LastMatch.ReadOnly = true;
+            this.LastMatch.Width = 83;
+            // 
             // personBindingSource
             // 
             this.personBindingSource.DataSource = typeof(Person);
+            // 
+            // settingsTab
+            // 
+            this.settingsTab.Controls.Add(this.settingsDecayNever);
+            this.settingsTab.Controls.Add(this.settingsDecayYearly);
+            this.settingsTab.Controls.Add(this.settingsDecayMonthly);
+            this.settingsTab.Controls.Add(this.settingsDecayWeekly);
+            this.settingsTab.Controls.Add(this.settingsDecayDaily);
+            this.settingsTab.Controls.Add(this.label29);
+            this.settingsTab.Controls.Add(this.settingsMultiplierBox);
+            this.settingsTab.Controls.Add(this.label28);
+            this.settingsTab.Location = new System.Drawing.Point(4, 22);
+            this.settingsTab.Name = "settingsTab";
+            this.settingsTab.Size = new System.Drawing.Size(916, 466);
+            this.settingsTab.TabIndex = 7;
+            this.settingsTab.Text = "Settings";
+            this.settingsTab.UseVisualStyleBackColor = true;
+            // 
+            // settingsDecayNever
+            // 
+            this.settingsDecayNever.AutoSize = true;
+            this.settingsDecayNever.Enabled = false;
+            this.settingsDecayNever.Location = new System.Drawing.Point(510, 179);
+            this.settingsDecayNever.Name = "settingsDecayNever";
+            this.settingsDecayNever.Size = new System.Drawing.Size(53, 17);
+            this.settingsDecayNever.TabIndex = 7;
+            this.settingsDecayNever.TabStop = true;
+            this.settingsDecayNever.Text = "Never";
+            this.settingsDecayNever.UseVisualStyleBackColor = true;
+            // 
+            // settingsDecayYearly
+            // 
+            this.settingsDecayYearly.AutoSize = true;
+            this.settingsDecayYearly.Enabled = false;
+            this.settingsDecayYearly.Location = new System.Drawing.Point(451, 179);
+            this.settingsDecayYearly.Name = "settingsDecayYearly";
+            this.settingsDecayYearly.Size = new System.Drawing.Size(53, 17);
+            this.settingsDecayYearly.TabIndex = 6;
+            this.settingsDecayYearly.TabStop = true;
+            this.settingsDecayYearly.Text = "Yearly";
+            this.settingsDecayYearly.UseVisualStyleBackColor = true;
+            // 
+            // settingsDecayMonthly
+            // 
+            this.settingsDecayMonthly.AutoSize = true;
+            this.settingsDecayMonthly.Enabled = false;
+            this.settingsDecayMonthly.Location = new System.Drawing.Point(384, 179);
+            this.settingsDecayMonthly.Name = "settingsDecayMonthly";
+            this.settingsDecayMonthly.Size = new System.Drawing.Size(61, 17);
+            this.settingsDecayMonthly.TabIndex = 5;
+            this.settingsDecayMonthly.TabStop = true;
+            this.settingsDecayMonthly.Text = "Monthly";
+            this.settingsDecayMonthly.UseVisualStyleBackColor = true;
+            // 
+            // settingsDecayWeekly
+            // 
+            this.settingsDecayWeekly.AutoSize = true;
+            this.settingsDecayWeekly.Enabled = false;
+            this.settingsDecayWeekly.Location = new System.Drawing.Point(318, 179);
+            this.settingsDecayWeekly.Name = "settingsDecayWeekly";
+            this.settingsDecayWeekly.Size = new System.Drawing.Size(60, 17);
+            this.settingsDecayWeekly.TabIndex = 4;
+            this.settingsDecayWeekly.TabStop = true;
+            this.settingsDecayWeekly.Text = "Weekly";
+            this.settingsDecayWeekly.UseVisualStyleBackColor = true;
+            // 
+            // settingsDecayDaily
+            // 
+            this.settingsDecayDaily.AutoSize = true;
+            this.settingsDecayDaily.Enabled = false;
+            this.settingsDecayDaily.Location = new System.Drawing.Point(265, 179);
+            this.settingsDecayDaily.Name = "settingsDecayDaily";
+            this.settingsDecayDaily.Size = new System.Drawing.Size(47, 17);
+            this.settingsDecayDaily.TabIndex = 3;
+            this.settingsDecayDaily.TabStop = true;
+            this.settingsDecayDaily.Text = "Daily";
+            this.settingsDecayDaily.UseVisualStyleBackColor = true;
+            // 
+            // label29
+            // 
+            this.label29.AutoSize = true;
+            this.label29.Location = new System.Drawing.Point(180, 181);
+            this.label29.Name = "label29";
+            this.label29.Size = new System.Drawing.Size(76, 13);
+            this.label29.TabIndex = 2;
+            this.label29.Text = "Decay Interval";
+            // 
+            // settingsMultiplierBox
+            // 
+            this.settingsMultiplierBox.Location = new System.Drawing.Point(265, 153);
+            this.settingsMultiplierBox.Name = "settingsMultiplierBox";
+            this.settingsMultiplierBox.Size = new System.Drawing.Size(258, 20);
+            this.settingsMultiplierBox.TabIndex = 1;
+            this.settingsMultiplierBox.Text = "200";
+            this.settingsMultiplierBox.TextChanged += new System.EventHandler(this.settingsMultiplierBox_TextChanged);
+            // 
+            // label28
+            // 
+            this.label28.AutoSize = true;
+            this.label28.Location = new System.Drawing.Point(180, 156);
+            this.label28.Name = "label28";
+            this.label28.Size = new System.Drawing.Size(79, 13);
+            this.label28.TabIndex = 0;
+            this.label28.Text = "Score Multiplier";
             // 
             // aboutTab
             // 
@@ -1117,19 +1295,19 @@
             this.aboutTab.Controls.Add(this.pictureBox1);
             this.aboutTab.Location = new System.Drawing.Point(4, 22);
             this.aboutTab.Name = "aboutTab";
-            this.aboutTab.Size = new System.Drawing.Size(726, 413);
+            this.aboutTab.Size = new System.Drawing.Size(916, 466);
             this.aboutTab.TabIndex = 5;
             this.aboutTab.Text = "About";
             this.aboutTab.UseVisualStyleBackColor = true;
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(317, 3);
+            this.textBox1.Location = new System.Drawing.Point(371, 3);
             this.textBox1.Multiline = true;
             this.textBox1.Name = "textBox1";
             this.textBox1.ReadOnly = true;
             this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(406, 407);
+            this.textBox1.Size = new System.Drawing.Size(542, 460);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
@@ -1139,7 +1317,7 @@
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
             this.pictureBox1.Location = new System.Drawing.Point(3, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(308, 407);
+            this.pictureBox1.Size = new System.Drawing.Size(362, 460);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 0;
             this.pictureBox1.TabStop = false;
@@ -1148,7 +1326,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(758, 463);
+            this.ClientSize = new System.Drawing.Size(948, 516);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
@@ -1170,6 +1348,8 @@
             this.leaderboardTab.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.leaderBoardGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
+            this.settingsTab.ResumeLayout(false);
+            this.settingsTab.PerformLayout();
             this.aboutTab.ResumeLayout(false);
             this.aboutTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
@@ -1249,15 +1429,6 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage aboutTab;
         private System.Windows.Forms.BindingSource personBindingSource;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
-        private System.Windows.Forms.DataGridViewTextBoxColumn totalGamesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn winPercentDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
         private System.Windows.Forms.Label label25;
         private System.Windows.Forms.TextBox matchQualBox;
         private System.Windows.Forms.Label label26;
@@ -1289,6 +1460,29 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn Column1;
         private System.Windows.Forms.DataGridViewTextBoxColumn orderDataGridViewTextBoxColumn;
         private System.Windows.Forms.DateTimePicker historyMoveDatePicker;
+        private System.Windows.Forms.Button modifyCombineButton;
+        private System.Windows.Forms.ComboBox modifyCombineSelector;
+        private System.Windows.Forms.TabPage settingsTab;
+        private System.Windows.Forms.RadioButton settingsDecayNever;
+        private System.Windows.Forms.RadioButton settingsDecayYearly;
+        private System.Windows.Forms.RadioButton settingsDecayMonthly;
+        private System.Windows.Forms.RadioButton settingsDecayWeekly;
+        private System.Windows.Forms.RadioButton settingsDecayDaily;
+        private System.Windows.Forms.Label label29;
+        private System.Windows.Forms.TextBox settingsMultiplierBox;
+        private System.Windows.Forms.Label label28;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn2;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn1;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn3;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn4;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn5;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn6;
+        private System.Windows.Forms.DataGridViewTextBoxColumn totalGamesDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn winPercentDataGridViewTextBoxColumn;
+        private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn7;
+        private System.Windows.Forms.DataGridViewTextBoxColumn LastMatch;
+        private System.Windows.Forms.Button fileImportGlickoButton;
+        private System.Windows.Forms.CheckBox modifyHideCheck;
     }
 }
 

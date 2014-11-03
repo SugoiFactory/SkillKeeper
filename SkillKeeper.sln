@@ -5,6 +5,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SkillKeeper", "SkillKeeper\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Skills", "Skills\Skills.csproj", "{15AD1345-984C-48ED-AF9A-2EAB44E5AA2B}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ChallongeApiWrapper", "ChallongeApiWrapper\ChallongeApiWrapper.csproj", "{BEC62B0A-47BA-4018-9EF8-A6B159AA11E4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -19,6 +21,10 @@ Global
 		{15AD1345-984C-48ED-AF9A-2EAB44E5AA2B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{15AD1345-984C-48ED-AF9A-2EAB44E5AA2B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{15AD1345-984C-48ED-AF9A-2EAB44E5AA2B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{BEC62B0A-47BA-4018-9EF8-A6B159AA11E4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{BEC62B0A-47BA-4018-9EF8-A6B159AA11E4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{BEC62B0A-47BA-4018-9EF8-A6B159AA11E4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{BEC62B0A-47BA-4018-9EF8-A6B159AA11E4}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

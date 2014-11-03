@@ -123,13 +123,27 @@
   <metadata name="matchBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>413, 17</value>
   </metadata>
+  <metadata name="LastMatch.UserAddedColumn" type="System.Boolean, mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089">
+    <value>True</value>
+  </metadata>
   <metadata name="personBindingSource.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
   </metadata>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>v0.0.3 (10/30/2014)
+    <value>v0.0.4 (11/3/2014)
+- Implemented Challonge importing.
+- Implemented GlickoMan importing.
+- Linking an imported player to an existing one now adds that name to the existing player's list of alt names.
+- Added ability to set players visible or hidden from leaderboard in the Modify tab.
+- Added settings tab.
+- Implemented last match date for player leaderboard.
+
+v0.0.3 (10/30/2014)
 - Implemented history view editing.
+- Implemented player combine function (found in Modify Player tab).
 - Added match description to file save values.
+- Fixed a strange bug in the TIO importer.
+- Made window bigger.
 
 v0.0.2 (10/29/2014)
 - Implemented tio file importing.

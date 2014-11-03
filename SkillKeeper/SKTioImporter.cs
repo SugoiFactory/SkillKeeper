@@ -17,10 +17,12 @@ namespace SkillKeeper
         private List<Person> importPlayers = new List<Person>();
         private List<Person> currentPlayers = new List<Person>();
         private List<String> playerNames = new List<String>();
-        private List<TioPlayer> tioList = new List<TioPlayer>();
+        private List<ImportPlayer> tioList = new List<ImportPlayer>();
         private List<String> eventList = new List<String>();
         private String tournamentName = "";
         private XElement xEle = null;
+
+        private List<String> addAlts = new List<String>();
 
         private Match finals1 = new Match();
         private Match finals2 = new Match();
@@ -80,7 +82,7 @@ namespace SkillKeeper
             tioList.Clear();
             foreach (XElement player in xEle.Element("PlayerList").Element("Players").Elements("Player"))
             {
-                TioPlayer p = new TioPlayer();
+                ImportPlayer p = new ImportPlayer();
                 p.ID = player.Element("ID").Value;
                 p.Name = player.Element("Nickname").Value;
                 p.SKLink = getMatch(p.Name);
@@ -95,13 +97,13 @@ namespace SkillKeeper
                 }
             }
 
-            tioPlayerBindingSource.DataSource = new BindingList<TioPlayer>(tioList);
+            importPlayerBindingSource.DataSource = new BindingList<ImportPlayer>(tioList);
         }
 
         // Update the associated import player whenever a link is manually set.
         private void importPlayerList_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
-            foreach (TioPlayer p in tioList)
+            foreach (ImportPlayer p in tioList)
             {
                 if (p.ID == (String) importPlayerList.CurrentRow.Cells[0].Value)
                 {
@@ -118,7 +120,7 @@ namespace SkillKeeper
             Boolean foundMatch = false;
             foreach (Person person in currentPlayers)
             {
-                if (person.Name.ToUpper() == playerName.ToUpper() || (playerName.ToUpper().StartsWith(person.Team.ToUpper()) && playerName.ToUpper().EndsWith(person.Name.ToUpper())))
+                if (person.Name.ToUpper() == playerName.ToUpper() || (playerName.ToUpper().StartsWith(person.Team.ToUpper()) && playerName.ToUpper().EndsWith(person.Name.ToUpper()) && person.Name.Length > 0))
                 {
                     foundMatch = true;
                     result = person.Name;
@@ -131,7 +133,7 @@ namespace SkillKeeper
                 {
                     foreach (String altName in person.Alts)
                     {
-                        if (altName.ToUpper() == playerName.ToUpper() || (playerName.ToUpper().StartsWith(person.Team.ToUpper()) && playerName.ToUpper().EndsWith(altName.ToUpper())))
+                        if (altName.ToUpper() == playerName.ToUpper() || (playerName.ToUpper().StartsWith(person.Team.ToUpper()) && playerName.ToUpper().EndsWith(altName.ToUpper()) && altName.Length > 0))
                         {
                             result = person.Name;
                         }
@@ -157,7 +159,7 @@ namespace SkillKeeper
         // Confirm Import. Process all matches in selected event.
         private void importButton_Click(object sender, EventArgs e)
         {
-            foreach (TioPlayer p in tioList)
+            foreach (ImportPlayer p in tioList)
             {
                 if (p.SKLink == "<< Create New Player >>")
                 {
@@ -167,6 +169,10 @@ namespace SkillKeeper
                         person.Name = p.Name;
                         importPlayers.Add(person);
                     }
+                }
+                else if (p.SKLink != p.Name)
+                {
+                    addAlts.Add(p.SKLink + "\t" + p.Name);
                 }
             }
 
@@ -198,7 +204,7 @@ namespace SkillKeeper
             m.Description = tournamentName + " - " + eventSelector.Text;
             m.Timestamp = eventDatePicker.Value;
 
-            foreach (TioPlayer p in tioList)
+            foreach (ImportPlayer p in tioList)
             {
                 if (p.ID == match.Element("Player1").Value)
                 {
@@ -225,15 +231,20 @@ namespace SkillKeeper
 
                 m.ID = Guid.NewGuid().ToString("N");
 
-                if (match.Element("IsChampionship").Value == "True")
+                if (match.Element("IsChampionship") != null || match.Element("IsSecondChampionship") != null)
                 {
-                    hasFinals1 = true;
-                    finals1 = m;
-                }
-                else if (match.Element("IsSecondChampionship").Value == "True")
-                {
-                    hasFinals2 = true;
-                    finals2 = m;
+                    if (match.Element("IsChampionship") != null && match.Element("IsChampionship").Value == "True")
+                    {
+                        hasFinals1 = true;
+                        finals1 = m;
+                    }
+                    else if (match.Element("IsSecondChampionship") != null && match.Element("IsSecondChampionship").Value == "True")
+                    {
+                        hasFinals2 = true;
+                        finals2 = m;
+                    }
+                    else
+                        importMatches.Add(m);
                 }
                 else
                     importMatches.Add(m);
@@ -250,5 +261,9 @@ namespace SkillKeeper
             return importMatches;
         }
 
+        public List<String> getNewAlts()
+        {
+            return addAlts;
+        }
     }
 }

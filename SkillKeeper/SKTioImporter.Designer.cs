@@ -34,13 +34,13 @@
             this.importPlayerList = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sKLinkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
-            this.tioPlayerBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.importPlayerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.importButton = new System.Windows.Forms.Button();
             this.eventDatePicker = new System.Windows.Forms.DateTimePicker();
             this.label2 = new System.Windows.Forms.Label();
             this.cancelButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.importPlayerList)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tioPlayerBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.importPlayerBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // eventSelector
@@ -71,7 +71,7 @@
             this.importPlayerList.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.nameDataGridViewTextBoxColumn,
             this.sKLinkDataGridViewTextBoxColumn});
-            this.importPlayerList.DataSource = this.tioPlayerBindingSource;
+            this.importPlayerList.DataSource = this.importPlayerBindingSource;
             this.importPlayerList.Location = new System.Drawing.Point(15, 42);
             this.importPlayerList.Name = "importPlayerList";
             this.importPlayerList.Size = new System.Drawing.Size(669, 529);
@@ -96,9 +96,9 @@
             this.sKLinkDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.sKLinkDataGridViewTextBoxColumn.Width = 94;
             // 
-            // tioPlayerBindingSource
+            // importPPlayerBindingSource
             // 
-            this.tioPlayerBindingSource.DataSource = typeof(TioPlayer);
+            this.importPlayerBindingSource.DataSource = typeof(ImportPlayer);
             // 
             // importButton
             // 
@@ -154,7 +154,7 @@
             this.Name = "SKTioImporter";
             this.Text = "SkillKeeper TIO Importer";
             ((System.ComponentModel.ISupportInitialize)(this.importPlayerList)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.tioPlayerBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.importPlayerBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -165,7 +165,7 @@
         private System.Windows.Forms.ComboBox eventSelector;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.DataGridView importPlayerList;
-        private System.Windows.Forms.BindingSource tioPlayerBindingSource;
+        private System.Windows.Forms.BindingSource importPlayerBindingSource;
         private System.Windows.Forms.Button importButton;
         private System.Windows.Forms.DateTimePicker eventDatePicker;
         private System.Windows.Forms.Label label2;

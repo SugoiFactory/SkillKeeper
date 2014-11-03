@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -17,9 +18,11 @@ namespace SkillKeeper
     {
         private Double startMu = 0;
         private Double startSigma = 0;
+        private Int32 multiplier = 200;
         private Boolean scoresChanged = false;
 
         private List<Person> playerList;
+        private List<Person> leaderBoardList = new List<Person>();
         private List<Match> matchList;
 
         private String openedWorld = "";
@@ -36,7 +39,7 @@ namespace SkillKeeper
             manualDatePicker.Value = DateTime.Today;
             historyDatePicker.Value = DateTime.Today;
             historyMoveDatePicker.Value = DateTime.Today;
-            personBindingSource.DataSource = new BindingList<Person>(playerList);
+            personBindingSource.DataSource = new BindingList<Person>(leaderBoardList);
             openWorldDialog.Reset();
             exportCSVDialog.Reset();
         }
@@ -48,26 +51,27 @@ namespace SkillKeeper
         {
             if (scoresChanged)
             {
+                multiplier = Int32.Parse(settingsMultiplierBox.Text);
                 matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma);
+                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
                 buildHistory();
-                playerList = playerList.OrderByDescending(s => s.Score).ToList();
-                personBindingSource.DataSource = new BindingList<Person>(playerList);
             }
             scoresChanged = false;
+            historyApplyButton.Enabled = false;
         }
 
         
 
         private void rebuildPlayerSelection()
         {
-            personBindingSource.DataSource = new BindingList<Person>(playerList);
+            personBindingSource.DataSource = new BindingList<Person>(leaderBoardList);
 
             List<String> playerSelectionList = new List<String>();
             playerSelectionList.Clear();
             player1Selector.Items.Clear();
             player2Selector.Items.Clear();
             modifySelector.Items.Clear();
+            modifyCombineSelector.Items.Clear();
             foreach (Person person in playerList)
             {
                 playerSelectionList.Add(person.Name);
@@ -79,6 +83,7 @@ namespace SkillKeeper
                 player1Selector.Items.Add(playerName);
                 player2Selector.Items.Add(playerName);
                 modifySelector.Items.Add(playerName);
+                modifyCombineSelector.Items.Add(playerName);
             }
 
         }
@@ -149,6 +154,41 @@ namespace SkillKeeper
             refreshScoreBoxes();
         }
 
+        private void combinePlayers(String player1, String player2)
+        {
+            Person oldP = new Person(), newP = new Person();
+            foreach (Person p in playerList)
+            {
+                if (p.Name == player1)
+                {
+                    oldP = p;
+                }
+                else if (p.Name == player2)
+                {
+                    newP = p;
+                }
+            }
+
+            foreach (String alt in oldP.Alts)
+            {
+                newP.Alts.Add(alt);
+            }
+            newP.Alts.Add(oldP.Name);
+
+            foreach (Match m in matchList)
+            {
+                if (m.Player1 == player1)
+                    m.Player1 = player2;
+                else if (m.Player2 == player1)
+                    m.Player2 = player2;
+            }
+            modifySelector.Text = player2;
+
+            matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
+            buildHistory();
+        }
+
         private void refreshScoreBoxes()
         {
             Person p1 = new Person();
@@ -171,8 +211,8 @@ namespace SkillKeeper
             p2MuDisplay.Text = p2.Mu.ToString();
             p2SigmaDisplay.Text = p2.Sigma.ToString();
             p2ScoreDisplay.Text = p2.Score.ToString();
-            p1WLDBox.Text = p1.Wins + " -- " + p1.Losses + " -- " + p1.Draws;
-            p2WLDBox.Text = p2.Wins + " -- " + p2.Losses + " -- " + p2.Draws;
+            p1WLDBox.Text = p1.Wins + " -- " + p1.Losses + " -- " + p1.Draws + " (" + p1.WinPercent + "%)";
+            p2WLDBox.Text = p2.Wins + " -- " + p2.Losses + " -- " + p2.Draws + " (" + p2.WinPercent + "%)";
 
             Player p1s = new Player(1);
             Player p2s = new Player(2);
@@ -197,6 +237,15 @@ namespace SkillKeeper
             }
 
             matchBindingSource.DataSource = new BindingList<Match>(viewList);
+
+            playerList = playerList.OrderByDescending(s => s.Score).ToList();
+            leaderBoardList.Clear();
+            foreach (Person p in playerList)
+            {
+                if (!p.Invisible)
+                    leaderBoardList.Add(p);
+            }
+            personBindingSource.DataSource = new BindingList<Person>(leaderBoardList);
         }
 
         // ------------------------------------
@@ -213,10 +262,13 @@ namespace SkillKeeper
             p2WinButton.Enabled = false;
             drawButton.Enabled = false;
 
+            multiplier = 200;
+            settingsMultiplierBox.Text = "200";
+
             openedWorld = "";
 
             rebuildPlayerSelection();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
             buildHistory();
         }
 
@@ -233,11 +285,18 @@ namespace SkillKeeper
 
                 var xEle = XElement.Load(openWorldDialog.FileName);
 
+                if (xEle.Element("Settings") != null)
+                {
+                    multiplier = Int32.Parse(xEle.Element("Settings").Attribute("Multiplier").Value);
+                    settingsMultiplierBox.Text = multiplier.ToString();
+                }
+
                 foreach (XElement player in xEle.Element("Players").Elements("Player"))
                 {
                     Person person = new Person();
                     person.Name = player.Attribute("Name").Value;
                     person.Team = player.Attribute("Team").Value;
+                    person.Invisible = Boolean.Parse(player.Attribute("Invisible").Value);
                     person.Characters = player.Attribute("Characters").Value;
                     person.AltsString = player.Attribute("Alts").Value;
 
@@ -264,7 +323,7 @@ namespace SkillKeeper
             }
 
             rebuildPlayerSelection();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
             buildHistory();
         }
 
@@ -280,9 +339,13 @@ namespace SkillKeeper
             {
                 var xEle = new XElement(
                     new XElement("SK92",
+                        new XElement("Settings",
+                            new XAttribute("Multiplier", multiplier)
+                        ),
                         new XElement("Players", from player in playerList select new XElement("Player", 
                             new XAttribute("Name", player.Name), 
                             new XAttribute("Team", player.Team), 
+                            new XAttribute("Invisible", player.Invisible),
                             new XAttribute("Characters", player.Characters),
                             new XAttribute("Alts", player.AltsString)
                         )),
@@ -319,15 +382,140 @@ namespace SkillKeeper
                         m.Order = Toolbox.getNewMatchNumber(matchList, m.Timestamp);
                         matchList.Add(m);
                     }
+                    foreach (String s in importer.getNewAlts())
+                    {
+                        String name = s.Split('\t')[0];
+                        String alt = s.Split('\t')[1];
+                        foreach (Person p in playerList)
+                        {
+                            if (p.Name == name)
+                            {
+                                if (!p.Alts.Contains(alt))
+                                    p.Alts.Add(alt);
+
+                                break;
+                            }
+                        }
+                    }
 
                     rebuildPlayerSelection();
 
                     matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                    Toolbox.recalcMatches(playerList, matchList, startMu, startSigma);
+                    Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
                     buildHistory();
-                    playerList = playerList.OrderByDescending(s => s.Score).ToList();
-                    personBindingSource.DataSource = new BindingList<Person>(playerList);
                 }
+            }
+        }
+
+        private void fileImportChallongeButton_Click(object sender, EventArgs e)
+        {
+            SKChallongeLoader skChallongeLoader = new SKChallongeLoader();
+            if (skChallongeLoader.ShowDialog() == DialogResult.OK)
+            {
+                SKChallongeImporter importer = new SKChallongeImporter();
+                importer.importChallonge(skChallongeLoader.getAPIKey(), skChallongeLoader.getSubDomain(), playerList);
+                if (importer.ShowDialog() == DialogResult.OK)
+                {
+                    foreach (Person p in importer.getImportPlayers())
+                    {
+                        playerList.Add(p);
+                    }
+                    foreach (Match m in importer.getImportMatches())
+                    {
+                        m.Order = Toolbox.getNewMatchNumber(matchList, m.Timestamp);
+                        matchList.Add(m);
+                    }
+                    foreach (String s in importer.getNewAlts())
+                    {
+                        String name = s.Split('\t')[0];
+                        String alt = s.Split('\t')[1];
+                        foreach (Person p in playerList)
+                        {
+                            if (p.Name == name)
+                            {
+                                if (!p.Alts.Contains(alt))
+                                    p.Alts.Add(alt);
+
+                                break;
+                            }
+                        }
+                    }
+
+                    rebuildPlayerSelection();
+
+                    matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
+                    Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
+                    buildHistory();
+                }
+            }
+        }
+
+        private void fileImportGlickoButton_Click(object sender, EventArgs e)
+        {
+            importFileDialog.Filter = "GLK files (*.glk)|*.glk|CSV files (*.csv)|*.csv|All files (*.*)|*.*";
+
+            if (importFileDialog.ShowDialog() == DialogResult.OK)
+            {
+                StreamReader sr = new StreamReader(importFileDialog.FileName);
+
+                using (sr)
+                {
+                    String line;
+                    String[] row;
+
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if (line.Equals("--==--"))
+                            break;
+
+                        row = line.Split(',');
+                        if (row.Length < 8)
+                            return;
+
+                        Person p = new Person();
+                        p.Team = row[0];
+                        p.Name = row[1];
+
+                        Boolean alreadyExists = false;
+                        foreach (Person pl in playerList)
+                        {
+                            if (pl.Name == p.Name)
+                            {
+                                alreadyExists = true;
+                                break;
+                            }
+                        }
+
+                        if (!alreadyExists)
+                        {
+                            playerList.Add(p);
+                        }
+                    }
+
+                    while ((line = sr.ReadLine()) != null)
+                    {
+                        if (!(line.Equals("//reset,//reset") || line.Equals("//reset,//reset,")))
+                        {
+                            if (line.Equals("--==--"))
+                                break;
+                            row = line.Split(',');
+                            Match m = new Match();
+                            m.Player1 = row[0];
+                            m.Player2 = row[1];
+                            m.Winner = 1;
+                            if (row.Length == 3)
+                                m.Description = row[2];
+
+                            matchList.Add(m);
+                        }
+                    }
+                }
+
+                rebuildPlayerSelection();
+
+                matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
+                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
+                buildHistory();
             }
         }
 
@@ -501,6 +689,8 @@ namespace SkillKeeper
             modifyNameBox.Text = person.Name;
             modifyCharacterBox.Text = person.Characters;
 
+            modifyHideCheck.Checked = person.Invisible;
+
             modifyAltsBox.Clear();
             foreach (String alt in person.Alts)
             {
@@ -512,7 +702,7 @@ namespace SkillKeeper
             modifyMuBox.Text = person.Mu.ToString();
             modifySigmaBox.Text = person.Sigma.ToString();
             modifyScoreBox.Text = person.Score.ToString();
-            modifyWLDBox.Text = person.Wins + " -- " + person.Losses + " -- " + person.Draws;
+            modifyWLDBox.Text = person.Wins + " -- " + person.Losses + " -- " + person.Draws + " (" + person.WinPercent + "%)";
 
             String details = "INDIVIDUAL MATCH TALLY:\r\n";
 
@@ -584,8 +774,9 @@ namespace SkillKeeper
                     p1.Name = modifyNameBox.Text;
                     p1.Team = modifyTeamBox.Text;
                     p1.Characters = modifyCharacterBox.Text;
+                    p1.Invisible = modifyHideCheck.Checked;
 
-                    p1.Alts =modifyAltsBox.Text.Split(';').ToList();
+                    p1.Alts = modifyAltsBox.Text.Split(';').ToList();
                 }
             }
             foreach (Match match in matchList)
@@ -598,6 +789,8 @@ namespace SkillKeeper
 
             rebuildPlayerSelection();
             modifySelector.SelectedItem = modifyNameBox.Text;
+
+            buildHistory();
         }
 
         private void modifyDeleteButton_Click(object sender, EventArgs e)
@@ -631,6 +824,22 @@ namespace SkillKeeper
             modifySelector.Text = "";
         }
 
+        private void modifyCombineSelector_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            if (modifySelector.Text != modifyCombineSelector.Text && modifySelector.Text.Length > 0 && modifyCombineSelector.Text.Length > 0)
+            {
+                modifyCombineButton.Enabled = true;
+            }
+        }
+
+        private void modifyCombineButton_Click(object sender, EventArgs e)
+        {
+            if (modifyCombineButton.Enabled)
+            {
+                combinePlayers(modifySelector.Text, modifyCombineSelector.Text);
+            }
+        }
+
         // ------------------------------------
         // History Tab
         // ------------------------------------
@@ -657,6 +866,7 @@ namespace SkillKeeper
         private void historyGridView_CurrentCellDirtyStateChanged(object sender, EventArgs e)
         {
             historyApplyButton.Enabled = true;
+            scoresChanged = true;
         }
 
         private void historyGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
@@ -684,36 +894,35 @@ namespace SkillKeeper
 
             historyDatePicker.Value = historyMoveDatePicker.Value;
             matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
             buildHistory();
-            playerList = playerList.OrderByDescending(s => s.Score).ToList();
-            personBindingSource.DataSource = new BindingList<Person>(playerList);   
         }
 
         private void historyApplyButton_Click(object sender, EventArgs e)
         {
-            foreach (Match m in (BindingList<Match>) matchBindingSource.DataSource)
+            if (historyApplyButton.Enabled)
             {
-                foreach (Match m2 in matchList)
+                foreach (Match m in (BindingList<Match>)matchBindingSource.DataSource)
                 {
-                    if (m.ID == m2.ID)
+                    foreach (Match m2 in matchList)
                     {
-                        m2.Winner = m.Winner;
-                        m2.Order = m.Order;
+                        if (m.ID == m2.ID)
+                        {
+                            m2.Winner = m.Winner;
+                            m2.Order = m.Order;
 
-                        break;
+                            break;
+                        }
                     }
                 }
+
+                historyApplyButton.Enabled = false;
+
+                historyMoveDatePicker.Value = historyDatePicker.Value;
+                matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
+                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
+                buildHistory();
             }
-
-            historyApplyButton.Enabled = false;
-
-            historyDatePicker.Value = historyMoveDatePicker.Value;
-            matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma);
-            buildHistory();
-            playerList = playerList.OrderByDescending(s => s.Score).ToList();
-            personBindingSource.DataSource = new BindingList<Person>(playerList); 
         }
 
         // ------------------------------------
@@ -741,6 +950,14 @@ namespace SkillKeeper
                 csvFileWriter.Flush();
                 csvFileWriter.Close();
             }
+        }
+
+        // ------------------------------------
+        // Settings Tab
+        // ------------------------------------
+        private void settingsMultiplierBox_TextChanged(object sender, EventArgs e)
+        {
+            scoresChanged = true;
         }
     }
 }

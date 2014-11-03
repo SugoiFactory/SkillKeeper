@@ -26,7 +26,7 @@
     <PublisherName>Sugoi Factory</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
     <ApplicationRevision>0</ApplicationRevision>
-    <ApplicationVersion>0.0.3.0</ApplicationVersion>
+    <ApplicationVersion>0.0.4.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -63,6 +63,9 @@
     <SignManifests>true</SignManifests>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="RestSharp">
+      <HintPath>D:\restsharp\RestSharp.dll</HintPath>
+    </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
     <Reference Include="System.Xml.Linq" />
@@ -75,7 +78,19 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="TioPlayer.cs" />
+    <Compile Include="SKChallongeImporter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKChallongeImporter.Designer.cs">
+      <DependentUpon>SKChallongeImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SKChallongeLoader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKChallongeLoader.Designer.cs">
+      <DependentUpon>SKChallongeLoader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportPlayer.cs" />
     <Compile Include="SKTioImporter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -93,8 +108,11 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="SKTioImporter.resx">
-      <DependentUpon>SKTioImporter.cs</DependentUpon>
+    <EmbeddedResource Include="SKChallongeImporter.resx">
+      <DependentUpon>SKChallongeImporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SKChallongeLoader.resx">
+      <DependentUpon>SKChallongeLoader.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="SkillKeeper.resx">
       <DependentUpon>SkillKeeper.cs</DependentUpon>
@@ -107,7 +125,11 @@
     <Compile Include="Properties\Resources.Designer.cs">
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SKTioImporter.resx">
+      <DependentUpon>SKTioImporter.cs</DependentUpon>
+    </EmbeddedResource>
     <None Include="Properties\DataSources\Match.datasource" />
     <None Include="Properties\DataSources\Person.datasource" />
     <None Include="Properties\DataSources\TioPlayer.datasource" />
@@ -126,6 +148,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\ChallongeApiWrapper\ChallongeApiWrapper.csproj">
+      <Project>{bec62b0a-47ba-4018-9ef8-a6b159aa11e4}</Project>
+      <Name>ChallongeApiWrapper</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Skills\Skills.csproj">
       <Project>{15ad1345-984c-48ed-af9a-2eab44e5aa2b}</Project>
       <Name>Skills</Name>
@@ -147,6 +173,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\10441020_675436692528705_2717092519737109560_n.jpg" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
