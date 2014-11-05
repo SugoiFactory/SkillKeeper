@@ -19,6 +19,7 @@ namespace SkillKeeper
         private Double startMu = 0;
         private Double startSigma = 0;
         private Int32 multiplier = 200;
+        private UInt16 decay = 0;
         private Boolean scoresChanged = false;
 
         private List<Person> playerList;
@@ -39,6 +40,7 @@ namespace SkillKeeper
             manualDatePicker.Value = DateTime.Today;
             historyDatePicker.Value = DateTime.Today;
             historyMoveDatePicker.Value = DateTime.Today;
+            leaderboardDatePicker.Value = DateTime.Today;
             personBindingSource.DataSource = new BindingList<Person>(leaderBoardList);
             openWorldDialog.Reset();
             exportCSVDialog.Reset();
@@ -53,7 +55,7 @@ namespace SkillKeeper
             {
                 multiplier = Int32.Parse(settingsMultiplierBox.Text);
                 matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
+                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
                 buildHistory();
             }
             scoresChanged = false;
@@ -184,8 +186,10 @@ namespace SkillKeeper
             }
             modifySelector.Text = player2;
 
+            playerList.Remove(oldP);
+
             matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
             buildHistory();
         }
 
@@ -261,14 +265,16 @@ namespace SkillKeeper
             p1WinButton.Enabled = false;
             p2WinButton.Enabled = false;
             drawButton.Enabled = false;
+            settingsDecayNever.Checked = true;
 
             multiplier = 200;
+            decay = 0;
             settingsMultiplierBox.Text = "200";
 
             openedWorld = "";
 
             rebuildPlayerSelection();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
             buildHistory();
         }
 
@@ -277,7 +283,7 @@ namespace SkillKeeper
             playerList.Clear();
             matchList.Clear();
 
-            openWorldDialog.Filter = "SkillKeeper92 files (*.sk92)|*.sk92|All files (*.*)|*.*";
+            openWorldDialog.Filter = "Bacon files (*.bcn)|*.bcn|SkillKeeper92 files (*.sk92)|*.sk92|All files (*.*)|*.*";
 
             if (openWorldDialog.ShowDialog() == DialogResult.OK)
             {
@@ -288,6 +294,7 @@ namespace SkillKeeper
                 if (xEle.Element("Settings") != null)
                 {
                     multiplier = Int32.Parse(xEle.Element("Settings").Attribute("Multiplier").Value);
+                    decay = UInt16.Parse(xEle.Element("Settings").Attribute("Decay").Value);
                     settingsMultiplierBox.Text = multiplier.ToString();
                 }
 
@@ -322,8 +329,27 @@ namespace SkillKeeper
                 }
             }
 
+            switch (decay)
+            {
+                case 1:
+                    settingsDecayDaily.Checked = true;
+                    break;
+                case 2:
+                    settingsDecayWeekly.Checked = true;
+                    break;
+                case 3:
+                    settingsDecayMonthly.Checked = true;
+                    break;
+                case 4:
+                    settingsDecayYearly.Checked = true;
+                    break;
+                case 0:
+                    settingsDecayNever.Checked = true;
+                    break;
+            }
+
             rebuildPlayerSelection();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
             buildHistory();
         }
 
@@ -333,14 +359,15 @@ namespace SkillKeeper
             if (openedWorld.Length > 0)
                 saveWorldDialog.FileName = openedWorld;
 
-            saveWorldDialog.Filter = "SkillKeeper92 files (*.sk92)|*.sk92|All files (*.*)|*.*";
+            saveWorldDialog.Filter = "Bacon files (*.bcn)|*.bcn|SkillKeeper92 files (*.sk92)|*.sk92|All files (*.*)|*.*";
 
             if (saveWorldDialog.ShowDialog() == DialogResult.OK)
             {
                 var xEle = new XElement(
                     new XElement("SK92",
                         new XElement("Settings",
-                            new XAttribute("Multiplier", multiplier)
+                            new XAttribute("Multiplier", multiplier),
+                            new XAttribute("Decay", decay)
                         ),
                         new XElement("Players", from player in playerList select new XElement("Player", 
                             new XAttribute("Name", player.Name), 
@@ -401,7 +428,7 @@ namespace SkillKeeper
                     rebuildPlayerSelection();
 
                     matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                    Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
+                    Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
                     buildHistory();
                 }
             }
@@ -444,7 +471,7 @@ namespace SkillKeeper
                     rebuildPlayerSelection();
 
                     matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                    Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
+                    Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
                     buildHistory();
                 }
             }
@@ -505,6 +532,7 @@ namespace SkillKeeper
                             m.Winner = 1;
                             if (row.Length == 3)
                                 m.Description = row[2];
+                            m.Order = Toolbox.getNewMatchNumber(matchList, DateTime.Today);
 
                             matchList.Add(m);
                         }
@@ -514,7 +542,7 @@ namespace SkillKeeper
                 rebuildPlayerSelection();
 
                 matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
+                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
                 buildHistory();
             }
         }
@@ -837,6 +865,7 @@ namespace SkillKeeper
             if (modifyCombineButton.Enabled)
             {
                 combinePlayers(modifySelector.Text, modifyCombineSelector.Text);
+                modifyCombineSelector.Text = "";
             }
         }
 
@@ -871,8 +900,19 @@ namespace SkillKeeper
 
         private void historyGridView_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            if(historyGridView.SelectedRows.Count > 0)
+            if (historyGridView.SelectedRows.Count > 0)
+            {
                 historyDatePicker.Value = DateTime.Parse(historyGridView.SelectedRows[0].Cells[4].Value.ToString());
+                historyDeleteMatchButton.Enabled = true;
+                historyDeleteTournamentButton.Enabled = true;
+                if (historyDatePicker.Value != historyMoveDatePicker.Value)
+                    historyMoveTourneyButton.Enabled = true;
+            }
+            else
+            {
+                historyDeleteMatchButton.Enabled = false;
+                historyDeleteTournamentButton.Enabled = false;
+            }
         }
 
         private void historyMoveDatePicker_ValueChanged(object sender, EventArgs e)
@@ -894,7 +934,7 @@ namespace SkillKeeper
 
             historyDatePicker.Value = historyMoveDatePicker.Value;
             matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
             buildHistory();
         }
 
@@ -920,14 +960,51 @@ namespace SkillKeeper
 
                 historyMoveDatePicker.Value = historyDatePicker.Value;
                 matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier);
+                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
                 buildHistory();
             }
+        }
+
+        private void historyDeleteMatchButton_Click(object sender, EventArgs e)
+        {
+            matchList.Remove((Match) historyGridView.SelectedRows[0].DataBoundItem);
+            matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
+            buildHistory();
+        }
+
+        private void historyDeleteTournamentButton_Click(object sender, EventArgs e)
+        {
+            String tourneyName = historyGridView.SelectedRows[0].Cells[3].Value.ToString();
+            Boolean allDeleted = false;
+            while (!allDeleted)
+            {
+                allDeleted = true;
+                foreach (Match m in matchList)
+                {
+                    if (m.Description == tourneyName)
+                    {
+                        matchList.Remove(m);
+                        allDeleted = false;
+                        break;
+                    }
+                }
+            }
+
+            matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
+            buildHistory();
         }
 
         // ------------------------------------
         // Leaderboard Tab
         // ------------------------------------
+        private void leaderboardDatePicker_ValueChanged(object sender, EventArgs e)
+        {
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, leaderboardDatePicker.Value);
+            buildHistory();
+        }
+
         private void exportButton_Click(object sender, EventArgs e)
         {
             exportCSVDialog.Filter = "CSV files (*.csv)|*.csv|All files (*.*)|*.*";
@@ -958,6 +1035,47 @@ namespace SkillKeeper
         private void settingsMultiplierBox_TextChanged(object sender, EventArgs e)
         {
             scoresChanged = true;
+        }
+
+        private void settingsCheckDecayVal()
+        {
+            if (settingsDecayDaily.Checked)
+                decay = 1;
+            else if (settingsDecayWeekly.Checked)
+                decay = 2;
+            else if (settingsDecayMonthly.Checked)
+                decay = 3;
+            else if (settingsDecayYearly.Checked)
+                decay = 4;
+            else if (settingsDecayNever.Checked)
+                decay = 0;
+
+            scoresChanged = true;
+        }
+
+        private void settingsDecayDaily_CheckedChanged(object sender, EventArgs e)
+        {
+            settingsCheckDecayVal();
+        }
+
+        private void settingsDecayWeekly_CheckedChanged(object sender, EventArgs e)
+        {
+            settingsCheckDecayVal();
+        }
+
+        private void settingsDecayMonthly_CheckedChanged(object sender, EventArgs e)
+        {
+            settingsCheckDecayVal();
+        }
+
+        private void settingsDecayYearly_CheckedChanged(object sender, EventArgs e)
+        {
+            settingsCheckDecayVal();
+        }
+
+        private void settingsDecayNever_CheckedChanged(object sender, EventArgs e)
+        {
+            settingsCheckDecayVal();
         }
     }
 }

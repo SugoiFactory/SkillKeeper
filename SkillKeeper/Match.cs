@@ -9,7 +9,7 @@ namespace SkillKeeper
     public class Match
     {
         private DateTime timestamp = DateTime.Today;
-        private String description;
+        private String description = "";
         private UInt32 order = 1;
         private String player1, player2;
         private UInt16 winner = 0;

@@ -59,15 +59,5 @@ namespace SkillKeeper.Properties {
                 resourceCulture = value;
             }
         }
-        
-        /// <summary>
-        ///   Looks up a localized resource of type System.Drawing.Bitmap.
-        /// </summary>
-        internal static System.Drawing.Bitmap _10441020_675436692528705_2717092519737109560_n {
-            get {
-                object obj = ResourceManager.GetObject("10441020_675436692528705_2717092519737109560_n", resourceCulture);
-                return ((System.Drawing.Bitmap)(obj));
-            }
-        }
     }
 }

@@ -9,12 +9,19 @@ namespace SkillKeeper
     public class Person
     {
         private String team = "", name = "", characters = "";
-        private UInt32 wins = 0, losses = 0, draws = 0;
+        private UInt32 wins = 0, losses = 0, draws = 0, decayDays = 0, decayMonths = 0;
         private Double mu, sigma;
         private List<String> alts = new List<String>();
         private DateTime lastMatch = DateTime.FromBinary(0);
         private Int32 multiplier = 200;
         private Boolean invisible = false;
+
+        public void decayScore(Double startSigma)
+        {
+            sigma *= 1.05;
+            if (sigma > startSigma)
+                sigma = startSigma;
+        }
 
         public String Name
         {
@@ -50,6 +57,18 @@ namespace SkillKeeper
         {
             get { return draws; }
             set { draws = value; }
+        }
+
+        public UInt32 DecayDays
+        {
+            get { return decayDays; }
+            set { decayDays = value; }
+        }
+
+        public UInt32 DecayMonths
+        {
+            get { return decayMonths; }
+            set { decayMonths = value; }
         }
 
         public Double Mu
@@ -107,7 +126,12 @@ namespace SkillKeeper
             {
                 List<String> result = value.Split(';').ToList();
 
-                alts = result;
+                alts.Clear();
+                foreach (String alt in result)
+                {
+                    if (alt.Length > 0)
+                        alts.Add(alt);
+                }
             }
         }
 

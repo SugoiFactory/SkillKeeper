@@ -36,5 +36,13 @@ namespace SkillKeeper
         {
             this.Close();
         }
+
+        private void apiKeyBox_TextChanged(object sender, EventArgs e)
+        {
+            if (apiKeyBox.Text.Length > 0)
+                authButton.Enabled = true;
+            else
+                authButton.Enabled = false;
+        }
     }
 }

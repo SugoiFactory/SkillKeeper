@@ -226,8 +226,10 @@ namespace SkillKeeper
             {
                 if (match.Element("Player1").Value == match.Element("Winner").Value)
                     m.Winner = 1;
-                else
+                else if (match.Element("Player2").Value == match.Element("Winner").Value)
                     m.Winner = 2;
+                else
+                    return;
 
                 m.ID = Guid.NewGuid().ToString("N");
 

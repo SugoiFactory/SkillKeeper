@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SKChallongeImporter));
             this.eventSelector = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.importPlayerList = new System.Windows.Forms.DataGridView();
@@ -151,6 +152,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.eventSelector);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SKChallongeImporter";
             this.Text = "SkillKeeper Challonge Importer";
             ((System.ComponentModel.ISupportInitialize)(this.importPlayerList)).EndInit();

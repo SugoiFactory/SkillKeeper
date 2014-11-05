@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SKChallongeLoader));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.subDomainBox = new System.Windows.Forms.TextBox();
@@ -67,10 +68,12 @@
             this.apiKeyBox.Name = "apiKeyBox";
             this.apiKeyBox.Size = new System.Drawing.Size(415, 20);
             this.apiKeyBox.TabIndex = 1;
+            this.apiKeyBox.TextChanged += new System.EventHandler(this.apiKeyBox_TextChanged);
             // 
             // authButton
             // 
             this.authButton.DialogResult = System.Windows.Forms.DialogResult.OK;
+            this.authButton.Enabled = false;
             this.authButton.Location = new System.Drawing.Point(410, 96);
             this.authButton.Name = "authButton";
             this.authButton.Size = new System.Drawing.Size(83, 23);
@@ -102,6 +105,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SKChallongeLoader";
             this.Text = "Import Challonge Event";
             this.ResumeLayout(false);

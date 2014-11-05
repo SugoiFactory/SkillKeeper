@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SkillKeeper));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.fileTab = new System.Windows.Forms.TabPage();
+            this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.fileImportGlickoButton = new System.Windows.Forms.Button();
             this.fileImportChallongeButton = new System.Windows.Forms.Button();
             this.fileImportTioButton = new System.Windows.Forms.Button();
@@ -103,6 +104,8 @@
             this.label13 = new System.Windows.Forms.Label();
             this.modifySelector = new System.Windows.Forms.ComboBox();
             this.historyTab = new System.Windows.Forms.TabPage();
+            this.historyDeleteTournamentButton = new System.Windows.Forms.Button();
+            this.historyDeleteMatchButton = new System.Windows.Forms.Button();
             this.historyMoveDatePicker = new System.Windows.Forms.DateTimePicker();
             this.historyMoveTourneyButton = new System.Windows.Forms.Button();
             this.historyApplyButton = new System.Windows.Forms.Button();
@@ -118,6 +121,8 @@
             this.orderDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.matchBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.leaderboardTab = new System.Windows.Forms.TabPage();
+            this.leaderboardDatePicker = new System.Windows.Forms.DateTimePicker();
+            this.label30 = new System.Windows.Forms.Label();
             this.exportButton = new System.Windows.Forms.Button();
             this.leaderBoardGrid = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn2 = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -141,14 +146,21 @@
             this.settingsMultiplierBox = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.aboutTab = new System.Windows.Forms.TabPage();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label34 = new System.Windows.Forms.Label();
+            this.label33 = new System.Windows.Forms.Label();
+            this.label32 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.label31 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
             this.openWorldDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveWorldDialog = new System.Windows.Forms.SaveFileDialog();
             this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.exportCSVDialog = new System.Windows.Forms.SaveFileDialog();
+            this.label36 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.fileTab.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.resultsTab.SuspendLayout();
             this.addTab.SuspendLayout();
             this.modifyTab.SuspendLayout();
@@ -183,8 +195,8 @@
             // fileTab
             // 
             this.fileTab.BackColor = System.Drawing.Color.Transparent;
-            this.fileTab.BackgroundImage = global::SkillKeeper.Properties.Resources._10441020_675436692528705_2717092519737109560_n;
             this.fileTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fileTab.Controls.Add(this.pictureBox2);
             this.fileTab.Controls.Add(this.fileImportGlickoButton);
             this.fileTab.Controls.Add(this.fileImportChallongeButton);
             this.fileTab.Controls.Add(this.fileImportTioButton);
@@ -197,6 +209,16 @@
             this.fileTab.Size = new System.Drawing.Size(916, 466);
             this.fileTab.TabIndex = 0;
             this.fileTab.Text = "File";
+            // 
+            // pictureBox2
+            // 
+            this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
+            this.pictureBox2.Location = new System.Drawing.Point(194, 66);
+            this.pictureBox2.Name = "pictureBox2";
+            this.pictureBox2.Size = new System.Drawing.Size(528, 63);
+            this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox2.TabIndex = 6;
+            this.pictureBox2.TabStop = false;
             // 
             // fileImportGlickoButton
             // 
@@ -260,6 +282,7 @@
             // 
             // resultsTab
             // 
+            this.resultsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.resultsTab.Controls.Add(this.label25);
             this.resultsTab.Controls.Add(this.matchQualBox);
             this.resultsTab.Controls.Add(this.manualDatePicker);
@@ -557,6 +580,7 @@
             // 
             // addTab
             // 
+            this.addTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.addTab.Controls.Add(this.label17);
             this.addTab.Controls.Add(this.addCharacterBox);
             this.addTab.Controls.Add(this.addPlayerButton);
@@ -633,6 +657,7 @@
             // 
             // modifyTab
             // 
+            this.modifyTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.modifyTab.Controls.Add(this.modifyHideCheck);
             this.modifyTab.Controls.Add(this.modifyCombineButton);
             this.modifyTab.Controls.Add(this.modifyCombineSelector);
@@ -738,7 +763,7 @@
             // label22
             // 
             this.label22.AutoSize = true;
-            this.label22.Location = new System.Drawing.Point(874, 23);
+            this.label22.Location = new System.Drawing.Point(874, 0);
             this.label22.Name = "label22";
             this.label22.Size = new System.Drawing.Size(39, 13);
             this.label22.TabIndex = 30;
@@ -746,12 +771,12 @@
             // 
             // modifyDetailBox
             // 
-            this.modifyDetailBox.Location = new System.Drawing.Point(392, 39);
+            this.modifyDetailBox.Location = new System.Drawing.Point(392, 16);
             this.modifyDetailBox.Multiline = true;
             this.modifyDetailBox.Name = "modifyDetailBox";
             this.modifyDetailBox.ReadOnly = true;
             this.modifyDetailBox.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.modifyDetailBox.Size = new System.Drawing.Size(521, 424);
+            this.modifyDetailBox.Size = new System.Drawing.Size(521, 447);
             this.modifyDetailBox.TabIndex = 29;
             this.modifyDetailBox.WordWrap = false;
             // 
@@ -893,6 +918,9 @@
             // 
             // historyTab
             // 
+            this.historyTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.historyTab.Controls.Add(this.historyDeleteTournamentButton);
+            this.historyTab.Controls.Add(this.historyDeleteMatchButton);
             this.historyTab.Controls.Add(this.historyMoveDatePicker);
             this.historyTab.Controls.Add(this.historyMoveTourneyButton);
             this.historyTab.Controls.Add(this.historyApplyButton);
@@ -908,12 +936,34 @@
             this.historyTab.UseVisualStyleBackColor = true;
             this.historyTab.Click += new System.EventHandler(this.historyTab_Click);
             // 
+            // historyDeleteTournamentButton
+            // 
+            this.historyDeleteTournamentButton.Enabled = false;
+            this.historyDeleteTournamentButton.Location = new System.Drawing.Point(178, 440);
+            this.historyDeleteTournamentButton.Name = "historyDeleteTournamentButton";
+            this.historyDeleteTournamentButton.Size = new System.Drawing.Size(115, 23);
+            this.historyDeleteTournamentButton.TabIndex = 8;
+            this.historyDeleteTournamentButton.Text = "Delete Tournament";
+            this.historyDeleteTournamentButton.UseVisualStyleBackColor = true;
+            this.historyDeleteTournamentButton.Click += new System.EventHandler(this.historyDeleteTournamentButton_Click);
+            // 
+            // historyDeleteMatchButton
+            // 
+            this.historyDeleteMatchButton.Enabled = false;
+            this.historyDeleteMatchButton.Location = new System.Drawing.Point(75, 440);
+            this.historyDeleteMatchButton.Name = "historyDeleteMatchButton";
+            this.historyDeleteMatchButton.Size = new System.Drawing.Size(97, 23);
+            this.historyDeleteMatchButton.TabIndex = 7;
+            this.historyDeleteMatchButton.Text = "Delete Match";
+            this.historyDeleteMatchButton.UseVisualStyleBackColor = true;
+            this.historyDeleteMatchButton.Click += new System.EventHandler(this.historyDeleteMatchButton_Click);
+            // 
             // historyMoveDatePicker
             // 
             this.historyMoveDatePicker.Location = new System.Drawing.Point(713, 443);
             this.historyMoveDatePicker.Name = "historyMoveDatePicker";
             this.historyMoveDatePicker.Size = new System.Drawing.Size(200, 20);
-            this.historyMoveDatePicker.TabIndex = 6;
+            this.historyMoveDatePicker.TabIndex = 5;
             this.historyMoveDatePicker.ValueChanged += new System.EventHandler(this.historyMoveDatePicker_ValueChanged);
             // 
             // historyMoveTourneyButton
@@ -922,7 +972,7 @@
             this.historyMoveTourneyButton.Location = new System.Drawing.Point(569, 440);
             this.historyMoveTourneyButton.Name = "historyMoveTourneyButton";
             this.historyMoveTourneyButton.Size = new System.Drawing.Size(138, 23);
-            this.historyMoveTourneyButton.TabIndex = 5;
+            this.historyMoveTourneyButton.TabIndex = 6;
             this.historyMoveTourneyButton.Text = "Move tournament date";
             this.historyMoveTourneyButton.UseVisualStyleBackColor = true;
             this.historyMoveTourneyButton.Click += new System.EventHandler(this.historyMoveTourneyButton_Click);
@@ -1046,6 +1096,9 @@
             // 
             // leaderboardTab
             // 
+            this.leaderboardTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.leaderboardTab.Controls.Add(this.leaderboardDatePicker);
+            this.leaderboardTab.Controls.Add(this.label30);
             this.leaderboardTab.Controls.Add(this.exportButton);
             this.leaderboardTab.Controls.Add(this.leaderBoardGrid);
             this.leaderboardTab.Location = new System.Drawing.Point(4, 22);
@@ -1054,6 +1107,23 @@
             this.leaderboardTab.TabIndex = 4;
             this.leaderboardTab.Text = "Leaderboard";
             this.leaderboardTab.UseVisualStyleBackColor = true;
+            // 
+            // leaderboardDatePicker
+            // 
+            this.leaderboardDatePicker.Location = new System.Drawing.Point(80, 4);
+            this.leaderboardDatePicker.Name = "leaderboardDatePicker";
+            this.leaderboardDatePicker.Size = new System.Drawing.Size(200, 20);
+            this.leaderboardDatePicker.TabIndex = 3;
+            this.leaderboardDatePicker.ValueChanged += new System.EventHandler(this.leaderboardDatePicker_ValueChanged);
+            // 
+            // label30
+            // 
+            this.label30.AutoSize = true;
+            this.label30.Location = new System.Drawing.Point(3, 10);
+            this.label30.Name = "label30";
+            this.label30.Size = new System.Drawing.Size(71, 13);
+            this.label30.TabIndex = 2;
+            this.label30.Text = "View at Date:";
             // 
             // exportButton
             // 
@@ -1084,11 +1154,11 @@
             this.LastMatch});
             this.leaderBoardGrid.DataSource = this.personBindingSource;
             this.leaderBoardGrid.EditMode = System.Windows.Forms.DataGridViewEditMode.EditProgrammatically;
-            this.leaderBoardGrid.Location = new System.Drawing.Point(3, 3);
+            this.leaderBoardGrid.Location = new System.Drawing.Point(3, 30);
             this.leaderBoardGrid.Name = "leaderBoardGrid";
             this.leaderBoardGrid.ReadOnly = true;
             this.leaderBoardGrid.ShowEditingIcon = false;
-            this.leaderBoardGrid.Size = new System.Drawing.Size(910, 431);
+            this.leaderBoardGrid.Size = new System.Drawing.Size(910, 404);
             this.leaderBoardGrid.TabIndex = 0;
             // 
             // dataGridViewTextBoxColumn2
@@ -1187,6 +1257,7 @@
             // 
             // settingsTab
             // 
+            this.settingsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.settingsTab.Controls.Add(this.settingsDecayNever);
             this.settingsTab.Controls.Add(this.settingsDecayYearly);
             this.settingsTab.Controls.Add(this.settingsDecayMonthly);
@@ -1205,7 +1276,7 @@
             // settingsDecayNever
             // 
             this.settingsDecayNever.AutoSize = true;
-            this.settingsDecayNever.Enabled = false;
+            this.settingsDecayNever.Checked = true;
             this.settingsDecayNever.Location = new System.Drawing.Point(510, 179);
             this.settingsDecayNever.Name = "settingsDecayNever";
             this.settingsDecayNever.Size = new System.Drawing.Size(53, 17);
@@ -1213,54 +1284,51 @@
             this.settingsDecayNever.TabStop = true;
             this.settingsDecayNever.Text = "Never";
             this.settingsDecayNever.UseVisualStyleBackColor = true;
+            this.settingsDecayNever.CheckedChanged += new System.EventHandler(this.settingsDecayNever_CheckedChanged);
             // 
             // settingsDecayYearly
             // 
             this.settingsDecayYearly.AutoSize = true;
-            this.settingsDecayYearly.Enabled = false;
             this.settingsDecayYearly.Location = new System.Drawing.Point(451, 179);
             this.settingsDecayYearly.Name = "settingsDecayYearly";
             this.settingsDecayYearly.Size = new System.Drawing.Size(53, 17);
             this.settingsDecayYearly.TabIndex = 6;
-            this.settingsDecayYearly.TabStop = true;
             this.settingsDecayYearly.Text = "Yearly";
             this.settingsDecayYearly.UseVisualStyleBackColor = true;
+            this.settingsDecayYearly.CheckedChanged += new System.EventHandler(this.settingsDecayYearly_CheckedChanged);
             // 
             // settingsDecayMonthly
             // 
             this.settingsDecayMonthly.AutoSize = true;
-            this.settingsDecayMonthly.Enabled = false;
             this.settingsDecayMonthly.Location = new System.Drawing.Point(384, 179);
             this.settingsDecayMonthly.Name = "settingsDecayMonthly";
             this.settingsDecayMonthly.Size = new System.Drawing.Size(61, 17);
             this.settingsDecayMonthly.TabIndex = 5;
-            this.settingsDecayMonthly.TabStop = true;
             this.settingsDecayMonthly.Text = "Monthly";
             this.settingsDecayMonthly.UseVisualStyleBackColor = true;
+            this.settingsDecayMonthly.CheckedChanged += new System.EventHandler(this.settingsDecayMonthly_CheckedChanged);
             // 
             // settingsDecayWeekly
             // 
             this.settingsDecayWeekly.AutoSize = true;
-            this.settingsDecayWeekly.Enabled = false;
             this.settingsDecayWeekly.Location = new System.Drawing.Point(318, 179);
             this.settingsDecayWeekly.Name = "settingsDecayWeekly";
             this.settingsDecayWeekly.Size = new System.Drawing.Size(60, 17);
             this.settingsDecayWeekly.TabIndex = 4;
-            this.settingsDecayWeekly.TabStop = true;
             this.settingsDecayWeekly.Text = "Weekly";
             this.settingsDecayWeekly.UseVisualStyleBackColor = true;
+            this.settingsDecayWeekly.CheckedChanged += new System.EventHandler(this.settingsDecayWeekly_CheckedChanged);
             // 
             // settingsDecayDaily
             // 
             this.settingsDecayDaily.AutoSize = true;
-            this.settingsDecayDaily.Enabled = false;
             this.settingsDecayDaily.Location = new System.Drawing.Point(265, 179);
             this.settingsDecayDaily.Name = "settingsDecayDaily";
             this.settingsDecayDaily.Size = new System.Drawing.Size(47, 17);
             this.settingsDecayDaily.TabIndex = 3;
-            this.settingsDecayDaily.TabStop = true;
             this.settingsDecayDaily.Text = "Daily";
             this.settingsDecayDaily.UseVisualStyleBackColor = true;
+            this.settingsDecayDaily.CheckedChanged += new System.EventHandler(this.settingsDecayDaily_CheckedChanged);
             // 
             // label29
             // 
@@ -1291,8 +1359,15 @@
             // 
             // aboutTab
             // 
-            this.aboutTab.Controls.Add(this.textBox1);
+            this.aboutTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.aboutTab.Controls.Add(this.label36);
+            this.aboutTab.Controls.Add(this.label35);
+            this.aboutTab.Controls.Add(this.label34);
+            this.aboutTab.Controls.Add(this.label33);
+            this.aboutTab.Controls.Add(this.label32);
             this.aboutTab.Controls.Add(this.pictureBox1);
+            this.aboutTab.Controls.Add(this.label31);
+            this.aboutTab.Controls.Add(this.textBox1);
             this.aboutTab.Location = new System.Drawing.Point(4, 22);
             this.aboutTab.Name = "aboutTab";
             this.aboutTab.Size = new System.Drawing.Size(916, 466);
@@ -1300,27 +1375,82 @@
             this.aboutTab.Text = "About";
             this.aboutTab.UseVisualStyleBackColor = true;
             // 
-            // textBox1
+            // label35
             // 
-            this.textBox1.Location = new System.Drawing.Point(371, 3);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.ReadOnly = true;
-            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
-            this.textBox1.Size = new System.Drawing.Size(542, 460);
-            this.textBox1.TabIndex = 1;
-            this.textBox1.Text = resources.GetString("textBox1.Text");
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(4, 72);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(251, 13);
+            this.label35.TabIndex = 7;
+            this.label35.Text = "Challonge C#  API Wrapper by Jas \"Fizzi\" Laferriere";
+            // 
+            // label34
+            // 
+            this.label34.AutoSize = true;
+            this.label34.Location = new System.Drawing.Point(4, 59);
+            this.label34.Name = "label34";
+            this.label34.Size = new System.Drawing.Size(269, 13);
+            this.label34.TabIndex = 6;
+            this.label34.Text = "TrueSkill C# implementation by Jeff \"Moserware\" Moser";
+            // 
+            // label33
+            // 
+            this.label33.AutoSize = true;
+            this.label33.Location = new System.Drawing.Point(4, 33);
+            this.label33.Name = "label33";
+            this.label33.Size = new System.Drawing.Size(190, 13);
+            this.label33.TabIndex = 5;
+            this.label33.Text = "Developed by Tony \"Zankoku\" Cheng";
+            // 
+            // label32
+            // 
+            this.label32.AutoSize = true;
+            this.label32.Location = new System.Drawing.Point(4, 20);
+            this.label32.Name = "label32";
+            this.label32.Size = new System.Drawing.Size(122, 13);
+            this.label32.TabIndex = 4;
+            this.label32.Text = "v1.0.0 RC1 (11/5/2014)";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
             this.pictureBox1.InitialImage = ((System.Drawing.Image)(resources.GetObject("pictureBox1.InitialImage")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
+            this.pictureBox1.Location = new System.Drawing.Point(736, 3);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(362, 460);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
+            this.pictureBox1.Size = new System.Drawing.Size(177, 188);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.AutoSize;
+            this.pictureBox1.TabIndex = 3;
             this.pictureBox1.TabStop = false;
+            // 
+            // label31
+            // 
+            this.label31.AutoSize = true;
+            this.label31.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label31.Location = new System.Drawing.Point(3, 0);
+            this.label31.Name = "label31";
+            this.label31.Size = new System.Drawing.Size(376, 20);
+            this.label31.TabIndex = 2;
+            this.label31.Text = "SkillKeeper - TrueSkill™ Rankings Bookkeeper";
+            // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(3, 197);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.ReadOnly = true;
+            this.textBox1.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
+            this.textBox1.Size = new System.Drawing.Size(910, 266);
+            this.textBox1.TabIndex = 1;
+            this.textBox1.Text = resources.GetString("textBox1.Text");
+            // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(4, 46);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(360, 13);
+            this.label36.TabIndex = 8;
+            this.label36.Text = "TrueSkill™ Ranking System originally designed and developed by Microsoft";
             // 
             // SkillKeeper
             // 
@@ -1329,12 +1459,15 @@
             this.ClientSize = new System.Drawing.Size(948, 516);
             this.Controls.Add(this.tabControl1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SkillKeeper";
-            this.Text = "SkillKeeper92 v0.0.3";
+            this.Text = "SkillKeeper v1.0.0";
             this.tabControl1.ResumeLayout(false);
             this.fileTab.ResumeLayout(false);
+            this.fileTab.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.resultsTab.ResumeLayout(false);
             this.resultsTab.PerformLayout();
             this.addTab.ResumeLayout(false);
@@ -1346,6 +1479,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.historyGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.matchBindingSource)).EndInit();
             this.leaderboardTab.ResumeLayout(false);
+            this.leaderboardTab.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leaderBoardGrid)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             this.settingsTab.ResumeLayout(false);
@@ -1438,7 +1572,6 @@
         private System.Windows.Forms.Button fileNewButton;
         private System.Windows.Forms.OpenFileDialog openWorldDialog;
         private System.Windows.Forms.SaveFileDialog saveWorldDialog;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.TabPage historyTab;
         private System.Windows.Forms.Label label27;
         private System.Windows.Forms.DateTimePicker historyDatePicker;
@@ -1483,6 +1616,18 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn LastMatch;
         private System.Windows.Forms.Button fileImportGlickoButton;
         private System.Windows.Forms.CheckBox modifyHideCheck;
+        private System.Windows.Forms.Button historyDeleteTournamentButton;
+        private System.Windows.Forms.Button historyDeleteMatchButton;
+        private System.Windows.Forms.DateTimePicker leaderboardDatePicker;
+        private System.Windows.Forms.Label label30;
+        private System.Windows.Forms.Label label34;
+        private System.Windows.Forms.Label label33;
+        private System.Windows.Forms.Label label32;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.Label label31;
+        private System.Windows.Forms.Label label35;
+        private System.Windows.Forms.PictureBox pictureBox2;
+        private System.Windows.Forms.Label label36;
     }
 }
 

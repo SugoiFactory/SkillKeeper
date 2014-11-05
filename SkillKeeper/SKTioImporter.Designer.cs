@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SKTioImporter));
             this.eventSelector = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.importPlayerList = new System.Windows.Forms.DataGridView();
@@ -96,7 +97,7 @@
             this.sKLinkDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
             this.sKLinkDataGridViewTextBoxColumn.Width = 94;
             // 
-            // importPPlayerBindingSource
+            // importPlayerBindingSource
             // 
             this.importPlayerBindingSource.DataSource = typeof(ImportPlayer);
             // 
@@ -151,6 +152,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.eventSelector);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SKTioImporter";
             this.Text = "SkillKeeper TIO Importer";
             ((System.ComponentModel.ISupportInitialize)(this.importPlayerList)).EndInit();
