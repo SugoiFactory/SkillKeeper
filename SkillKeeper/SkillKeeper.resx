@@ -121,7 +121,7 @@
   <data name="pictureBox2.Image" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         iVBORw0KGgoAAAANSUhEUgAAAhAAAAA/CAYAAACxZfFDAAAABGdBTUEAALGPC/xhBQAAAAlwSFlzAAAL
-        DgAACw4BQL7hQQAAAAZiS0dEAP8A/wD/oL2nkwAAAAd0SU1FB94LBREgBCvjPyAAAGtPSURBVHhe7Z0H
+        DAAACwwBP0AiyAAAAAZiS0dEAP8A/wD/oL2nkwAAAAd0SU1FB94LBREgBCvjPyAAAGtPSURBVHhe7Z0H
         uB1Vuf7/iuK9oiKIKAhSQgmd1NNLchIICb0HhJAACekJAURFERsWFFRs93pFVEINvTelCkoRpUjvvYau
         YOb//dbMO/vbK2ufkpyToszzvM/ee2aVd33ra2vN7L3/Xx8e71tCeO9473jv+Pc/UrbfF+jtI9VHX6C3
         j1QffYHePlJ99AX64kj105tYbo4U+b7Ee0fPj/fk997RG8eS0CPfx5JAbx2ptvsSvXWk2u5L9NaRarsv
@@ -2150,7 +2150,13 @@
 </value>
   </data>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>v1.0.0 RC1 (11/5/2014)
+    <value>v1.0.0.1 (11/10/2014)
+- Player dropdown list for import dialogs is now sorted alphabetically.
+- Added progress bar for loading world files.
+- Made optimizations to load function.
+- Prevented crashing on TIO file import if the event date is an invalid value.
+
+v1.0.0 RC1 (11/5/2014)
 - First general public release!
 - Added leaderboard time setting.
 - Fixed issue where importing matches from a GLK file without a description would make it impossible to save.

@@ -51,6 +51,7 @@ namespace SkillKeeper
                 currentPlayers.Add(p);
                 playerNames.Add(p.Name);
             }
+            playerNames.Sort();
 
             updatePlayerList();
         }

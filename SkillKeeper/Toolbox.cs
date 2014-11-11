@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Moserware.Skills;
 using Moserware.Skills.TrueSkill;
+using System.Windows.Forms;
 
 namespace SkillKeeper
 {
@@ -26,12 +27,30 @@ namespace SkillKeeper
 
         public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Int32 multiplier, UInt16 decay)
         {
-            recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, DateTime.Today);
+            recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, DateTime.Today, null);
+        }
+
+        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Int32 multiplier, UInt16 decay, ProgressBar progress)
+        {
+            recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, DateTime.Today, progress);
         }
 
         public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Int32 multiplier, UInt16 decay, DateTime lastDate)
         {
+            recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, lastDate, null);
+        }
+
+        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Int32 multiplier, UInt16 decay, DateTime lastDate, ProgressBar progress)
+        {
+            Dictionary<String, Person> playerMap = new Dictionary<string, Person>();
             DateTime latestMatch = DateTime.MinValue;
+            int matchTotal = matchList.Count;
+            int counted = 0;
+            if (progress != null)
+            {
+                progress.Value = 0;
+                progress.Refresh();
+            }
 
             foreach (Person person in playerList)
             {
@@ -43,52 +62,56 @@ namespace SkillKeeper
                 person.Multiplier = multiplier;
                 person.DecayDays = 0;
                 person.DecayMonths = 0;
+
+                playerMap.Add(person.Name, person);
             }
 
             foreach (Match match in matchList)
             {
+                if (progress != null)
+                {
+                    counted++;
+                    progress.Value = (counted * 100) / matchTotal;
+                    progress.PerformStep();
+                }
+
                 if (match.Timestamp <= lastDate)
                 {
-                    Person p1 = new Person();
-                    Person p2 = new Person();
-                    foreach (Person person in playerList)
-                    {
-                        if (person.Name == match.Player1)
-                        {
-                            p1 = person;
-                        }
-                        if (person.Name == match.Player2)
-                        {
-                            p2 = person;
-                        }
-                    }
+                    Person p1 = playerMap[match.Player1];
+                    Person p2 = playerMap[match.Player2];
 
                     if (decay > 0)
                     {
                         uint i = 0;
-                        while (p1.LastMatch.AddDays(i).CompareTo(match.Timestamp) < 0)
+                        if (decay < 3)
                         {
-                            i++;
+                            while (p1.LastMatch.AddDays(i).CompareTo(match.Timestamp) < 0)
+                            {
+                                i++;
+                            }
+                            p1.DecayDays += i;
+                            i = 0;
+                            while (p2.LastMatch.AddDays(i).CompareTo(match.Timestamp) < 0)
+                            {
+                                i++;
+                            }
+                            p2.DecayDays += i;
                         }
-                        p1.DecayDays += i;
-                        i = 0;
-                        while (p1.LastMatch.AddMonths((int)i).CompareTo(match.Timestamp) < 0)
+                        else
                         {
-                            i++;
+                            i = 0;
+                            while (p1.LastMatch.AddMonths((int)i).CompareTo(match.Timestamp) < 0)
+                            {
+                                i++;
+                            }
+                            p1.DecayMonths += i;
+                            i = 0;
+                            while (p2.LastMatch.AddMonths((int)i).CompareTo(match.Timestamp) < 0)
+                            {
+                                i++;
+                            }
+                            p2.DecayMonths += i;
                         }
-                        p1.DecayMonths += i;
-                        i = 0;
-                        while (p2.LastMatch.AddDays(i).CompareTo(match.Timestamp) < 0)
-                        {
-                            i++;
-                        }
-                        p2.DecayDays += i;
-                        i = 0;
-                        while (p2.LastMatch.AddMonths((int)i).CompareTo(match.Timestamp) < 0)
-                        {
-                            i++;
-                        }
-                        p2.DecayMonths += i;
 
                         switch (decay)
                         {
@@ -175,30 +198,20 @@ namespace SkillKeeper
                     if (latestMatch < match.Timestamp)
                         latestMatch = match.Timestamp;
 
-                    foreach (Person person in playerList)
+                    if (match.Winner == 0)
                     {
-                        if (person.Name == match.Player1)
-                        {
-                            person.Mu = p1.Mu;
-                            person.Sigma = p1.Sigma;
-                            if (match.Winner == 0)
-                                person.Draws++;
-                            else if (match.Winner == 1)
-                                person.Wins++;
-                            else if (match.Winner == 2)
-                                person.Losses++;
-                        }
-                        if (person.Name == match.Player2)
-                        {
-                            person.Mu = p2.Mu;
-                            person.Sigma = p2.Sigma;
-                            if (match.Winner == 0)
-                                person.Draws++;
-                            else if (match.Winner == 1)
-                                person.Losses++;
-                            else if (match.Winner == 2)
-                                person.Wins++;
-                        }
+                        p1.Draws++;
+                        p2.Draws++;
+                    }
+                    else if (match.Winner == 1)
+                    {
+                        p1.Wins++;
+                        p2.Losses++;
+                    }
+                    else if (match.Winner == 2)
+                    {
+                        p1.Losses++;
+                        p2.Wins++;
                     }
                 }
                 else break;

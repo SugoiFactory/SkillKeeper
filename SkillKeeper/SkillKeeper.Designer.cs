@@ -32,6 +32,8 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SkillKeeper));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.fileTab = new System.Windows.Forms.TabPage();
+            this.progressLabel = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.fileImportGlickoButton = new System.Windows.Forms.Button();
             this.fileImportChallongeButton = new System.Windows.Forms.Button();
@@ -146,6 +148,7 @@
             this.settingsMultiplierBox = new System.Windows.Forms.TextBox();
             this.label28 = new System.Windows.Forms.Label();
             this.aboutTab = new System.Windows.Forms.TabPage();
+            this.label36 = new System.Windows.Forms.Label();
             this.label35 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
@@ -157,7 +160,6 @@
             this.saveWorldDialog = new System.Windows.Forms.SaveFileDialog();
             this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.exportCSVDialog = new System.Windows.Forms.SaveFileDialog();
-            this.label36 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.fileTab.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
@@ -196,6 +198,8 @@
             // 
             this.fileTab.BackColor = System.Drawing.Color.Transparent;
             this.fileTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fileTab.Controls.Add(this.progressLabel);
+            this.fileTab.Controls.Add(this.progressBar1);
             this.fileTab.Controls.Add(this.pictureBox2);
             this.fileTab.Controls.Add(this.fileImportGlickoButton);
             this.fileTab.Controls.Add(this.fileImportChallongeButton);
@@ -209,6 +213,25 @@
             this.fileTab.Size = new System.Drawing.Size(916, 466);
             this.fileTab.TabIndex = 0;
             this.fileTab.Text = "File";
+            // 
+            // progressLabel
+            // 
+            this.progressLabel.AutoSize = true;
+            this.progressLabel.Location = new System.Drawing.Point(7, 418);
+            this.progressLabel.Name = "progressLabel";
+            this.progressLabel.Size = new System.Drawing.Size(48, 13);
+            this.progressLabel.TabIndex = 8;
+            this.progressLabel.Text = "Progress";
+            this.progressLabel.Visible = false;
+            // 
+            // progressBar1
+            // 
+            this.progressBar1.Location = new System.Drawing.Point(6, 437);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(904, 23);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar1.TabIndex = 7;
+            this.progressBar1.Visible = false;
             // 
             // pictureBox2
             // 
@@ -1375,6 +1398,15 @@
             this.aboutTab.Text = "About";
             this.aboutTab.UseVisualStyleBackColor = true;
             // 
+            // label36
+            // 
+            this.label36.AutoSize = true;
+            this.label36.Location = new System.Drawing.Point(4, 46);
+            this.label36.Name = "label36";
+            this.label36.Size = new System.Drawing.Size(360, 13);
+            this.label36.TabIndex = 8;
+            this.label36.Text = "TrueSkill™ Ranking System originally designed and developed by Microsoft";
+            // 
             // label35
             // 
             this.label35.AutoSize = true;
@@ -1407,9 +1439,9 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(4, 20);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(122, 13);
+            this.label32.Size = new System.Drawing.Size(113, 13);
             this.label32.TabIndex = 4;
-            this.label32.Text = "v1.0.0 RC1 (11/5/2014)";
+            this.label32.Text = "v1.0.0.1 (11/10/2014)";
             // 
             // pictureBox1
             // 
@@ -1442,15 +1474,6 @@
             this.textBox1.Size = new System.Drawing.Size(910, 266);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = resources.GetString("textBox1.Text");
-            // 
-            // label36
-            // 
-            this.label36.AutoSize = true;
-            this.label36.Location = new System.Drawing.Point(4, 46);
-            this.label36.Name = "label36";
-            this.label36.Size = new System.Drawing.Size(360, 13);
-            this.label36.TabIndex = 8;
-            this.label36.Text = "TrueSkill™ Ranking System originally designed and developed by Microsoft";
             // 
             // SkillKeeper
             // 
@@ -1628,6 +1651,8 @@
         private System.Windows.Forms.Label label35;
         private System.Windows.Forms.PictureBox pictureBox2;
         private System.Windows.Forms.Label label36;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.Label progressLabel;
     }
 }
 

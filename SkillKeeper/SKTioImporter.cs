@@ -32,6 +32,7 @@ namespace SkillKeeper
         public SKTioImporter()
         {
             InitializeComponent();
+            eventDatePicker.Value = DateTime.Today;
             sKLinkDataGridViewTextBoxColumn.DataSource = playerNames;
             playerNames.Add("<< Create New Player >>");
         }
@@ -41,7 +42,15 @@ namespace SkillKeeper
         {
             xEle = XElement.Load(fileName);
 
-            eventDatePicker.Value = DateTime.Parse(xEle.Element("EventList").Element("Event").Element("StartDate").Value);
+            try
+            {
+                eventDatePicker.Value = DateTime.Parse(xEle.Element("EventList").Element("Event").Element("StartDate").Value);
+            }
+            catch (System.FormatException e)
+            {
+                Console.WriteLine("Invalid date, skipping.");
+                Console.WriteLine(e.StackTrace);
+            }
 
             tournamentName = xEle.Element("EventList").Element("Event").Element("Name").Value;
             foreach (XElement tioEvent in xEle.Element("EventList").Element("Event").Element("Games").Elements("Game"))
@@ -56,6 +65,7 @@ namespace SkillKeeper
                 currentPlayers.Add(p);
                 playerNames.Add(p.Name);
             }
+            playerNames.Sort();
 
             updatePlayerList();
         }

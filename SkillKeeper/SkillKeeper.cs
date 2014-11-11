@@ -288,8 +288,13 @@ namespace SkillKeeper
             if (openWorldDialog.ShowDialog() == DialogResult.OK)
             {
                 openedWorld = openWorldDialog.FileName;
+                progressBar1.Visible = true;
+                progressBar1.Value = 0;
+                progressLabel.Visible = true;
 
                 var xEle = XElement.Load(openWorldDialog.FileName);
+                Int32 totalItems = xEle.Element("Players").Elements("Player").Count() + xEle.Element("Matches").Elements("Match").Count();
+                Int32 progress = 0;
 
                 if (xEle.Element("Settings") != null)
                 {
@@ -298,6 +303,8 @@ namespace SkillKeeper
                     settingsMultiplierBox.Text = multiplier.ToString();
                 }
 
+                progressLabel.Text = "Loading players...";
+                progressLabel.Refresh();
                 foreach (XElement player in xEle.Element("Players").Elements("Player"))
                 {
                     Person person = new Person();
@@ -308,8 +315,15 @@ namespace SkillKeeper
                     person.AltsString = player.Attribute("Alts").Value;
 
                     playerList.Add(person);
+
+                    progress++;
+                    progressBar1.Value = (progress * 100) / totalItems;
+                    progressBar1.PerformStep();
+                    progressBar1.Refresh();
                 }
 
+                progressLabel.Text = "Loading matches...";
+                progressLabel.Refresh();
                 foreach (XElement m in xEle.Element("Matches").Elements("Match"))
                 {
                     Match match = new Match();
@@ -326,6 +340,10 @@ namespace SkillKeeper
                     match.Winner = UInt16.Parse(m.Attribute("Winner").Value);
 
                     matchList.Add(match);
+
+                    progress++;
+                    progressBar1.Value = (progress * 100) / totalItems;
+                    progressBar1.PerformStep();
                 }
             }
 
@@ -348,9 +366,21 @@ namespace SkillKeeper
                     break;
             }
 
+            progressLabel.Text = "Processing players...";
+            progressLabel.Refresh();
             rebuildPlayerSelection();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
+
+            progressLabel.Text = "Calculating scores...";
+            progressLabel.Refresh();
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, progressBar1);
+
+            progressLabel.Text = "Verifying match history...";
+            progressLabel.Refresh();
+            progressBar1.Refresh();
             buildHistory();
+
+            progressBar1.Visible = false;
+            progressLabel.Visible = false;
         }
 
         private void fileSaveButton_Click(object sender, EventArgs e)
