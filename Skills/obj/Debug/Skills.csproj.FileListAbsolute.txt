@@ -3,3 +3,7 @@ C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\Skills\bin\Deb
 C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\Skills\obj\Debug\Skills.csprojResolveAssemblyReference.cache
 C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\Skills\obj\Debug\Moserware.Skills.dll
 C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\Skills\obj\Debug\Moserware.Skills.pdb
+C:\Users\Jas\Documents\GitHub\SkillKeeper\Skills\bin\Debug\Moserware.Skills.dll
+C:\Users\Jas\Documents\GitHub\SkillKeeper\Skills\bin\Debug\Moserware.Skills.pdb
+C:\Users\Jas\Documents\GitHub\SkillKeeper\Skills\obj\Debug\Moserware.Skills.dll
+C:\Users\Jas\Documents\GitHub\SkillKeeper\Skills\obj\Debug\Moserware.Skills.pdb

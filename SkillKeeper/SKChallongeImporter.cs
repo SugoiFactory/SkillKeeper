@@ -16,6 +16,7 @@ namespace SkillKeeper
     {
         private ChallongePortal portal;
 
+        private List<Tournament> completedTournaments = new List<Tournament>();
         private List<Match> importMatches = new List<Match>();
         private List<Person> importPlayers = new List<Person>();
         private List<Person> currentPlayers = new List<Person>();
@@ -25,6 +26,8 @@ namespace SkillKeeper
         private String tournamentName = "";
 
         private List<String> addAlts = new List<String>();
+
+        private Tournament curTourney = new Tournament();
 
         public SKChallongeImporter()
         {
@@ -40,12 +43,13 @@ namespace SkillKeeper
             else
                 portal = new ChallongePortal(apiKey);
 
-            tournamentName = portal.GetTournaments().ElementAt(0).Name;
-            foreach(Tournament t in portal.GetTournaments()) {
-                eventList.Add(t.Name);
-            }
-            eventSelector.DataSource = eventList;
+            //Fetch all tournaments that have been completed ahead of time and save into local variable
+            completedTournaments = portal.GetTournaments().Where(t => t.CompletedAt.HasValue).ToList();
 
+            //Fetch name of first tournament in list or leave blank if no tournaments
+            tournamentName = completedTournaments.Select(t => t.Name).FirstOrDefault();
+
+            //Load current players in leaderboard
             foreach (Person p in playerList)
             {
                 currentPlayers.Add(p);
@@ -53,22 +57,17 @@ namespace SkillKeeper
             }
             playerNames.Sort();
 
-            updatePlayerList();
+            //Display all available tournaments
+            foreach (Tournament t in completedTournaments)
+            {
+                eventList.Add(t.Name);
+            }
+            eventSelector.DataSource = eventList;
         }
 
         // Update the list of players found in the selected event.
         private void updatePlayerList()
         {
-            Tournament curTourney = new Tournament();
-            foreach (Tournament t in portal.GetTournaments())
-            {
-                if (t.Name == eventSelector.Text)
-                {
-                    curTourney = t;
-                    break;
-                }
-            }
-
             eventDatePicker.Value = curTourney.CompletedAt.Value;
 
             challongePlayerList.Clear();
@@ -132,6 +131,9 @@ namespace SkillKeeper
         // Rebuild the list of players in the event whenever the event selector is used.
         private void eventSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Fetch selected tourney
+            curTourney = completedTournaments.FirstOrDefault(t => t.Name == eventSelector.Text);
+
             updatePlayerList();
         }
 
@@ -160,16 +162,7 @@ namespace SkillKeeper
                     addAlts.Add(p.SKLink + "\t" + p.Name);
                 }
             }
-
-            Tournament curTourney = new Tournament();
-            foreach (Tournament t in portal.GetTournaments())
-            {
-                if (t.Name == eventSelector.Text)
-                {
-                    curTourney = t;
-                    break;
-                }
-            }
+            
             foreach (Fizzi.Libraries.ChallongeApiWrapper.Match m in portal.GetMatches(curTourney.Id))
             {
                 if (m.State == "complete")
