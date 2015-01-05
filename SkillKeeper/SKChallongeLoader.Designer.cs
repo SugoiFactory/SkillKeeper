@@ -108,6 +108,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SKChallongeLoader";
             this.Text = "Import Challonge Event";
+            this.Load += new System.EventHandler(this.SKChallongeLoader_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 

@@ -12,9 +12,19 @@ namespace SkillKeeper
 {
     public partial class SKChallongeLoader : Form
     {
+        private static string apiKey = string.Empty;
+        private static string subdomain = string.Empty;
+
         public SKChallongeLoader()
         {
             InitializeComponent();
+        }
+
+        private void SKChallongeLoader_Load(object sender, EventArgs e)
+        {
+            //Load apikey and subdomain on load. These will be populated if they were previously set
+            apiKeyBox.Text = apiKey;
+            subDomainBox.Text = subdomain;
         }
 
         public String getAPIKey()
@@ -29,6 +39,10 @@ namespace SkillKeeper
 
         private void authButton_Click(object sender, EventArgs e)
         {
+            //Store api key and subdomain inputs for use if import form is closed and re-opened
+            apiKey = apiKeyBox.Text;
+            subdomain = subDomainBox.Text;
+
             this.Close();
         }
 

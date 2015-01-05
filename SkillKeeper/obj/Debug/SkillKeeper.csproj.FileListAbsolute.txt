@@ -20,3 +20,23 @@ C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\bi
 C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\bin\Debug\RestSharp.dll
 C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\bin\Debug\ChallongeApiWrapper.pdb
 C:\Users\tcheng\documents\visual studio 2012\Projects\SkillKeeper\SkillKeeper\bin\Debug\RestSharp.xml
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\bin\Debug\SkillKeeper.exe.config
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.exe
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.pdb
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\bin\Debug\SkillKeeper.exe.manifest
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\bin\Debug\SkillKeeper.application
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\bin\Debug\SkillKeeper.exe
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\bin\Debug\SkillKeeper.pdb
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\bin\Debug\ChallongeApiWrapper.dll
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\bin\Debug\Moserware.Skills.dll
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\bin\Debug\ChallongeApiWrapper.pdb
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\bin\Debug\Moserware.Skills.pdb
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.csprojResolveAssemblyReference.cache
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.SKChallongeImporter.resources
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.SKChallongeLoader.resources
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.SkillKeeper.resources
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.Properties.Resources.resources
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.SKTioImporter.resources
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.csproj.GenerateResource.Cache
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.exe.manifest
+C:\Users\Jas\Documents\GitHub\SkillKeeper\SkillKeeper\obj\Debug\SkillKeeper.application
