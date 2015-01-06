@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -44,7 +45,7 @@ namespace SkillKeeper
 
             try
             {
-                eventDatePicker.Value = DateTime.Parse(xEle.Element("EventList").Element("Event").Element("StartDate").Value);
+                eventDatePicker.Value = DateTime.ParseExact(xEle.Element("EventList").Element("Event").Element("StartDate").Value, "MM/dd/yyyy hh:mm:ss", CultureInfo.InvariantCulture);
             }
             catch (System.FormatException e)
             {

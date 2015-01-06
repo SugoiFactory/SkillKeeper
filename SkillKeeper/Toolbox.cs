@@ -25,22 +25,22 @@ namespace SkillKeeper
             return result;
         }
 
-        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Int32 multiplier, UInt16 decay)
+        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Double multiplier, UInt16 decay)
         {
             recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, DateTime.Today, null);
         }
 
-        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Int32 multiplier, UInt16 decay, ProgressBar progress)
+        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Double multiplier, UInt16 decay, ProgressBar progress)
         {
             recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, DateTime.Today, progress);
         }
 
-        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Int32 multiplier, UInt16 decay, DateTime lastDate)
+        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Double multiplier, UInt16 decay, DateTime lastDate)
         {
             recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, lastDate, null);
         }
 
-        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Int32 multiplier, UInt16 decay, DateTime lastDate, ProgressBar progress)
+        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Double multiplier, UInt16 decay, DateTime lastDate, ProgressBar progress)
         {
             Dictionary<String, Person> playerMap = new Dictionary<string, Person>();
             DateTime latestMatch = DateTime.MinValue;

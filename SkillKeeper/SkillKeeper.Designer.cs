@@ -32,6 +32,7 @@
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SkillKeeper));
             this.tabControl1 = new System.Windows.Forms.TabControl();
             this.fileTab = new System.Windows.Forms.TabPage();
+            this.fileUpdateButton = new System.Windows.Forms.Button();
             this.progressLabel = new System.Windows.Forms.Label();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
@@ -139,6 +140,8 @@
             this.LastMatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.settingsTab = new System.Windows.Forms.TabPage();
+            this.settingsMatchesBox = new System.Windows.Forms.TextBox();
+            this.label37 = new System.Windows.Forms.Label();
             this.settingsDecayNever = new System.Windows.Forms.RadioButton();
             this.settingsDecayYearly = new System.Windows.Forms.RadioButton();
             this.settingsDecayMonthly = new System.Windows.Forms.RadioButton();
@@ -198,6 +201,7 @@
             // 
             this.fileTab.BackColor = System.Drawing.Color.Transparent;
             this.fileTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fileTab.Controls.Add(this.fileUpdateButton);
             this.fileTab.Controls.Add(this.progressLabel);
             this.fileTab.Controls.Add(this.progressBar1);
             this.fileTab.Controls.Add(this.pictureBox2);
@@ -213,6 +217,16 @@
             this.fileTab.Size = new System.Drawing.Size(916, 466);
             this.fileTab.TabIndex = 0;
             this.fileTab.Text = "File";
+            // 
+            // fileUpdateButton
+            // 
+            this.fileUpdateButton.Location = new System.Drawing.Point(510, 135);
+            this.fileUpdateButton.Name = "fileUpdateButton";
+            this.fileUpdateButton.Size = new System.Drawing.Size(75, 23);
+            this.fileUpdateButton.TabIndex = 9;
+            this.fileUpdateButton.Text = "Save World";
+            this.fileUpdateButton.UseVisualStyleBackColor = true;
+            this.fileUpdateButton.Click += new System.EventHandler(this.fileUpdateButton_Click);
             // 
             // progressLabel
             // 
@@ -275,11 +289,11 @@
             // 
             // fileSaveButton
             // 
-            this.fileSaveButton.Location = new System.Drawing.Point(510, 135);
+            this.fileSaveButton.Location = new System.Drawing.Point(591, 135);
             this.fileSaveButton.Name = "fileSaveButton";
-            this.fileSaveButton.Size = new System.Drawing.Size(75, 23);
+            this.fileSaveButton.Size = new System.Drawing.Size(92, 23);
             this.fileSaveButton.TabIndex = 2;
-            this.fileSaveButton.Text = "Save World";
+            this.fileSaveButton.Text = "Save World As";
             this.fileSaveButton.UseVisualStyleBackColor = true;
             this.fileSaveButton.Click += new System.EventHandler(this.fileSaveButton_Click);
             // 
@@ -718,7 +732,7 @@
             this.modifyHideCheck.AutoSize = true;
             this.modifyHideCheck.Location = new System.Drawing.Point(78, 190);
             this.modifyHideCheck.Name = "modifyHideCheck";
-            this.modifyHideCheck.Size = new System.Drawing.Size(166, 17);
+            this.modifyHideCheck.Size = new System.Drawing.Size(165, 17);
             this.modifyHideCheck.TabIndex = 35;
             this.modifyHideCheck.Text = "Hide Player from Leaderboard";
             this.modifyHideCheck.UseVisualStyleBackColor = true;
@@ -1016,7 +1030,7 @@
             this.historyViewAllCheck.AutoSize = true;
             this.historyViewAllCheck.Location = new System.Drawing.Point(248, 8);
             this.historyViewAllCheck.Name = "historyViewAllCheck";
-            this.historyViewAllCheck.Size = new System.Drawing.Size(98, 17);
+            this.historyViewAllCheck.Size = new System.Drawing.Size(97, 17);
             this.historyViewAllCheck.TabIndex = 3;
             this.historyViewAllCheck.Text = "View All History";
             this.historyViewAllCheck.UseVisualStyleBackColor = true;
@@ -1069,7 +1083,7 @@
             this.player1DataGridViewTextBoxColumn.HeaderText = "Player1";
             this.player1DataGridViewTextBoxColumn.Name = "player1DataGridViewTextBoxColumn";
             this.player1DataGridViewTextBoxColumn.ReadOnly = true;
-            this.player1DataGridViewTextBoxColumn.Width = 67;
+            this.player1DataGridViewTextBoxColumn.Width = 65;
             // 
             // player2DataGridViewTextBoxColumn
             // 
@@ -1078,7 +1092,7 @@
             this.player2DataGridViewTextBoxColumn.HeaderText = "Player2";
             this.player2DataGridViewTextBoxColumn.Name = "player2DataGridViewTextBoxColumn";
             this.player2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.player2DataGridViewTextBoxColumn.Width = 67;
+            this.player2DataGridViewTextBoxColumn.Width = 65;
             // 
             // winnerDataGridViewTextBoxColumn
             // 
@@ -1086,7 +1100,7 @@
             this.winnerDataGridViewTextBoxColumn.DataPropertyName = "Winner";
             this.winnerDataGridViewTextBoxColumn.HeaderText = "Winner";
             this.winnerDataGridViewTextBoxColumn.Name = "winnerDataGridViewTextBoxColumn";
-            this.winnerDataGridViewTextBoxColumn.Width = 66;
+            this.winnerDataGridViewTextBoxColumn.Width = 64;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
@@ -1094,7 +1108,7 @@
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Width = 85;
+            this.descriptionDataGridViewTextBoxColumn.Width = 83;
             // 
             // Column1
             // 
@@ -1103,7 +1117,7 @@
             this.Column1.HeaderText = "Date";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 55;
+            this.Column1.Width = 53;
             // 
             // orderDataGridViewTextBoxColumn
             // 
@@ -1111,7 +1125,7 @@
             this.orderDataGridViewTextBoxColumn.DataPropertyName = "Order";
             this.orderDataGridViewTextBoxColumn.HeaderText = "Order";
             this.orderDataGridViewTextBoxColumn.Name = "orderDataGridViewTextBoxColumn";
-            this.orderDataGridViewTextBoxColumn.Width = 58;
+            this.orderDataGridViewTextBoxColumn.Width = 56;
             // 
             // matchBindingSource
             // 
@@ -1191,7 +1205,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Team";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 59;
+            this.dataGridViewTextBoxColumn2.Width = 57;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1200,7 +1214,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Name";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 60;
+            this.dataGridViewTextBoxColumn1.Width = 58;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -1209,7 +1223,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Characters";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 83;
+            this.dataGridViewTextBoxColumn3.Width = 81;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -1218,7 +1232,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Wins";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 56;
+            this.dataGridViewTextBoxColumn4.Width = 54;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -1227,7 +1241,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Losses";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 65;
+            this.dataGridViewTextBoxColumn5.Width = 63;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -1236,7 +1250,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Draws";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 62;
+            this.dataGridViewTextBoxColumn6.Width = 60;
             // 
             // totalGamesDataGridViewTextBoxColumn
             // 
@@ -1245,7 +1259,7 @@
             this.totalGamesDataGridViewTextBoxColumn.HeaderText = "Total Played";
             this.totalGamesDataGridViewTextBoxColumn.Name = "totalGamesDataGridViewTextBoxColumn";
             this.totalGamesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalGamesDataGridViewTextBoxColumn.Width = 91;
+            this.totalGamesDataGridViewTextBoxColumn.Width = 89;
             // 
             // winPercentDataGridViewTextBoxColumn
             // 
@@ -1254,7 +1268,7 @@
             this.winPercentDataGridViewTextBoxColumn.HeaderText = "Win %";
             this.winPercentDataGridViewTextBoxColumn.Name = "winPercentDataGridViewTextBoxColumn";
             this.winPercentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.winPercentDataGridViewTextBoxColumn.Width = 62;
+            this.winPercentDataGridViewTextBoxColumn.Width = 60;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -1263,7 +1277,7 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "Score";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 60;
+            this.dataGridViewTextBoxColumn7.Width = 58;
             // 
             // LastMatch
             // 
@@ -1272,7 +1286,7 @@
             this.LastMatch.HeaderText = "Last Match";
             this.LastMatch.Name = "LastMatch";
             this.LastMatch.ReadOnly = true;
-            this.LastMatch.Width = 85;
+            this.LastMatch.Width = 83;
             // 
             // personBindingSource
             // 
@@ -1281,6 +1295,8 @@
             // settingsTab
             // 
             this.settingsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.settingsTab.Controls.Add(this.settingsMatchesBox);
+            this.settingsTab.Controls.Add(this.label37);
             this.settingsTab.Controls.Add(this.settingsDecayNever);
             this.settingsTab.Controls.Add(this.settingsDecayYearly);
             this.settingsTab.Controls.Add(this.settingsDecayMonthly);
@@ -1296,13 +1312,31 @@
             this.settingsTab.Text = "Settings";
             this.settingsTab.UseVisualStyleBackColor = true;
             // 
+            // settingsMatchesBox
+            // 
+            this.settingsMatchesBox.Location = new System.Drawing.Point(265, 179);
+            this.settingsMatchesBox.Name = "settingsMatchesBox";
+            this.settingsMatchesBox.Size = new System.Drawing.Size(258, 20);
+            this.settingsMatchesBox.TabIndex = 2;
+            this.settingsMatchesBox.Text = "1";
+            this.settingsMatchesBox.TextChanged += new System.EventHandler(this.settingsMatchesBox_TextChanged);
+            // 
+            // label37
+            // 
+            this.label37.AutoSize = true;
+            this.label37.Location = new System.Drawing.Point(126, 182);
+            this.label37.Name = "label37";
+            this.label37.Size = new System.Drawing.Size(133, 13);
+            this.label37.TabIndex = 8;
+            this.label37.Text = "Minimum Matches to Rank";
+            // 
             // settingsDecayNever
             // 
             this.settingsDecayNever.AutoSize = true;
             this.settingsDecayNever.Checked = true;
-            this.settingsDecayNever.Location = new System.Drawing.Point(510, 179);
+            this.settingsDecayNever.Location = new System.Drawing.Point(510, 205);
             this.settingsDecayNever.Name = "settingsDecayNever";
-            this.settingsDecayNever.Size = new System.Drawing.Size(54, 17);
+            this.settingsDecayNever.Size = new System.Drawing.Size(53, 17);
             this.settingsDecayNever.TabIndex = 7;
             this.settingsDecayNever.TabStop = true;
             this.settingsDecayNever.Text = "Never";
@@ -1312,9 +1346,9 @@
             // settingsDecayYearly
             // 
             this.settingsDecayYearly.AutoSize = true;
-            this.settingsDecayYearly.Location = new System.Drawing.Point(451, 179);
+            this.settingsDecayYearly.Location = new System.Drawing.Point(451, 205);
             this.settingsDecayYearly.Name = "settingsDecayYearly";
-            this.settingsDecayYearly.Size = new System.Drawing.Size(54, 17);
+            this.settingsDecayYearly.Size = new System.Drawing.Size(53, 17);
             this.settingsDecayYearly.TabIndex = 6;
             this.settingsDecayYearly.Text = "Yearly";
             this.settingsDecayYearly.UseVisualStyleBackColor = true;
@@ -1323,9 +1357,9 @@
             // settingsDecayMonthly
             // 
             this.settingsDecayMonthly.AutoSize = true;
-            this.settingsDecayMonthly.Location = new System.Drawing.Point(384, 179);
+            this.settingsDecayMonthly.Location = new System.Drawing.Point(384, 205);
             this.settingsDecayMonthly.Name = "settingsDecayMonthly";
-            this.settingsDecayMonthly.Size = new System.Drawing.Size(62, 17);
+            this.settingsDecayMonthly.Size = new System.Drawing.Size(61, 17);
             this.settingsDecayMonthly.TabIndex = 5;
             this.settingsDecayMonthly.Text = "Monthly";
             this.settingsDecayMonthly.UseVisualStyleBackColor = true;
@@ -1334,9 +1368,9 @@
             // settingsDecayWeekly
             // 
             this.settingsDecayWeekly.AutoSize = true;
-            this.settingsDecayWeekly.Location = new System.Drawing.Point(318, 179);
+            this.settingsDecayWeekly.Location = new System.Drawing.Point(318, 205);
             this.settingsDecayWeekly.Name = "settingsDecayWeekly";
-            this.settingsDecayWeekly.Size = new System.Drawing.Size(61, 17);
+            this.settingsDecayWeekly.Size = new System.Drawing.Size(60, 17);
             this.settingsDecayWeekly.TabIndex = 4;
             this.settingsDecayWeekly.Text = "Weekly";
             this.settingsDecayWeekly.UseVisualStyleBackColor = true;
@@ -1345,9 +1379,9 @@
             // settingsDecayDaily
             // 
             this.settingsDecayDaily.AutoSize = true;
-            this.settingsDecayDaily.Location = new System.Drawing.Point(265, 179);
+            this.settingsDecayDaily.Location = new System.Drawing.Point(265, 205);
             this.settingsDecayDaily.Name = "settingsDecayDaily";
-            this.settingsDecayDaily.Size = new System.Drawing.Size(48, 17);
+            this.settingsDecayDaily.Size = new System.Drawing.Size(47, 17);
             this.settingsDecayDaily.TabIndex = 3;
             this.settingsDecayDaily.Text = "Daily";
             this.settingsDecayDaily.UseVisualStyleBackColor = true;
@@ -1356,7 +1390,7 @@
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(180, 181);
+            this.label29.Location = new System.Drawing.Point(183, 207);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(76, 13);
             this.label29.TabIndex = 2;
@@ -1439,9 +1473,9 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(4, 20);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(113, 13);
+            this.label32.Size = new System.Drawing.Size(101, 13);
             this.label32.TabIndex = 4;
-            this.label32.Text = "v1.0.0.1 (11/10/2014)";
+            this.label32.Text = "v1.0.1.0 (1/5/2015)";
             // 
             // pictureBox1
             // 
@@ -1486,7 +1520,9 @@
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "SkillKeeper";
-            this.Text = "SkillKeeper v1.0.0";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "SkillKeeper v1.0.1";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.Form_Closing);
             this.tabControl1.ResumeLayout(false);
             this.fileTab.ResumeLayout(false);
             this.fileTab.PerformLayout();
@@ -1653,6 +1689,9 @@
         private System.Windows.Forms.Label label36;
         private System.Windows.Forms.ProgressBar progressBar1;
         private System.Windows.Forms.Label progressLabel;
+        private System.Windows.Forms.Button fileUpdateButton;
+        private System.Windows.Forms.TextBox settingsMatchesBox;
+        private System.Windows.Forms.Label label37;
     }
 }
 

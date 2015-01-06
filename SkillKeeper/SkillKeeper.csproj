@@ -25,8 +25,8 @@
     <ProductName>SkillKeeper92</ProductName>
     <PublisherName>Sugoi Factory</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>1</ApplicationRevision>
-    <ApplicationVersion>1.0.0.1</ApplicationVersion>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.1.0</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -85,6 +85,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ConfirmSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmSave.Designer.cs">
+      <DependentUpon>ConfirmSave.cs</DependentUpon>
+    </Compile>
     <Compile Include="SKChallongeImporter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ConfirmSave.resx">
+      <DependentUpon>ConfirmSave.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SKChallongeImporter.resx">
       <DependentUpon>SKChallongeImporter.cs</DependentUpon>
     </EmbeddedResource>

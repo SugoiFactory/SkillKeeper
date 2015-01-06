@@ -13,7 +13,7 @@ namespace SkillKeeper
         private Double mu, sigma;
         private List<String> alts = new List<String>();
         private DateTime lastMatch = DateTime.FromBinary(0);
-        private Int32 multiplier = 200;
+        private Double multiplier = 200;
         private Boolean invisible = false;
 
         public void decayScore(Double startSigma)
@@ -141,7 +141,7 @@ namespace SkillKeeper
             set { lastMatch = value; }
         }
 
-        public Int32 Multiplier
+        public Double Multiplier
         {
             set { multiplier = value; }
         }
