@@ -11,6 +11,7 @@ using System.Xml.Linq;
 using System.Windows.Forms;
 using Moserware.Skills;
 using Moserware.Skills.TrueSkill;
+using Fizzi.Libraries.ChallongeApiWrapper;
 
 namespace SkillKeeper
 {
@@ -588,7 +589,17 @@ namespace SkillKeeper
             if (skChallongeLoader.ShowDialog() == DialogResult.OK)
             {
                 SKChallongeImporter importer = new SKChallongeImporter();
-                importer.importChallonge(skChallongeLoader.getAPIKey(), skChallongeLoader.getSubDomain(), playerList);
+
+                try
+                {
+                    importer.importChallonge(skChallongeLoader.getAPIKey(), skChallongeLoader.getSubDomain(), playerList);
+                }
+                catch (ChallongeApiException ex)
+                {
+                    MessageBox.Show(this, "The following error(s) were encountered:\n" + ex.Errors.Aggregate((one, two) => one + "\n" + two), "Challonge Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
                 if (importer.ShowDialog() == DialogResult.OK)
                 {
                     foreach (Person p in importer.getImportPlayers())
