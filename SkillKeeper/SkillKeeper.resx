@@ -2150,7 +2150,13 @@
 </value>
   </data>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>v1.0.1.0 (1/5/2015)
+    <value>v1.0.1.1 (1/8/2015)
+- Fixed issue where program would prompt to save even if no changes were made.
+- Fixed bug that caused player merge to crash under certain conditions.
+- Fixed issue where tournaments with the same name could not properly be accessed individually. (Fizzi)
+- Added improved error message when attempting to load Challonge tournaments. (Fizzi)
+
+v1.0.1.0 (1/5/2015)
 - Challonge import tool now stores most recent API Key and Subdomain for the next time the form is opened. (Fizzi)
 - Fixed a few scenarios where the tool would crash. (Fizzi)
 - Improved network efficiency of the tool. (Fizzi)

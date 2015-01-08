@@ -94,10 +94,11 @@ namespace SkillKeeper
                 matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
                 Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
                 buildHistory();
+
+                requireSave = true;
             }
             scoresChanged = false;
             historyApplyButton.Enabled = false;
-            requireSave = true;
         }
 
         
@@ -227,6 +228,7 @@ namespace SkillKeeper
             modifySelector.Text = player2;
 
             playerList.Remove(oldP);
+            rebuildPlayerSelection();
 
             matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
             Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
