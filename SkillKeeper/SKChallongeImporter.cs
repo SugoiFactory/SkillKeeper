@@ -57,12 +57,9 @@ namespace SkillKeeper
             }
             playerNames.Sort();
 
-            //Display all available tournaments
-            foreach (Tournament t in completedTournaments)
-            {
-                eventList.Add(t.Name);
-            }
-            eventSelector.DataSource = eventList;
+            //Set event selector
+            eventSelector.DataSource = completedTournaments;
+            eventSelector.DisplayMember = "Name";
         }
 
         // Update the list of players found in the selected event.
@@ -89,9 +86,9 @@ namespace SkillKeeper
         {
             foreach (ImportPlayer p in challongePlayerList)
             {
-                if (p.ID == (String) importPlayerList.CurrentRow.Cells[0].Value)
+                if (p.ID == (String)importPlayerList.CurrentRow.Cells[0].Value)
                 {
-                    p.SKLink = (String) importPlayerList.CurrentRow.Cells[2].Value;
+                    p.SKLink = (String)importPlayerList.CurrentRow.Cells[2].Value;
                 }
             }
         }
@@ -131,8 +128,11 @@ namespace SkillKeeper
         // Rebuild the list of players in the event whenever the event selector is used.
         private void eventSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
+            //Get combo box from sender
+            var cbox = (ComboBox)sender;
+
             //Fetch selected tourney
-            curTourney = completedTournaments.FirstOrDefault(t => t.Name == eventSelector.Text);
+            curTourney = (Tournament)cbox.SelectedItem;
 
             updatePlayerList();
         }
@@ -162,7 +162,7 @@ namespace SkillKeeper
                     addAlts.Add(p.SKLink + "\t" + p.Name);
                 }
             }
-            
+
             foreach (Fizzi.Libraries.ChallongeApiWrapper.Match m in portal.GetMatches(curTourney.Id))
             {
                 if (m.State == "complete")
@@ -179,7 +179,7 @@ namespace SkillKeeper
         {
             Match m = new Match();
 
-            m.Description = tournamentName + " - " + eventSelector.Text;
+            m.Description = curTourney.FullChallongeUrl.Split('.', '/').Skip(2).FirstOrDefault() + " - " + eventSelector.Text;
             m.Timestamp = eventDatePicker.Value;
 
             foreach (ImportPlayer p in challongePlayerList)
@@ -208,7 +208,7 @@ namespace SkillKeeper
                     m.Winner = 2;
 
                 m.ID = Guid.NewGuid().ToString("N");
-               
+
                 importMatches.Add(m);
             }
         }
