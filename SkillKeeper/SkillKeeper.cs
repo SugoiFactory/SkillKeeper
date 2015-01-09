@@ -21,6 +21,7 @@ namespace SkillKeeper
         private Double startSigma = 0;
         private Double multiplier = 200;
         private UInt16 decay = 0;
+        private UInt32 decayValue = 1;
         private UInt32 minMatches = 1;
         private Boolean scoresChanged = false;
 
@@ -91,8 +92,19 @@ namespace SkillKeeper
                     Console.WriteLine(e2.Message);
                     Console.WriteLine(e2.StackTrace);
                 }
+                try
+                {
+                    decayValue = UInt32.Parse(settingsDecayIntBox.Text);
+                    if (decayValue < 1)
+                        decayValue = 1;
+                }
+                catch (Exception e2)
+                {
+                    Console.WriteLine(e2.Message);
+                    Console.WriteLine(e2.StackTrace);
+                }
                 matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
+                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
                 buildHistory();
 
                 requireSave = true;
@@ -231,7 +243,7 @@ namespace SkillKeeper
             rebuildPlayerSelection();
 
             matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
             buildHistory();
 
             requireSave = true;
@@ -337,7 +349,7 @@ namespace SkillKeeper
             requireSave = false;
 
             rebuildPlayerSelection();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
             buildHistory();
         }
 
@@ -377,6 +389,10 @@ namespace SkillKeeper
                     if(xEle.Element("Settings").Attribute("MinMatches") != null)
                         minMatches = UInt32.Parse(xEle.Element("Settings").Attribute("MinMatches").Value);
                     decay = UInt16.Parse(xEle.Element("Settings").Attribute("Decay").Value);
+                    if (xEle.Element("Settings").Attribute("DecayValue") != null)
+                        decayValue = UInt32.Parse(xEle.Element("Settings").Attribute("DecayValue").Value);
+                    else
+                        decayValue = 1;
                     settingsMultiplierBox.Text = multiplier.ToString();
                 }
 
@@ -423,6 +439,7 @@ namespace SkillKeeper
                     progressBar1.PerformStep();
                 }
 
+                settingsDecayIntBox.Text = decayValue + "";
                 switch (decay)
                 {
                     case 1:
@@ -448,7 +465,7 @@ namespace SkillKeeper
 
                 progressLabel.Text = "Calculating scores...";
                 progressLabel.Refresh();
-                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, progressBar1);
+                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue, progressBar1);
 
                 progressLabel.Text = "Verifying match history...";
                 progressLabel.Refresh();
@@ -464,6 +481,9 @@ namespace SkillKeeper
 
         private void fileSaveButton_Click(object sender, EventArgs e)
         {
+            if (scoresChanged)
+                TabControl1_SelectedIndexChanged(sender, e);
+
             saveWorldDialog.Reset();
             if (openedWorld.Length > 0)
                 saveWorldDialog.FileName = openedWorld;
@@ -477,7 +497,8 @@ namespace SkillKeeper
                         new XElement("Settings",
                             new XAttribute("Multiplier", multiplier),
                             new XAttribute("MinMatches", minMatches),
-                            new XAttribute("Decay", decay)
+                            new XAttribute("Decay", decay),
+                                new XAttribute("DecayValue", decayValue)
                         ),
                         new XElement("Players", from player in playerList select new XElement("Player", 
                             new XAttribute("Name", player.Name), 
@@ -504,6 +525,9 @@ namespace SkillKeeper
 
         private void fileUpdateButton_Click(object sender, EventArgs e)
         {
+            if (scoresChanged)
+                TabControl1_SelectedIndexChanged(sender, e);
+
             if (openedWorld != "")
             {
                 var xEle = new XElement(
@@ -511,7 +535,8 @@ namespace SkillKeeper
                             new XElement("Settings",
                                 new XAttribute("Multiplier", multiplier),
                                 new XAttribute("MinMatches", minMatches),
-                                new XAttribute("Decay", decay)
+                                new XAttribute("Decay", decay),
+                                new XAttribute("DecayValue", decayValue)
                             ),
                             new XElement("Players", from player in playerList
                                                     select new XElement("Player",
@@ -579,7 +604,7 @@ namespace SkillKeeper
                     rebuildPlayerSelection();
 
                     matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                    Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
+                    Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
                     buildHistory();
                 }
             }
@@ -632,7 +657,7 @@ namespace SkillKeeper
                     rebuildPlayerSelection();
 
                     matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                    Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
+                    Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
                     buildHistory();
                 }
             }
@@ -703,7 +728,7 @@ namespace SkillKeeper
                 rebuildPlayerSelection();
 
                 matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
+                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
                 buildHistory();
             }
         }
@@ -1098,7 +1123,7 @@ namespace SkillKeeper
 
             historyDatePicker.Value = historyMoveDatePicker.Value;
             matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
             requireSave = true;
             buildHistory();
         }
@@ -1125,7 +1150,7 @@ namespace SkillKeeper
 
                 historyMoveDatePicker.Value = historyDatePicker.Value;
                 matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
+                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
                 requireSave = true;
                 buildHistory();
             }
@@ -1135,7 +1160,7 @@ namespace SkillKeeper
         {
             matchList.Remove((Match) historyGridView.SelectedRows[0].DataBoundItem);
             matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
             requireSave = true;
             buildHistory();
         }
@@ -1159,7 +1184,7 @@ namespace SkillKeeper
             }
 
             matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
             requireSave = true;
             buildHistory();
         }
@@ -1169,7 +1194,7 @@ namespace SkillKeeper
         // ------------------------------------
         private void leaderboardDatePicker_ValueChanged(object sender, EventArgs e)
         {
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, leaderboardDatePicker.Value);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue, leaderboardDatePicker.Value);
             buildHistory();
         }
 
@@ -1212,18 +1237,39 @@ namespace SkillKeeper
             requireSave = true;
         }
 
+        private void settingsDecayIntBox_TextChanged(object sender, EventArgs e)
+        {
+            scoresChanged = true;
+            requireSave = true;
+        }
+
         private void settingsCheckDecayVal()
         {
             if (settingsDecayDaily.Checked)
+            {
+                settingsDecayIntBox.Enabled = true;
                 decay = 1;
+            }
             else if (settingsDecayWeekly.Checked)
+            {
+                settingsDecayIntBox.Enabled = true;
                 decay = 2;
+            }
             else if (settingsDecayMonthly.Checked)
+            {
+                settingsDecayIntBox.Enabled = true;
                 decay = 3;
+            }
             else if (settingsDecayYearly.Checked)
+            {
+                settingsDecayIntBox.Enabled = true;
                 decay = 4;
+            }
             else if (settingsDecayNever.Checked)
+            {
+                settingsDecayIntBox.Enabled = false;
                 decay = 0;
+            }
 
             scoresChanged = true;
             requireSave = true;

@@ -140,6 +140,8 @@
             this.LastMatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.settingsTab = new System.Windows.Forms.TabPage();
+            this.settingsDecayIntBox = new System.Windows.Forms.TextBox();
+            this.label38 = new System.Windows.Forms.Label();
             this.settingsMatchesBox = new System.Windows.Forms.TextBox();
             this.label37 = new System.Windows.Forms.Label();
             this.settingsDecayNever = new System.Windows.Forms.RadioButton();
@@ -1295,6 +1297,8 @@
             // settingsTab
             // 
             this.settingsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.settingsTab.Controls.Add(this.settingsDecayIntBox);
+            this.settingsTab.Controls.Add(this.label38);
             this.settingsTab.Controls.Add(this.settingsMatchesBox);
             this.settingsTab.Controls.Add(this.label37);
             this.settingsTab.Controls.Add(this.settingsDecayNever);
@@ -1311,6 +1315,25 @@
             this.settingsTab.TabIndex = 7;
             this.settingsTab.Text = "Settings";
             this.settingsTab.UseVisualStyleBackColor = true;
+            // 
+            // settingsDecayIntBox
+            // 
+            this.settingsDecayIntBox.Enabled = false;
+            this.settingsDecayIntBox.Location = new System.Drawing.Point(305, 205);
+            this.settingsDecayIntBox.Name = "settingsDecayIntBox";
+            this.settingsDecayIntBox.Size = new System.Drawing.Size(71, 20);
+            this.settingsDecayIntBox.TabIndex = 10;
+            this.settingsDecayIntBox.Text = "1";
+            this.settingsDecayIntBox.TextChanged += new System.EventHandler(this.settingsDecayIntBox_TextChanged);
+            // 
+            // label38
+            // 
+            this.label38.AutoSize = true;
+            this.label38.Location = new System.Drawing.Point(265, 208);
+            this.label38.Name = "label38";
+            this.label38.Size = new System.Drawing.Size(34, 13);
+            this.label38.TabIndex = 9;
+            this.label38.Text = "Every";
             // 
             // settingsMatchesBox
             // 
@@ -1334,7 +1357,7 @@
             // 
             this.settingsDecayNever.AutoSize = true;
             this.settingsDecayNever.Checked = true;
-            this.settingsDecayNever.Location = new System.Drawing.Point(510, 205);
+            this.settingsDecayNever.Location = new System.Drawing.Point(382, 298);
             this.settingsDecayNever.Name = "settingsDecayNever";
             this.settingsDecayNever.Size = new System.Drawing.Size(53, 17);
             this.settingsDecayNever.TabIndex = 7;
@@ -1346,51 +1369,51 @@
             // settingsDecayYearly
             // 
             this.settingsDecayYearly.AutoSize = true;
-            this.settingsDecayYearly.Location = new System.Drawing.Point(451, 205);
+            this.settingsDecayYearly.Location = new System.Drawing.Point(382, 275);
             this.settingsDecayYearly.Name = "settingsDecayYearly";
-            this.settingsDecayYearly.Size = new System.Drawing.Size(53, 17);
+            this.settingsDecayYearly.Size = new System.Drawing.Size(51, 17);
             this.settingsDecayYearly.TabIndex = 6;
-            this.settingsDecayYearly.Text = "Yearly";
+            this.settingsDecayYearly.Text = "Years";
             this.settingsDecayYearly.UseVisualStyleBackColor = true;
             this.settingsDecayYearly.CheckedChanged += new System.EventHandler(this.settingsDecayYearly_CheckedChanged);
             // 
             // settingsDecayMonthly
             // 
             this.settingsDecayMonthly.AutoSize = true;
-            this.settingsDecayMonthly.Location = new System.Drawing.Point(384, 205);
+            this.settingsDecayMonthly.Location = new System.Drawing.Point(382, 252);
             this.settingsDecayMonthly.Name = "settingsDecayMonthly";
-            this.settingsDecayMonthly.Size = new System.Drawing.Size(61, 17);
+            this.settingsDecayMonthly.Size = new System.Drawing.Size(59, 17);
             this.settingsDecayMonthly.TabIndex = 5;
-            this.settingsDecayMonthly.Text = "Monthly";
+            this.settingsDecayMonthly.Text = "Months";
             this.settingsDecayMonthly.UseVisualStyleBackColor = true;
             this.settingsDecayMonthly.CheckedChanged += new System.EventHandler(this.settingsDecayMonthly_CheckedChanged);
             // 
             // settingsDecayWeekly
             // 
             this.settingsDecayWeekly.AutoSize = true;
-            this.settingsDecayWeekly.Location = new System.Drawing.Point(318, 205);
+            this.settingsDecayWeekly.Location = new System.Drawing.Point(382, 229);
             this.settingsDecayWeekly.Name = "settingsDecayWeekly";
-            this.settingsDecayWeekly.Size = new System.Drawing.Size(60, 17);
+            this.settingsDecayWeekly.Size = new System.Drawing.Size(58, 17);
             this.settingsDecayWeekly.TabIndex = 4;
-            this.settingsDecayWeekly.Text = "Weekly";
+            this.settingsDecayWeekly.Text = "Weeks";
             this.settingsDecayWeekly.UseVisualStyleBackColor = true;
             this.settingsDecayWeekly.CheckedChanged += new System.EventHandler(this.settingsDecayWeekly_CheckedChanged);
             // 
             // settingsDecayDaily
             // 
             this.settingsDecayDaily.AutoSize = true;
-            this.settingsDecayDaily.Location = new System.Drawing.Point(265, 205);
+            this.settingsDecayDaily.Location = new System.Drawing.Point(382, 206);
             this.settingsDecayDaily.Name = "settingsDecayDaily";
-            this.settingsDecayDaily.Size = new System.Drawing.Size(47, 17);
+            this.settingsDecayDaily.Size = new System.Drawing.Size(48, 17);
             this.settingsDecayDaily.TabIndex = 3;
-            this.settingsDecayDaily.Text = "Daily";
+            this.settingsDecayDaily.Text = "Days";
             this.settingsDecayDaily.UseVisualStyleBackColor = true;
             this.settingsDecayDaily.CheckedChanged += new System.EventHandler(this.settingsDecayDaily_CheckedChanged);
             // 
             // label29
             // 
             this.label29.AutoSize = true;
-            this.label29.Location = new System.Drawing.Point(183, 207);
+            this.label29.Location = new System.Drawing.Point(183, 208);
             this.label29.Name = "label29";
             this.label29.Size = new System.Drawing.Size(76, 13);
             this.label29.TabIndex = 2;
@@ -1475,7 +1498,7 @@
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(101, 13);
             this.label32.TabIndex = 4;
-            this.label32.Text = "v1.0.1.0 (1/5/2015)";
+            this.label32.Text = "v1.0.1.2 (1/9/2015)";
             // 
             // pictureBox1
             // 
@@ -1692,6 +1715,8 @@
         private System.Windows.Forms.Button fileUpdateButton;
         private System.Windows.Forms.TextBox settingsMatchesBox;
         private System.Windows.Forms.Label label37;
+        private System.Windows.Forms.TextBox settingsDecayIntBox;
+        private System.Windows.Forms.Label label38;
     }
 }
 

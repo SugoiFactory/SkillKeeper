@@ -25,23 +25,25 @@ namespace SkillKeeper
             return result;
         }
 
-        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Double multiplier, UInt16 decay)
+        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Double multiplier, UInt16 decay, UInt32 decayValue)
         {
-            recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, DateTime.Today, null);
+            recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue, DateTime.Today, null);
         }
 
-        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Double multiplier, UInt16 decay, ProgressBar progress)
+        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Double multiplier, UInt16 decay, UInt32 decayValue, ProgressBar progress)
         {
-            recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, DateTime.Today, progress);
+            recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue, DateTime.Today, progress);
         }
 
-        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Double multiplier, UInt16 decay, DateTime lastDate)
+        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Double multiplier, UInt16 decay, UInt32 decayValue, DateTime lastDate)
         {
-            recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, lastDate, null);
+            recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue, lastDate, null);
         }
 
-        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Double multiplier, UInt16 decay, DateTime lastDate, ProgressBar progress)
+        public static void recalcMatches(List<Person> playerList, List<Match> matchList, Double startMu, Double startSigma, Double multiplier, UInt16 decay, UInt32 decayValue, DateTime lastDate, ProgressBar progress)
         {
+            lastDate += new TimeSpan(23, 59, 59);
+
             Dictionary<String, Person> playerMap = new Dictionary<string, Person>();
             DateTime latestMatch = DateTime.MinValue;
             int matchTotal = matchList.Count;
@@ -116,51 +118,51 @@ namespace SkillKeeper
                         switch (decay)
                         {
                             case 1:
-                                while (p1.DecayDays > 0)
+                                while (p1.DecayDays > decayValue - 1)
                                 {
                                     p1.decayScore(startSigma);
-                                    p1.DecayDays--;
+                                    p1.DecayDays -= decayValue;
                                 }
-                                while (p2.DecayDays > 0)
+                                while (p2.DecayDays > decayValue - 1)
                                 {
                                     p2.decayScore(startSigma);
-                                    p2.DecayDays--;
+                                    p2.DecayDays -= decayValue;
                                 }
                                 break;
                             case 2:
-                                while (p1.DecayDays > 6)
+                                while (p1.DecayDays > (7 * decayValue) - 1)
                                 {
                                     p1.decayScore(startSigma);
-                                    p1.DecayDays -= 7;
+                                    p1.DecayDays -= 7 * decayValue;
                                 }
-                                while (p2.DecayDays > 6)
+                                while (p2.DecayDays > (7 * decayValue) - 1)
                                 {
                                     p2.decayScore(startSigma);
-                                    p2.DecayDays -= 7;
+                                    p2.DecayDays -= 7 * decayValue;
                                 }
                                 break;
                             case 3:
-                                while (p1.DecayMonths > 0)
+                                while (p1.DecayMonths > decayValue - 1)
                                 {
                                     p1.decayScore(startSigma);
-                                    p1.DecayMonths--;
+                                    p1.DecayMonths -= decayValue;
                                 }
-                                while (p2.DecayMonths > 0)
+                                while (p2.DecayMonths > decayValue - 1)
                                 {
                                     p2.decayScore(startSigma);
-                                    p2.DecayMonths--;
+                                    p2.DecayMonths -= decayValue;
                                 }
                                 break;
                             case 4:
-                                while (p1.DecayMonths > 11)
+                                while (p1.DecayMonths > (12 * decayValue) - 1)
                                 {
                                     p1.decayScore(startSigma);
-                                    p1.DecayMonths -= 12;
+                                    p1.DecayMonths -= 12 * decayValue;
                                 }
-                                while (p2.DecayMonths > 11)
+                                while (p2.DecayMonths > (12 * decayValue) - 1)
                                 {
                                     p2.decayScore(startSigma);
-                                    p2.DecayMonths -= 12;
+                                    p2.DecayMonths -= 12 * decayValue;
                                 }
                                 break;
                         }

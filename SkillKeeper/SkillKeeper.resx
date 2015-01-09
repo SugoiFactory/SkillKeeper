@@ -2150,7 +2150,11 @@
 </value>
   </data>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>v1.0.1.1 (1/8/2015)
+    <value>v1.0.1.2 (1/9/2015)
+- Fixed issue where recent matches wouldn't be counted if they had a timestamp of later than midnight on the current date.
+- Added further interval customization to score decay setting.
+
+v1.0.1.1 (1/8/2015)
 - Fixed issue where program would prompt to save even if no changes were made.
 - Fixed bug that caused player merge to crash under certain conditions.
 - Fixed issue where tournaments with the same name could not properly be accessed individually. (Fizzi)
