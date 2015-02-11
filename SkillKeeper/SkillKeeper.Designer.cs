@@ -734,7 +734,7 @@
             this.modifyHideCheck.AutoSize = true;
             this.modifyHideCheck.Location = new System.Drawing.Point(78, 190);
             this.modifyHideCheck.Name = "modifyHideCheck";
-            this.modifyHideCheck.Size = new System.Drawing.Size(165, 17);
+            this.modifyHideCheck.Size = new System.Drawing.Size(166, 17);
             this.modifyHideCheck.TabIndex = 35;
             this.modifyHideCheck.Text = "Hide Player from Leaderboard";
             this.modifyHideCheck.UseVisualStyleBackColor = true;
@@ -1032,7 +1032,7 @@
             this.historyViewAllCheck.AutoSize = true;
             this.historyViewAllCheck.Location = new System.Drawing.Point(248, 8);
             this.historyViewAllCheck.Name = "historyViewAllCheck";
-            this.historyViewAllCheck.Size = new System.Drawing.Size(97, 17);
+            this.historyViewAllCheck.Size = new System.Drawing.Size(98, 17);
             this.historyViewAllCheck.TabIndex = 3;
             this.historyViewAllCheck.Text = "View All History";
             this.historyViewAllCheck.UseVisualStyleBackColor = true;
@@ -1359,7 +1359,7 @@
             this.settingsDecayNever.Checked = true;
             this.settingsDecayNever.Location = new System.Drawing.Point(382, 298);
             this.settingsDecayNever.Name = "settingsDecayNever";
-            this.settingsDecayNever.Size = new System.Drawing.Size(53, 17);
+            this.settingsDecayNever.Size = new System.Drawing.Size(54, 17);
             this.settingsDecayNever.TabIndex = 7;
             this.settingsDecayNever.TabStop = true;
             this.settingsDecayNever.Text = "Never";
@@ -1371,7 +1371,7 @@
             this.settingsDecayYearly.AutoSize = true;
             this.settingsDecayYearly.Location = new System.Drawing.Point(382, 275);
             this.settingsDecayYearly.Name = "settingsDecayYearly";
-            this.settingsDecayYearly.Size = new System.Drawing.Size(51, 17);
+            this.settingsDecayYearly.Size = new System.Drawing.Size(52, 17);
             this.settingsDecayYearly.TabIndex = 6;
             this.settingsDecayYearly.Text = "Years";
             this.settingsDecayYearly.UseVisualStyleBackColor = true;
@@ -1382,7 +1382,7 @@
             this.settingsDecayMonthly.AutoSize = true;
             this.settingsDecayMonthly.Location = new System.Drawing.Point(382, 252);
             this.settingsDecayMonthly.Name = "settingsDecayMonthly";
-            this.settingsDecayMonthly.Size = new System.Drawing.Size(59, 17);
+            this.settingsDecayMonthly.Size = new System.Drawing.Size(60, 17);
             this.settingsDecayMonthly.TabIndex = 5;
             this.settingsDecayMonthly.Text = "Months";
             this.settingsDecayMonthly.UseVisualStyleBackColor = true;
@@ -1393,7 +1393,7 @@
             this.settingsDecayWeekly.AutoSize = true;
             this.settingsDecayWeekly.Location = new System.Drawing.Point(382, 229);
             this.settingsDecayWeekly.Name = "settingsDecayWeekly";
-            this.settingsDecayWeekly.Size = new System.Drawing.Size(58, 17);
+            this.settingsDecayWeekly.Size = new System.Drawing.Size(59, 17);
             this.settingsDecayWeekly.TabIndex = 4;
             this.settingsDecayWeekly.Text = "Weeks";
             this.settingsDecayWeekly.UseVisualStyleBackColor = true;
@@ -1404,7 +1404,7 @@
             this.settingsDecayDaily.AutoSize = true;
             this.settingsDecayDaily.Location = new System.Drawing.Point(382, 206);
             this.settingsDecayDaily.Name = "settingsDecayDaily";
-            this.settingsDecayDaily.Size = new System.Drawing.Size(48, 17);
+            this.settingsDecayDaily.Size = new System.Drawing.Size(49, 17);
             this.settingsDecayDaily.TabIndex = 3;
             this.settingsDecayDaily.Text = "Days";
             this.settingsDecayDaily.UseVisualStyleBackColor = true;
@@ -1496,9 +1496,9 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(4, 20);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(101, 13);
+            this.label32.Size = new System.Drawing.Size(107, 13);
             this.label32.TabIndex = 4;
-            this.label32.Text = "v1.0.1.2 (1/9/2015)";
+            this.label32.Text = "v1.0.1.4 (2/11/2015)";
             // 
             // pictureBox1
             // 

@@ -35,7 +35,7 @@ namespace SkillKeeper
             InitializeComponent();
             eventDatePicker.Value = DateTime.Today;
             sKLinkDataGridViewTextBoxColumn.DataSource = playerNames;
-            playerNames.Add("<< Create New Player >>");
+            playerNames.Add(" << Create New Player >>");
         }
 
         // Import the TIO file, get a list of singles events within that TIO file, and update the list of players found in the first event (which is initially selected).
@@ -127,11 +127,11 @@ namespace SkillKeeper
         // it then attempts to search through the lists of alternate names for each player.
         private String getMatch(String playerName)
         {
-            String result = "<< Create New Player >>";
+            String result = " << Create New Player >>";
             Boolean foundMatch = false;
             foreach (Person person in currentPlayers)
             {
-                if (person.Name.ToUpper() == playerName.ToUpper() || (playerName.ToUpper().StartsWith(person.Team.ToUpper()) && playerName.ToUpper().EndsWith(person.Name.ToUpper()) && person.Name.Length > 0))
+                if (person.Name.ToUpper() == playerName.ToUpper() || (playerName.ToUpper().StartsWith(person.Team.ToUpper()) && playerName.ToUpper().EndsWith(person.Name.ToUpper()) && person.Name.Length > 0 && person.Team.Length > 0))
                 {
                     foundMatch = true;
                     result = person.Name;
@@ -144,7 +144,7 @@ namespace SkillKeeper
                 {
                     foreach (String altName in person.Alts)
                     {
-                        if (altName.ToUpper() == playerName.ToUpper() || (playerName.ToUpper().StartsWith(person.Team.ToUpper()) && playerName.ToUpper().EndsWith(altName.ToUpper()) && altName.Length > 0))
+                        if (altName.ToUpper() == playerName.ToUpper() || (playerName.ToUpper().StartsWith(person.Team.ToUpper()) && playerName.ToUpper().EndsWith(altName.ToUpper()) && altName.Length > 0 && person.Team.Length > 0))
                         {
                             result = person.Name;
                         }
@@ -172,7 +172,7 @@ namespace SkillKeeper
         {
             foreach (ImportPlayer p in tioList)
             {
-                if (p.SKLink == "<< Create New Player >>")
+                if (p.SKLink == " << Create New Player >>")
                 {
                     if (!playerNames.Contains(p.Name))
                     {
@@ -219,14 +219,14 @@ namespace SkillKeeper
             {
                 if (p.ID == match.Element("Player1").Value)
                 {
-                    if (p.SKLink == "<< Create New Player >>")
+                    if (p.SKLink == " << Create New Player >>")
                         m.Player1 = p.Name;
                     else
                         m.Player1 = p.SKLink;
                 }
                 if (p.ID == match.Element("Player2").Value)
                 {
-                    if (p.SKLink == "<< Create New Player >>")
+                    if (p.SKLink == " << Create New Player >>")
                         m.Player2 = p.Name;
                     else
                         m.Player2 = p.SKLink;

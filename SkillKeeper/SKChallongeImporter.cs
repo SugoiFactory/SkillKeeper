@@ -33,7 +33,7 @@ namespace SkillKeeper
         {
             InitializeComponent();
             sKLinkDataGridViewTextBoxColumn.DataSource = playerNames;
-            playerNames.Add("<< Create New Player >>");
+            playerNames.Add(" << Create New Player >>");
         }
 
         public void importChallonge(String apiKey, String subDomain, List<Person> playerList)
@@ -44,7 +44,8 @@ namespace SkillKeeper
                 portal = new ChallongePortal(apiKey);
 
             //Fetch all tournaments that have been completed ahead of time and save into local variable
-            completedTournaments = portal.GetTournaments().Where(t => t.CompletedAt.HasValue).ToList();
+            //completedTournaments = portal.GetTournaments().Where(t => t.CompletedAt.HasValue).ToList();
+            completedTournaments = portal.GetTournaments().ToList();
 
             //Fetch name of first tournament in list or leave blank if no tournaments
             tournamentName = completedTournaments.Select(t => t.Name).FirstOrDefault();
@@ -65,7 +66,10 @@ namespace SkillKeeper
         // Update the list of players found in the selected event.
         private void updatePlayerList()
         {
-            eventDatePicker.Value = curTourney.CompletedAt.Value;
+            if (curTourney.CompletedAt != null)
+                eventDatePicker.Value = curTourney.CompletedAt.Value;
+            else
+                eventDatePicker.Value = curTourney.CreatedAt.Value;
 
             challongePlayerList.Clear();
             foreach (Participant p in portal.GetParticipants(curTourney.Id))
@@ -97,11 +101,11 @@ namespace SkillKeeper
         // it then attempts to search through the lists of alternate names for each player.
         private String getMatch(String playerName)
         {
-            String result = "<< Create New Player >>";
+            String result = " << Create New Player >>";
             Boolean foundMatch = false;
             foreach (Person person in currentPlayers)
             {
-                if (person.Name.ToUpper() == playerName.ToUpper() || (playerName.ToUpper().StartsWith(person.Team.ToUpper()) && playerName.ToUpper().EndsWith(person.Name.ToUpper()) && person.Name.Length > 0))
+                if (person.Name.ToUpper() == playerName.ToUpper() || (playerName.ToUpper().StartsWith(person.Team.ToUpper()) && playerName.ToUpper().EndsWith(person.Name.ToUpper()) && person.Name.Length > 0 && person.Team.Length > 0))
                 {
                     foundMatch = true;
                     result = person.Name;
@@ -114,7 +118,7 @@ namespace SkillKeeper
                 {
                     foreach (String altName in person.Alts)
                     {
-                        if (altName.ToUpper() == playerName.ToUpper() || (playerName.ToUpper().StartsWith(person.Team.ToUpper()) && playerName.ToUpper().EndsWith(altName.ToUpper()) && altName.Length > 0))
+                        if (altName.ToUpper() == playerName.ToUpper() || (playerName.ToUpper().StartsWith(person.Team.ToUpper()) && playerName.ToUpper().EndsWith(altName.ToUpper()) && altName.Length > 0 && person.Team.Length > 0))
                         {
                             result = person.Name;
                         }
@@ -148,7 +152,7 @@ namespace SkillKeeper
         {
             foreach (ImportPlayer p in challongePlayerList)
             {
-                if (p.SKLink == "<< Create New Player >>")
+                if (p.SKLink == " << Create New Player >>")
                 {
                     if (!playerNames.Contains(p.Name))
                     {
@@ -186,14 +190,14 @@ namespace SkillKeeper
             {
                 if (p.ID == p1ID)
                 {
-                    if (p.SKLink == "<< Create New Player >>")
+                    if (p.SKLink == " << Create New Player >>")
                         m.Player1 = p.Name;
                     else
                         m.Player1 = p.SKLink;
                 }
                 if (p.ID == p2ID)
                 {
-                    if (p.SKLink == "<< Create New Player >>")
+                    if (p.SKLink == " << Create New Player >>")
                         m.Player2 = p.Name;
                     else
                         m.Player2 = p.SKLink;
@@ -204,8 +208,10 @@ namespace SkillKeeper
             {
                 if (p1ID == WinnerID)
                     m.Winner = 1;
-                else
+                else if (p2ID == WinnerID)
                     m.Winner = 2;
+                else
+                    m.Winner = 0;
 
                 m.ID = Guid.NewGuid().ToString("N");
 

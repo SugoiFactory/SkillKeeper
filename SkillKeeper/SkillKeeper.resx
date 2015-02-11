@@ -2150,7 +2150,15 @@
 </value>
   </data>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>v1.0.1.2 (1/9/2015)
+    <value>v1.0.1.4 (2/11/2015)
+- Fixed issue with unfinished tournament import in Challonge (now uses create date if completion date does not exist).
+- Adjusted player import selection detection.
+
+v1.0.1.3 (2/3/2015)
+- Added draw detection capability to account for Challonge imports.
+- Added ability to import unfinished tournaments from Challonge (experimental).
+
+v1.0.1.2 (1/9/2015)
 - Fixed issue where recent matches wouldn't be counted if they had a timestamp of later than midnight on the current date.
 - Added further interval customization to score decay setting.
 
