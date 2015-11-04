@@ -619,7 +619,8 @@ namespace SkillKeeper
 
                 try
                 {
-                    importer.importChallonge(skChallongeLoader.getAPIKey(), skChallongeLoader.getSubDomain(), playerList);
+                    importer.importChallonge(skChallongeLoader.getAPIKey(), skChallongeLoader.getSubDomain(), 
+                                             skChallongeLoader.getTournamentName(), playerList);
                 }
                 catch (ChallongeApiException ex)
                 {

@@ -14,6 +14,7 @@ namespace SkillKeeper
     {
         private static string apiKey = string.Empty;
         private static string subdomain = string.Empty;
+        private static string tournamentName = string.Empty;
 
         public SKChallongeLoader()
         {
@@ -25,6 +26,7 @@ namespace SkillKeeper
             //Load apikey and subdomain on load. These will be populated if they were previously set
             apiKeyBox.Text = apiKey;
             subDomainBox.Text = subdomain;
+            tournamentNameBox.Text = tournamentName;
         }
 
         public String getAPIKey()
@@ -37,11 +39,17 @@ namespace SkillKeeper
             return subDomainBox.Text;
         }
 
+        public String getTournamentName()
+        {
+            return tournamentName;
+        }
+
         private void authButton_Click(object sender, EventArgs e)
         {
             //Store api key and subdomain inputs for use if import form is closed and re-opened
             apiKey = apiKeyBox.Text;
             subdomain = subDomainBox.Text;
+            tournamentName = tournamentNameBox.Text;
 
             this.Close();
         }

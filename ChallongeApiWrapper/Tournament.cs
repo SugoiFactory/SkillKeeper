@@ -5,7 +5,7 @@ using System.Text;
 
 namespace Fizzi.Libraries.ChallongeApiWrapper
 {
-    public class Tournament
+    public class Tournament : IEquatable<Tournament>
     {
         public DateTime? CreatedAt { get; set; }
         public DateTime? StartedAt { get; set; }
@@ -24,5 +24,13 @@ namespace Fizzi.Libraries.ChallongeApiWrapper
         public string Url { get; set; }
         public string FullChallongeUrl { get; set; }
         public string LiveImageUrl { get; set; }
+
+        public bool Equals(Tournament other)
+        {
+            if (this.FullChallongeUrl == other.FullChallongeUrl)
+                return true;
+            else
+                return false;
+        }
     }
 }

@@ -1085,7 +1085,7 @@
             this.player1DataGridViewTextBoxColumn.HeaderText = "Player1";
             this.player1DataGridViewTextBoxColumn.Name = "player1DataGridViewTextBoxColumn";
             this.player1DataGridViewTextBoxColumn.ReadOnly = true;
-            this.player1DataGridViewTextBoxColumn.Width = 65;
+            this.player1DataGridViewTextBoxColumn.Width = 67;
             // 
             // player2DataGridViewTextBoxColumn
             // 
@@ -1094,7 +1094,7 @@
             this.player2DataGridViewTextBoxColumn.HeaderText = "Player2";
             this.player2DataGridViewTextBoxColumn.Name = "player2DataGridViewTextBoxColumn";
             this.player2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.player2DataGridViewTextBoxColumn.Width = 65;
+            this.player2DataGridViewTextBoxColumn.Width = 67;
             // 
             // winnerDataGridViewTextBoxColumn
             // 
@@ -1102,7 +1102,7 @@
             this.winnerDataGridViewTextBoxColumn.DataPropertyName = "Winner";
             this.winnerDataGridViewTextBoxColumn.HeaderText = "Winner";
             this.winnerDataGridViewTextBoxColumn.Name = "winnerDataGridViewTextBoxColumn";
-            this.winnerDataGridViewTextBoxColumn.Width = 64;
+            this.winnerDataGridViewTextBoxColumn.Width = 66;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
@@ -1110,7 +1110,7 @@
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Width = 83;
+            this.descriptionDataGridViewTextBoxColumn.Width = 85;
             // 
             // Column1
             // 
@@ -1119,7 +1119,7 @@
             this.Column1.HeaderText = "Date";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 53;
+            this.Column1.Width = 55;
             // 
             // orderDataGridViewTextBoxColumn
             // 
@@ -1127,7 +1127,7 @@
             this.orderDataGridViewTextBoxColumn.DataPropertyName = "Order";
             this.orderDataGridViewTextBoxColumn.HeaderText = "Order";
             this.orderDataGridViewTextBoxColumn.Name = "orderDataGridViewTextBoxColumn";
-            this.orderDataGridViewTextBoxColumn.Width = 56;
+            this.orderDataGridViewTextBoxColumn.Width = 58;
             // 
             // matchBindingSource
             // 
@@ -1207,7 +1207,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Team";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 57;
+            this.dataGridViewTextBoxColumn2.Width = 59;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1216,7 +1216,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Name";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 58;
+            this.dataGridViewTextBoxColumn1.Width = 60;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -1225,7 +1225,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Characters";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 81;
+            this.dataGridViewTextBoxColumn3.Width = 83;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -1234,7 +1234,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Wins";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 54;
+            this.dataGridViewTextBoxColumn4.Width = 56;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -1243,7 +1243,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Losses";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 63;
+            this.dataGridViewTextBoxColumn5.Width = 65;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -1252,7 +1252,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Draws";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 60;
+            this.dataGridViewTextBoxColumn6.Width = 62;
             // 
             // totalGamesDataGridViewTextBoxColumn
             // 
@@ -1261,7 +1261,7 @@
             this.totalGamesDataGridViewTextBoxColumn.HeaderText = "Total Played";
             this.totalGamesDataGridViewTextBoxColumn.Name = "totalGamesDataGridViewTextBoxColumn";
             this.totalGamesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalGamesDataGridViewTextBoxColumn.Width = 89;
+            this.totalGamesDataGridViewTextBoxColumn.Width = 91;
             // 
             // winPercentDataGridViewTextBoxColumn
             // 
@@ -1270,7 +1270,7 @@
             this.winPercentDataGridViewTextBoxColumn.HeaderText = "Win %";
             this.winPercentDataGridViewTextBoxColumn.Name = "winPercentDataGridViewTextBoxColumn";
             this.winPercentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.winPercentDataGridViewTextBoxColumn.Width = 60;
+            this.winPercentDataGridViewTextBoxColumn.Width = 62;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -1279,7 +1279,7 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "Score";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 58;
+            this.dataGridViewTextBoxColumn7.Width = 60;
             // 
             // LastMatch
             // 
@@ -1288,7 +1288,7 @@
             this.LastMatch.HeaderText = "Last Match";
             this.LastMatch.Name = "LastMatch";
             this.LastMatch.ReadOnly = true;
-            this.LastMatch.Width = 83;
+            this.LastMatch.Width = 85;
             // 
             // personBindingSource
             // 
@@ -1498,7 +1498,7 @@
             this.label32.Name = "label32";
             this.label32.Size = new System.Drawing.Size(107, 13);
             this.label32.TabIndex = 4;
-            this.label32.Text = "v1.0.1.4 (2/11/2015)";
+            this.label32.Text = "v1.0.1.5 (11/4/2015)";
             // 
             // pictureBox1
             // 

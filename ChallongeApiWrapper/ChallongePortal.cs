@@ -43,8 +43,9 @@ namespace Fizzi.Libraries.ChallongeApiWrapper
             return response.Data;
         }
 
-        public Tournament ShowTournament(int tournamentId)
+        public Tournament ShowTournament(String tournamentId)
         {
+            if (!string.IsNullOrEmpty(Subdomain)) { tournamentId = Subdomain + "-" + tournamentId; }
             var request = new RestRequest(string.Format("tournaments/{0}.xml", tournamentId), Method.GET);
             request.AddParameter("api_key", ApiKey);
 
