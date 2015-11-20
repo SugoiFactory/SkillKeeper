@@ -16,7 +16,7 @@ namespace SkillKeeper
     {
         private ChallongePortal portal;
 
-        private List<Tournament> completedTournaments = new List<Tournament>();
+        private List<Tournament> tournaments = new List<Tournament>();
         private List<Match> importMatches = new List<Match>();
         private List<Person> importPlayers = new List<Person>();
         private List<Person> currentPlayers = new List<Person>();
@@ -29,6 +29,8 @@ namespace SkillKeeper
 
         private Tournament curTourney = new Tournament();
 
+        private Tournament specifiedTournament; 
+
         public SKChallongeImporter()
         {
             InitializeComponent();
@@ -36,19 +38,30 @@ namespace SkillKeeper
             playerNames.Add(" << Create New Player >>");
         }
 
-        public void importChallonge(String apiKey, String subDomain, List<Person> playerList)
+        public void importChallonge(String apiKey, String subDomain, String specifiedTournamentName, List<Person> playerList)
         {
             if (subDomain != null && subDomain.Length > 0)
                 portal = new ChallongePortal(apiKey, subDomain);
             else
                 portal = new ChallongePortal(apiKey);
 
-            //Fetch all tournaments that have been completed ahead of time and save into local variable
-            //completedTournaments = portal.GetTournaments().Where(t => t.CompletedAt.HasValue).ToList();
-            completedTournaments = portal.GetTournaments().ToList();
+            //Fetch all tournaments for the user account or subdomain
+            tournaments = portal.GetTournaments().ToList();
+
+            //If a specific tournament name is provided, look it up individually. 
+            if (!string.IsNullOrWhiteSpace(specifiedTournamentName))
+            {
+                specifiedTournament = portal.ShowTournament(specifiedTournamentName);
+                
+                //Only add it to the list if it's not there from the user account/subdomain.
+                if (!tournaments.Contains(specifiedTournament))
+                {
+                    tournaments.Insert(0, specifiedTournament);
+                }
+            }
 
             //Fetch name of first tournament in list or leave blank if no tournaments
-            tournamentName = completedTournaments.Select(t => t.Name).FirstOrDefault();
+            tournamentName = tournaments.Select(t => t.Name).FirstOrDefault();
 
             //Load current players in leaderboard
             foreach (Person p in playerList)
@@ -59,7 +72,7 @@ namespace SkillKeeper
             playerNames.Sort();
 
             //Set event selector
-            eventSelector.DataSource = completedTournaments;
+            eventSelector.DataSource = tournaments;
             eventSelector.DisplayMember = "Name";
         }
 

@@ -2150,7 +2150,7 @@
 </value>
   </data>
   <data name="textBox1.Text" xml:space="preserve">
-    <value>v1.0.1.4 (2/11/2015)
+    <value>v1.0.1.5 (11/4/2015) (emb) - Added Challonge import without subdomain or owner's api key. v1.0.1.4 (2/11/2015)
 - Fixed issue with unfinished tournament import in Challonge (now uses create date if completion date does not exist).
 - Adjusted player import selection detection.
 
