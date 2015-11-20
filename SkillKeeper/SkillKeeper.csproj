@@ -25,8 +25,8 @@
     <ProductName>SkillKeeper92</ProductName>
     <PublisherName>Sugoi Factory</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>4</ApplicationRevision>
-    <ApplicationVersion>1.0.1.4</ApplicationVersion>
+    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationVersion>1.0.1.6</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
@@ -60,13 +60,17 @@
     <GenerateManifests>true</GenerateManifests>
   </PropertyGroup>
   <PropertyGroup>
-    <SignManifests>true</SignManifests>
+    <SignManifests>false</SignManifests>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>bird.ico</ApplicationIcon>
   </PropertyGroup>
+  <PropertyGroup />
   <PropertyGroup>
-    <NoWin32Manifest>true</NoWin32Manifest>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="RestSharp">
@@ -146,6 +150,7 @@
     <EmbeddedResource Include="SKTioImporter.resx">
       <DependentUpon>SKTioImporter.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Match.datasource" />
     <None Include="Properties\DataSources\Person.datasource" />
     <None Include="Properties\DataSources\TioPlayer.datasource" />

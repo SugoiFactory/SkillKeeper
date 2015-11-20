@@ -1058,6 +1058,26 @@ namespace SkillKeeper
             }
         }
 
+        private void modifyNameBox_TextChanged(object sender, EventArgs e)
+        {
+            modifyPlayerButton.Enabled = true;
+            if (modifyNameBox.Text.Length == 0)
+            {
+                modifyPlayerButton.Enabled = false;
+                return;
+            }
+            if (modifyNameBox.Text != modifySelector.Text)
+            {
+                foreach (Person person in playerList)
+                {
+                    if (modifyNameBox.Text == person.Name)
+                    {
+                        modifyPlayerButton.Enabled = false;
+                    }
+                }
+            }
+        }
+
         // ------------------------------------
         // History Tab
         // ------------------------------------
@@ -1124,9 +1144,10 @@ namespace SkillKeeper
 
             historyDatePicker.Value = historyMoveDatePicker.Value;
             matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
+            // Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
             requireSave = true;
-            buildHistory();
+            scoresChanged = true;
+            // buildHistory();
         }
 
         private void historyApplyButton_Click(object sender, EventArgs e)
@@ -1151,9 +1172,10 @@ namespace SkillKeeper
 
                 historyMoveDatePicker.Value = historyDatePicker.Value;
                 matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
+                // Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
                 requireSave = true;
-                buildHistory();
+                scoresChanged = true;
+                // buildHistory();
             }
         }
 
@@ -1161,9 +1183,10 @@ namespace SkillKeeper
         {
             matchList.Remove((Match) historyGridView.SelectedRows[0].DataBoundItem);
             matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
+            // Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
             requireSave = true;
-            buildHistory();
+            scoresChanged = true;
+            // buildHistory();
         }
 
         private void historyDeleteTournamentButton_Click(object sender, EventArgs e)
@@ -1185,9 +1208,10 @@ namespace SkillKeeper
             }
 
             matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
+            // Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
             requireSave = true;
-            buildHistory();
+            scoresChanged = true;
+            // buildHistory();
         }
 
         // ------------------------------------

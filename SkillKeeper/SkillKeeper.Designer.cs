@@ -909,6 +909,7 @@
             this.modifyNameBox.Name = "modifyNameBox";
             this.modifyNameBox.Size = new System.Drawing.Size(308, 20);
             this.modifyNameBox.TabIndex = 3;
+            this.modifyNameBox.TextChanged += new System.EventHandler(this.modifyNameBox_TextChanged);
             // 
             // label15
             // 
@@ -1085,7 +1086,7 @@
             this.player1DataGridViewTextBoxColumn.HeaderText = "Player1";
             this.player1DataGridViewTextBoxColumn.Name = "player1DataGridViewTextBoxColumn";
             this.player1DataGridViewTextBoxColumn.ReadOnly = true;
-            this.player1DataGridViewTextBoxColumn.Width = 67;
+            this.player1DataGridViewTextBoxColumn.Width = 65;
             // 
             // player2DataGridViewTextBoxColumn
             // 
@@ -1094,7 +1095,7 @@
             this.player2DataGridViewTextBoxColumn.HeaderText = "Player2";
             this.player2DataGridViewTextBoxColumn.Name = "player2DataGridViewTextBoxColumn";
             this.player2DataGridViewTextBoxColumn.ReadOnly = true;
-            this.player2DataGridViewTextBoxColumn.Width = 67;
+            this.player2DataGridViewTextBoxColumn.Width = 65;
             // 
             // winnerDataGridViewTextBoxColumn
             // 
@@ -1102,7 +1103,7 @@
             this.winnerDataGridViewTextBoxColumn.DataPropertyName = "Winner";
             this.winnerDataGridViewTextBoxColumn.HeaderText = "Winner";
             this.winnerDataGridViewTextBoxColumn.Name = "winnerDataGridViewTextBoxColumn";
-            this.winnerDataGridViewTextBoxColumn.Width = 66;
+            this.winnerDataGridViewTextBoxColumn.Width = 64;
             // 
             // descriptionDataGridViewTextBoxColumn
             // 
@@ -1110,7 +1111,7 @@
             this.descriptionDataGridViewTextBoxColumn.DataPropertyName = "Description";
             this.descriptionDataGridViewTextBoxColumn.HeaderText = "Description";
             this.descriptionDataGridViewTextBoxColumn.Name = "descriptionDataGridViewTextBoxColumn";
-            this.descriptionDataGridViewTextBoxColumn.Width = 85;
+            this.descriptionDataGridViewTextBoxColumn.Width = 83;
             // 
             // Column1
             // 
@@ -1119,7 +1120,7 @@
             this.Column1.HeaderText = "Date";
             this.Column1.Name = "Column1";
             this.Column1.ReadOnly = true;
-            this.Column1.Width = 55;
+            this.Column1.Width = 53;
             // 
             // orderDataGridViewTextBoxColumn
             // 
@@ -1127,7 +1128,7 @@
             this.orderDataGridViewTextBoxColumn.DataPropertyName = "Order";
             this.orderDataGridViewTextBoxColumn.HeaderText = "Order";
             this.orderDataGridViewTextBoxColumn.Name = "orderDataGridViewTextBoxColumn";
-            this.orderDataGridViewTextBoxColumn.Width = 58;
+            this.orderDataGridViewTextBoxColumn.Width = 56;
             // 
             // matchBindingSource
             // 
@@ -1207,7 +1208,7 @@
             this.dataGridViewTextBoxColumn2.HeaderText = "Team";
             this.dataGridViewTextBoxColumn2.Name = "dataGridViewTextBoxColumn2";
             this.dataGridViewTextBoxColumn2.ReadOnly = true;
-            this.dataGridViewTextBoxColumn2.Width = 59;
+            this.dataGridViewTextBoxColumn2.Width = 57;
             // 
             // dataGridViewTextBoxColumn1
             // 
@@ -1216,7 +1217,7 @@
             this.dataGridViewTextBoxColumn1.HeaderText = "Name";
             this.dataGridViewTextBoxColumn1.Name = "dataGridViewTextBoxColumn1";
             this.dataGridViewTextBoxColumn1.ReadOnly = true;
-            this.dataGridViewTextBoxColumn1.Width = 60;
+            this.dataGridViewTextBoxColumn1.Width = 58;
             // 
             // dataGridViewTextBoxColumn3
             // 
@@ -1225,7 +1226,7 @@
             this.dataGridViewTextBoxColumn3.HeaderText = "Characters";
             this.dataGridViewTextBoxColumn3.Name = "dataGridViewTextBoxColumn3";
             this.dataGridViewTextBoxColumn3.ReadOnly = true;
-            this.dataGridViewTextBoxColumn3.Width = 83;
+            this.dataGridViewTextBoxColumn3.Width = 81;
             // 
             // dataGridViewTextBoxColumn4
             // 
@@ -1234,7 +1235,7 @@
             this.dataGridViewTextBoxColumn4.HeaderText = "Wins";
             this.dataGridViewTextBoxColumn4.Name = "dataGridViewTextBoxColumn4";
             this.dataGridViewTextBoxColumn4.ReadOnly = true;
-            this.dataGridViewTextBoxColumn4.Width = 56;
+            this.dataGridViewTextBoxColumn4.Width = 54;
             // 
             // dataGridViewTextBoxColumn5
             // 
@@ -1243,7 +1244,7 @@
             this.dataGridViewTextBoxColumn5.HeaderText = "Losses";
             this.dataGridViewTextBoxColumn5.Name = "dataGridViewTextBoxColumn5";
             this.dataGridViewTextBoxColumn5.ReadOnly = true;
-            this.dataGridViewTextBoxColumn5.Width = 65;
+            this.dataGridViewTextBoxColumn5.Width = 63;
             // 
             // dataGridViewTextBoxColumn6
             // 
@@ -1252,7 +1253,7 @@
             this.dataGridViewTextBoxColumn6.HeaderText = "Draws";
             this.dataGridViewTextBoxColumn6.Name = "dataGridViewTextBoxColumn6";
             this.dataGridViewTextBoxColumn6.ReadOnly = true;
-            this.dataGridViewTextBoxColumn6.Width = 62;
+            this.dataGridViewTextBoxColumn6.Width = 60;
             // 
             // totalGamesDataGridViewTextBoxColumn
             // 
@@ -1261,7 +1262,7 @@
             this.totalGamesDataGridViewTextBoxColumn.HeaderText = "Total Played";
             this.totalGamesDataGridViewTextBoxColumn.Name = "totalGamesDataGridViewTextBoxColumn";
             this.totalGamesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.totalGamesDataGridViewTextBoxColumn.Width = 91;
+            this.totalGamesDataGridViewTextBoxColumn.Width = 89;
             // 
             // winPercentDataGridViewTextBoxColumn
             // 
@@ -1270,7 +1271,7 @@
             this.winPercentDataGridViewTextBoxColumn.HeaderText = "Win %";
             this.winPercentDataGridViewTextBoxColumn.Name = "winPercentDataGridViewTextBoxColumn";
             this.winPercentDataGridViewTextBoxColumn.ReadOnly = true;
-            this.winPercentDataGridViewTextBoxColumn.Width = 62;
+            this.winPercentDataGridViewTextBoxColumn.Width = 60;
             // 
             // dataGridViewTextBoxColumn7
             // 
@@ -1279,7 +1280,7 @@
             this.dataGridViewTextBoxColumn7.HeaderText = "Score";
             this.dataGridViewTextBoxColumn7.Name = "dataGridViewTextBoxColumn7";
             this.dataGridViewTextBoxColumn7.ReadOnly = true;
-            this.dataGridViewTextBoxColumn7.Width = 60;
+            this.dataGridViewTextBoxColumn7.Width = 58;
             // 
             // LastMatch
             // 
@@ -1288,7 +1289,7 @@
             this.LastMatch.HeaderText = "Last Match";
             this.LastMatch.Name = "LastMatch";
             this.LastMatch.ReadOnly = true;
-            this.LastMatch.Width = 85;
+            this.LastMatch.Width = 83;
             // 
             // personBindingSource
             // 
@@ -1496,9 +1497,9 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(4, 20);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(107, 13);
+            this.label32.Size = new System.Drawing.Size(113, 13);
             this.label32.TabIndex = 4;
-            this.label32.Text = "v1.0.1.5 (11/4/2015)";
+            this.label32.Text = "v1.0.1.6 (11/20/2015)";
             // 
             // pictureBox1
             // 
@@ -1636,13 +1637,13 @@
         private System.Windows.Forms.Label label24;
         private System.Windows.Forms.TabPage leaderboardTab;
         private System.Windows.Forms.DataGridView leaderBoardGrid;
-        private System.Windows.Forms.DataGridViewTextBoxColumn teamDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn charactersDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn winsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn lossesDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn drawsDataGridViewTextBoxColumn;
-        private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
+        // private System.Windows.Forms.DataGridViewTextBoxColumn teamDataGridViewTextBoxColumn;
+        // private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
+        // private System.Windows.Forms.DataGridViewTextBoxColumn charactersDataGridViewTextBoxColumn;
+        // private System.Windows.Forms.DataGridViewTextBoxColumn winsDataGridViewTextBoxColumn;
+        // private System.Windows.Forms.DataGridViewTextBoxColumn lossesDataGridViewTextBoxColumn;
+        // private System.Windows.Forms.DataGridViewTextBoxColumn drawsDataGridViewTextBoxColumn;
+        // private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
         private System.Windows.Forms.TabPage aboutTab;
         private System.Windows.Forms.BindingSource personBindingSource;
         private System.Windows.Forms.Label label25;
