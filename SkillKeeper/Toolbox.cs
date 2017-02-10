@@ -81,7 +81,13 @@ namespace SkillKeeper
                 {
                     Person p1 = playerMap[match.Player1];
                     Person p2 = playerMap[match.Player2];
-
+                    
+                    //Explained on line 177
+                    p1.DecayDays = 0;
+                    p2.DecayDays = 0;
+                    p1.DecayMonths = 0;
+                    p2.DecayMonths = 0;
+                    
                     if (decay > 0)
                     {
                         uint i = 0;
@@ -167,7 +173,23 @@ namespace SkillKeeper
                                 break;
                         }
                     }
-
+                    /*
+                    Correction to v1.0.1.6:
+                    While decayDays/Months can be removed if they exceed the decayInterval,
+                    if they do not they remain in the players cummulative decayDays/Months.
+                    This means that players that would ordinarily not receive decay would.
+                    
+                    Ex. 6 Days between Matches with a week decayInterval.
+                    Day 0  | Match 1 : No decayDays; No decay
+                    DecayDays for player: 0
+                    Day 6  | Match 2 : +6 decayDays; 6 > 7 days for week interval? No; No decay
+                    DecayDays for player: 6
+                    Day 12 | Match 3 : +6 decayDays; 12 > 7? Yes; unexpected decay
+                    DecayDays for player: 5
+                    
+                    To correct this after each player is selected from the match they will have 
+                    the decayDays/Months reset on line 85 and 246.
+                    */
                     match.P1Score = p1.Score;
                     match.P2Score = p2.Score;
 
@@ -221,6 +243,9 @@ namespace SkillKeeper
 
             foreach (Person p in playerList)
             {
+                //Explained on line 177
+                p.DecayDays = 0;
+                p.DecayMonths = 0;
                 if (decay > 0)
                 {
                     uint i = 0;
@@ -238,32 +263,38 @@ namespace SkillKeeper
 
                     switch (decay)
                     {
+                    /*
+                    Correction to v1.0.1.6:
+                    To correct 7 days and 1 week decayIntervals not yielding the same score,
+                    it was found that the final player score adjustment did not take into 
+                    account the decayValue like in the match-to-match decay.  This was added.
+                    */
                         case 1:
-                            while (p.DecayDays > 0)
+                            while (p.DecayDays > decayValue - 1)
                             {
                                 p.decayScore(startSigma);
-                                p.DecayDays--;
+                                p.DecayDays-= decayValue;
                             }
                             break;
                         case 2:
-                            while (p.DecayDays > 6)
+                            while (p.DecayDays > (7*decayValue) - 1)
                             {
                                 p.decayScore(startSigma);
-                                p.DecayDays -= 7;
+                                p.DecayDays -= 7*decayValue;
                             }
                             break;
                         case 3:
-                            while (p.DecayMonths > 0)
+                            while (p.DecayMonths > decayValue - 1)
                             {
                                 p.decayScore(startSigma);
-                                p.DecayMonths--;
+                                p.DecayMonths-= decayValue;
                             }
                             break;
                         case 4:
-                            while (p.DecayMonths > 11)
+                            while (p.DecayMonths > (12*decayValue) - 1)
                             {
                                 p.decayScore(startSigma);
-                                p.DecayMonths -= 12;
+                                p.DecayMonths -= 12*decayValue;
                             }
                             break;
                     }
