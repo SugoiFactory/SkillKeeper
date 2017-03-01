@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,7 +9,7 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SkillKeeper</RootNamespace>
     <AssemblyName>SkillKeeper</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
     <PublishUrl>D:\mydocs\Proj\SkillKeeper\</PublishUrl>
@@ -30,6 +30,7 @@
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
     <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -73,8 +74,9 @@
     <ApplicationManifest>app.manifest</ApplicationManifest>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RestSharp">
-      <HintPath>D:\restsharp\RestSharp.dll</HintPath>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -108,6 +110,24 @@
       <DependentUpon>SKChallongeLoader.cs</DependentUpon>
     </Compile>
     <Compile Include="ImportPlayer.cs" />
+    <Compile Include="SKSmashGGEventSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKSmashGGEventSelector.Designer.cs">
+      <DependentUpon>SKSmashGGEventSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SKSmashGGImporter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKSmashGGImporter.Designer.cs">
+      <DependentUpon>SKSmashGGImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SKSmashGGLoader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKSmashGGLoader.Designer.cs">
+      <DependentUpon>SKSmashGGLoader.cs</DependentUpon>
+    </Compile>
     <Compile Include="SKTioImporter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -147,10 +167,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SKSmashGGEventSelector.resx">
+      <DependentUpon>SKSmashGGEventSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SKSmashGGImporter.resx">
+      <DependentUpon>SKSmashGGImporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SKSmashGGLoader.resx">
+      <DependentUpon>SKSmashGGLoader.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SKTioImporter.resx">
       <DependentUpon>SKTioImporter.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="app.manifest" />
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Match.datasource" />
     <None Include="Properties\DataSources\Person.datasource" />
@@ -177,6 +207,10 @@
     <ProjectReference Include="..\Skills\Skills.csproj">
       <Project>{15ad1345-984c-48ed-af9a-2eab44e5aa2b}</Project>
       <Name>Skills</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmashGGApiWrapper\SmashGGApiWrapper.csproj">
+      <Project>{576e23eb-1031-41e8-b70a-111da13ba556}</Project>
+      <Name>SmashGGApiWrapper</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>
