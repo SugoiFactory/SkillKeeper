@@ -77,6 +77,7 @@ namespace SkillKeeper
         private void submitButton_Click(object sender, EventArgs e)
         {
             groupID = groups.Single(g => g.displayIdentifier == bracketSelector.Text).id;
+            importCompleteBracket = importFullBracket.Checked;
             this.Close();
         }
     }
