@@ -1,0 +1,240 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{1CAF8DA4-12F1-497A-93FB-FFFC984B8DEA}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>SkillKeeper</RootNamespace>
+    <AssemblyName>SkillKeeper</AssemblyName>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>D:\mydocs\Proj\SkillKeeper\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>false</MapFileExtensions>
+    <ProductName>SkillKeeper92</ProductName>
+    <PublisherName>Sugoi Factory</PublisherName>
+    <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
+    <ApplicationRevision>6</ApplicationRevision>
+    <ApplicationVersion>1.0.1.6</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <PublishWizardCompleted>true</PublishWizardCompleted>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestCertificateThumbprint>1E552E4B70964E78B1FE041AB11B3C7133F8EC56</ManifestCertificateThumbprint>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ManifestKeyFile>SkillKeeper_TemporaryKey.pfx</ManifestKeyFile>
+  </PropertyGroup>
+  <PropertyGroup>
+    <GenerateManifests>true</GenerateManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <SignManifests>false</SignManifests>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>bird.ico</ApplicationIcon>
+  </PropertyGroup>
+  <PropertyGroup />
+  <PropertyGroup>
+    <TargetZone>LocalIntranet</TargetZone>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Windows.Forms.DataVisualization" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="ConfirmSave.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ConfirmSave.Designer.cs">
+      <DependentUpon>ConfirmSave.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SKChallongeImporter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKChallongeImporter.Designer.cs">
+      <DependentUpon>SKChallongeImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SKChallongeLoader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKChallongeLoader.Designer.cs">
+      <DependentUpon>SKChallongeLoader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ImportPlayer.cs" />
+    <Compile Include="SKSmashGGEventSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKSmashGGEventSelector.Designer.cs">
+      <DependentUpon>SKSmashGGEventSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SKSmashGGImporter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKSmashGGImporter.Designer.cs">
+      <DependentUpon>SKSmashGGImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SKSmashGGLoader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKSmashGGLoader.Designer.cs">
+      <DependentUpon>SKSmashGGLoader.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SKTioImporter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKTioImporter.Designer.cs">
+      <DependentUpon>SKTioImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Toolbox.cs" />
+    <Compile Include="Match.cs" />
+    <Compile Include="Person.cs" />
+    <Compile Include="SkillKeeper.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SkillKeeper.Designer.cs">
+      <DependentUpon>SkillKeeper.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="ConfirmSave.resx">
+      <DependentUpon>ConfirmSave.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SKChallongeImporter.resx">
+      <DependentUpon>SKChallongeImporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SKChallongeLoader.resx">
+      <DependentUpon>SKChallongeLoader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SkillKeeper.resx">
+      <DependentUpon>SkillKeeper.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="SKSmashGGEventSelector.resx">
+      <DependentUpon>SKSmashGGEventSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SKSmashGGImporter.resx">
+      <DependentUpon>SKSmashGGImporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SKSmashGGLoader.resx">
+      <DependentUpon>SKSmashGGLoader.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SKTioImporter.resx">
+      <DependentUpon>SKTioImporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
+    <None Include="Properties\app.manifest" />
+    <None Include="Properties\DataSources\Match.datasource" />
+    <None Include="Properties\DataSources\Person.datasource" />
+    <None Include="Properties\DataSources\TioPlayer.datasource" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="SkillKeeper_TemporaryKey.pfx" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ChallongeApiWrapper\ChallongeApiWrapper.csproj">
+      <Project>{bec62b0a-47ba-4018-9ef8-a6b159aa11e4}</Project>
+      <Name>ChallongeApiWrapper</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Skills\Skills.csproj">
+      <Project>{15ad1345-984c-48ed-af9a-2eab44e5aa2b}</Project>
+      <Name>Skills</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\SmashGGApiWrapper\SmashGGApiWrapper.csproj">
+      <Project>{576e23eb-1031-41e8-b70a-111da13ba556}</Project>
+      <Name>SmashGGApiWrapper</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.5">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.5 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Client.3.5">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1 Client Profile</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Folder Include="Resources\" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="bird.ico" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
