@@ -57,6 +57,7 @@ namespace SkillKeeper
                 groups = portal.GetGroups(eventID);
                 foreach (Group g in groups)
                 {
+                    //TODO: Fix multiphase problem where toolbox gets messed up with multiple groupings of events
                     createPlayer(g.id);
                 }
             }
