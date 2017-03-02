@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SKSmashGGLoader));
             this.urlText = new System.Windows.Forms.TextBox();
             this.label1 = new System.Windows.Forms.Label();
             this.buttonSubmit = new System.Windows.Forms.Button();
@@ -80,8 +81,9 @@
             this.Controls.Add(this.buttonSubmit);
             this.Controls.Add(this.urlText);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SKSmashGGLoader";
-            this.Text = "SKSmashGGImporter";
+            this.Text = "Select a Tournament";
             this.ResumeLayout(false);
             this.PerformLayout();
 

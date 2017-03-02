@@ -16,7 +16,7 @@ namespace SkillKeeper
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            Application.Run(new SkillKeeper());
+            Application.Run(new MainWindow());
         }
     }
 }

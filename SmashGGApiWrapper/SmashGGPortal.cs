@@ -27,13 +27,26 @@ namespace SmashGGApiWrapper
                 throw new Exception(response.ToString());
             }
         }
-
+        public Tournament GetTournament()
+        {
+            var request = new RestRequest(string.Format("tournament/{0}", tournament), Method.GET);
+            var response = client.Execute<RootObject>(request);
+            throwOnError(response);
+            return response.Data.entities.tournament;
+        }
         public IEnumerable<Event> GetEvents()
         {
             var request = new RestRequest(string.Format("tournament/{0}?expand[]=event", tournament), Method.GET);
             var response = client.Execute<RootObject>(request);
             throwOnError(response);
             return response.Data.entities.@event;
+        }
+        public Group GetGroup(int groupID)
+        {
+            var request = new RestRequest(string.Format("phase_group/{0}", groupID), Method.GET);
+            var response = client.Execute<RootObject>(request);
+            throwOnError(response);
+            return response.Data.entities.groups.First();
         }
         public IEnumerable<Group> GetGroups(int eventID)
         {
@@ -55,6 +68,13 @@ namespace SmashGGApiWrapper
             var response = client.Execute<RootObject>(request);
             throwOnError(response);
             return response.Data.entities.phase;
+        }
+        public Phase GetPhase(int phaseID)
+        {
+            var request = new RestRequest(string.Format("phase/{0}", phaseID), Method.GET);
+            var response = client.Execute<RootObject>(request);
+            throwOnError(response);
+            return response.Data.entities.phase.First();
         }
         public IEnumerable<Set> GetMatches(int groupID)
         {

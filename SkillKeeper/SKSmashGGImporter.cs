@@ -44,6 +44,7 @@ namespace SkillKeeper
         public void importSmashGGBracket(string tournament, List<Person> playerList )
         {
             portal = new SmashGGPortal(tournament);
+            curTourney = portal.GetTournament();
             //Load current players in leaderboard
             foreach (Person p in playerList)
             {
@@ -57,7 +58,6 @@ namespace SkillKeeper
                 groups = portal.GetGroups(eventID);
                 foreach (Group g in groups)
                 {
-                    //TODO: Fix multiphase problem where toolbox gets messed up with multiple groupings of events
                     createPlayer(g.id);
                 }
             }
@@ -141,34 +141,38 @@ namespace SkillKeeper
             {
                 foreach(Group g in portal.GetGroups(eventID))
                 {
-                    importSets(g.id);
+                    importSets(g, portal.GetPhase(g.phaseId));
                 }
             }
             else
             {
-                importSets(groupID);
+                importSets(portal.GetGroup(groupID), portal.GetPhase(phaseID));
             }
 
             this.Close();
         }
-        private void importSets(int gID)
+        private void importSets(Group group, Phase p)
         {
 
-            foreach (Set s in portal.GetMatches(gID))
+            foreach (Set s in portal.GetMatches(group.id))
             {
                 if (s.completedAt != null)
                 {
-                    createMatch(s.entrant1Id, s.entrant2Id, s.winnerId, s.completedAt);
+                    createMatch(s.entrant1Id, s.entrant2Id, s.winnerId, s.completedAt, s.fullRoundText, p.name, group.displayIdentifier);
                 }
             }
 
         }
         //TODO: Fix for Smash gg
-        private void createMatch(int? p1ID, int? p2ID, int? WinnerID, int? time)
+        private void createMatch(int? p1ID, int? p2ID, int? WinnerID, int? time, string matchInfo, string phase, string round)
         {
             Match m = new Match();
-
-            //m.Description = curTourney.FullChallongeUrl.Split('.', '/').Skip(2).FirstOrDefault() + " - " + eventSelector.Text;
+            m.Description = string.Format("{0} - {1} {2} - {3}", curTourney.name, phase, round, matchInfo);
+            if (round.Equals("1"))
+            {
+                m.Description = m.Description = string.Format("{0} - {1} - {2}", curTourney.name, phase, matchInfo);
+            }
+            //curTourney.FullChallongeUrl.Split('.', '/').Skip(2).FirstOrDefault() + " - " + eventSelector.Text;
             m.Timestamp = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(time));
 
             foreach (ImportPlayer p in challongePlayerList)

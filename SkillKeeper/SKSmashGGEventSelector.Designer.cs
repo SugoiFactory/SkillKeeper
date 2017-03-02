@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SKSmashGGEventSelector));
             this.eventSelector = new System.Windows.Forms.ComboBox();
             this.label1 = new System.Windows.Forms.Label();
             this.bracketSelector = new System.Windows.Forms.ComboBox();
@@ -135,8 +136,9 @@
             this.Controls.Add(this.bracketSelector);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.eventSelector);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SKSmashGGEventSelector";
-            this.Text = "SKSmashGGEventSelector";
+            this.Text = "Select an Event";
             this.ResumeLayout(false);
             this.PerformLayout();
 

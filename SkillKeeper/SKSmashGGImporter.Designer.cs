@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SKSmashGGImporter));
             this.importPlayerList = new System.Windows.Forms.DataGridView();
             this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.sKLinkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
@@ -73,7 +74,7 @@
             // 
             // importPlayerBindingSource
             // 
-            this.importPlayerBindingSource.DataSource = typeof(ImportPlayer);
+            this.importPlayerBindingSource.DataSource = typeof(SkillKeeper.ImportPlayer);
             // 
             // importButton
             // 
@@ -93,8 +94,9 @@
             this.ClientSize = new System.Drawing.Size(517, 399);
             this.Controls.Add(this.importButton);
             this.Controls.Add(this.importPlayerList);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "SKSmashGGImporter";
-            this.Text = "SKSmashGGImporter";
+            this.Text = "Double Check Player Names!";
             ((System.ComponentModel.ISupportInitialize)(this.importPlayerList)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.importPlayerBindingSource)).EndInit();
             this.ResumeLayout(false);
