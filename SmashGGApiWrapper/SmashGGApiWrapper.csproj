@@ -56,11 +56,13 @@
     <Compile Include="Event.cs" />
     <Compile Include="Group.cs" />
     <Compile Include="Image2.cs" />
+    <Compile Include="Mutations.cs" />
     <Compile Include="Phase.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="RankingIteration.cs" />
     <Compile Include="RankingSery.cs" />
     <Compile Include="RootObject.cs" />
+    <Compile Include="Seed.cs" />
     <Compile Include="Set.cs" />
     <Compile Include="SmashGGPortal.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />

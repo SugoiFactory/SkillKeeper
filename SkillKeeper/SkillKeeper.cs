@@ -663,7 +663,67 @@ namespace SkillKeeper
                 }
             }
         }
+        private void fileImportSmashGGButton_Click(object sender, EventArgs e)
+        {
+            SKSmashGGLoader skSmashGGLoader = new SKSmashGGLoader();
+            if (skSmashGGLoader.ShowDialog() == DialogResult.OK)
+            {
+                SKSmashGGEventSelector eventSelector = new SKSmashGGEventSelector();
 
+                try
+                {
+                    eventSelector.importTourney(skSmashGGLoader.tournament);
+                }
+                catch (ChallongeApiException ex)
+                {
+                    MessageBox.Show(this, "The following error(s) were encountered:\n" + ex.Errors.Aggregate((one, two) => one + "\n" + two), "Challonge Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+
+                if (eventSelector.ShowDialog() == DialogResult.OK)
+                {
+                    SKSmashGGImporter importer = new SKSmashGGImporter();
+                    importer.eventID = eventSelector.eventID;
+                    importer.groupID = eventSelector.groupID;
+                    importer.phaseID = eventSelector.phaseID;
+                    importer.importCompleteBracket = eventSelector.importCompleteBracket;
+                    importer.importSmashGGBracket(skSmashGGLoader.tournament, playerList);
+                    if (importer.ShowDialog() == DialogResult.OK)
+                    {
+                        foreach (Person p in importer.getImportPlayers())
+                        {
+                            playerList.Add(p);
+                        }
+                        foreach (Match m in importer.getImportMatches())
+                        {
+                            m.Order = Toolbox.getNewMatchNumber(matchList, m.Timestamp);
+                            matchList.Add(m);
+                        }
+                        foreach (String s in importer.getNewAlts())
+                        {
+                            String name = s.Split('\t')[0];
+                            String alt = s.Split('\t')[1];
+                            foreach (Person p in playerList)
+                            {
+                                if (p.Name == name)
+                                {
+                                    if (!p.Alts.Contains(alt))
+                                        p.Alts.Add(alt);
+
+                                    break;
+                                }
+                            }
+                        }
+                        rebuildPlayerSelection();
+
+                        matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
+                        Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
+                        buildHistory();
+                    }
+
+                }
+            }
+        }
         private void fileImportGlickoButton_Click(object sender, EventArgs e)
         {
             importFileDialog.Filter = "GLK files (*.glk)|*.glk|CSV files (*.csv)|*.csv|All files (*.*)|*.*";
@@ -1329,62 +1389,7 @@ namespace SkillKeeper
         {
 
         }
-
-        private void fileImportSmashGGButton_Click(object sender, EventArgs e)
-        {
-            SKSmashGGLoader skSmashGGLoader = new SKSmashGGLoader();
-            if (skSmashGGLoader.ShowDialog() == DialogResult.OK)
-            {
-                SKSmashGGEventSelector eventSelector = new SKSmashGGEventSelector();
-
-                try
-                {
-                    eventSelector.importTourney(skSmashGGLoader.tournament);
-                }
-                catch (ChallongeApiException ex)
-                {
-                    MessageBox.Show(this, "The following error(s) were encountered:\n" + ex.Errors.Aggregate((one, two) => one + "\n" + two), "Challonge Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-
-                if (eventSelector.ShowDialog() == DialogResult.OK)
-                {
-
-                    
-                    //foreach (Person p in importer.getImportPlayers())
-                    //{
-                    //    playerList.Add(p);
-                    //}
-                    //foreach (Match m in importer.getImportMatches())
-                    //{
-                    //    m.Order = Toolbox.getNewMatchNumber(matchList, m.Timestamp);
-                    //    matchList.Add(m);
-                    //}
-                    //foreach (String s in importer.getNewAlts())
-                    //{
-                    //    String name = s.Split('\t')[0];
-                    //    String alt = s.Split('\t')[1];
-                    //    foreach (Person p in playerList)
-                    //    {
-                    //        if (p.Name == name)
-                    //        {
-                    //            if (!p.Alts.Contains(alt))
-                    //                p.Alts.Add(alt);
-
-                    //            break;
-                    //        }
-                    //    }
-                    //}
-
-                    //rebuildPlayerSelection();
-
-                    //matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-                    //Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
-                    //buildHistory();
-                }
-            }
-        }
-
+        
         private void fileTabTableLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
 

@@ -24,6 +24,7 @@ namespace SkillKeeper
         public SKSmashGGEventSelector()
         {
             InitializeComponent();
+            submitButton.DialogResult = DialogResult.OK;
         }
         private List<string> getEventNames(IEnumerable<Event> get)
         {

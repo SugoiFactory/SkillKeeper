@@ -65,7 +65,7 @@ namespace SmashGGApiWrapper
         }
         public IEnumerable<Entrant> GetEntrants(int groupID)
         {
-            var request = new RestRequest(string.Format("phase_group/{0}?expand[]=sets&expand[]=seeds", groupID), Method.GET);
+            var request = new RestRequest(string.Format("phase_group/{0}?expand[]=entrants", groupID), Method.GET);
             var response = client.Execute<RootObject>(request);
             throwOnError(response);
             return response.Data.entities.entrants;

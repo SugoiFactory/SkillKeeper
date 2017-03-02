@@ -43,6 +43,7 @@
             this.fileImportTioButton = new System.Windows.Forms.Button();
             this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.progressLabel = new System.Windows.Forms.Label();
+            this.fileImportSmashGGButton = new System.Windows.Forms.Button();
             this.resultsTab = new System.Windows.Forms.TabPage();
             this.manualResultsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.matchQualBox = new System.Windows.Forms.TextBox();
@@ -114,7 +115,6 @@
             this.historyTableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label27 = new System.Windows.Forms.Label();
             this.historyGridView = new System.Windows.Forms.DataGridView();
-            this.matchBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.historyMoveTourneyButton = new System.Windows.Forms.Button();
             this.historyMoveDatePicker = new System.Windows.Forms.DateTimePicker();
             this.historyViewAllCheck = new System.Windows.Forms.CheckBox();
@@ -126,17 +126,7 @@
             this.leaderboardTabTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label30 = new System.Windows.Forms.Label();
             this.leaderBoardGrid = new System.Windows.Forms.DataGridView();
-            this.teamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.charactersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.winsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lossesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drawsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastMatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.exportButton = new System.Windows.Forms.Button();
             this.leaderboardDatePicker = new System.Windows.Forms.DateTimePicker();
             this.settingsTab = new System.Windows.Forms.TabPage();
@@ -173,6 +163,17 @@
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timestampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matchBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.charactersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.winsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lossesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drawsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tabControl1.SuspendLayout();
             this.fileTab.SuspendLayout();
             this.fileTabTableLayoutPanel.SuspendLayout();
@@ -186,16 +187,16 @@
             this.historyTab.SuspendLayout();
             this.historyTableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.historyGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.matchBindingSource)).BeginInit();
             this.leaderboardTab.SuspendLayout();
             this.leaderboardTabTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leaderBoardGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.settingsTab.SuspendLayout();
             this.settingsTabTableLayoutPanel.SuspendLayout();
             this.aboutTab.SuspendLayout();
             this.aboutTabTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matchBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -249,6 +250,7 @@
             this.fileTabTableLayoutPanel.Controls.Add(this.fileImportTioButton, 1, 2);
             this.fileTabTableLayoutPanel.Controls.Add(this.progressBar1, 0, 5);
             this.fileTabTableLayoutPanel.Controls.Add(this.progressLabel, 0, 4);
+            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportSmashGGButton, 4, 2);
             this.fileTabTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fileTabTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.fileTabTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -375,6 +377,16 @@
             this.progressLabel.Text = "Progress";
             this.progressLabel.Visible = false;
             // 
+            // fileImportSmashGGButton
+            // 
+            this.fileImportSmashGGButton.Location = new System.Drawing.Point(373, 95);
+            this.fileImportSmashGGButton.Name = "fileImportSmashGGButton";
+            this.fileImportSmashGGButton.Size = new System.Drawing.Size(89, 44);
+            this.fileImportSmashGGButton.TabIndex = 10;
+            this.fileImportSmashGGButton.Text = "Import SmashGG Bracket";
+            this.fileImportSmashGGButton.UseVisualStyleBackColor = true;
+            this.fileImportSmashGGButton.Click += new System.EventHandler(this.fileImportSmashGGButton_Click);
+            // 
             // resultsTab
             // 
             this.resultsTab.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
@@ -397,7 +409,7 @@
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 33.33334F));
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
-            this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 93F));
+            this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 98F));
             this.manualResultsTableLayoutPanel.Controls.Add(this.matchQualBox, 2, 1);
             this.manualResultsTableLayoutPanel.Controls.Add(this.label11, 0, 6);
             this.manualResultsTableLayoutPanel.Controls.Add(this.label7, 0, 5);
@@ -449,7 +461,7 @@
             this.matchQualBox.Location = new System.Drawing.Point(203, 33);
             this.matchQualBox.Name = "matchQualBox";
             this.matchQualBox.ReadOnly = true;
-            this.matchQualBox.Size = new System.Drawing.Size(129, 20);
+            this.matchQualBox.Size = new System.Drawing.Size(125, 20);
             this.matchQualBox.TabIndex = 27;
             // 
             // label11
@@ -508,7 +520,7 @@
             this.manualDatePicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.manualDatePicker.Location = new System.Drawing.Point(203, 183);
             this.manualDatePicker.Name = "manualDatePicker";
-            this.manualDatePicker.Size = new System.Drawing.Size(129, 20);
+            this.manualDatePicker.Size = new System.Drawing.Size(125, 20);
             this.manualDatePicker.TabIndex = 6;
             // 
             // label5
@@ -533,7 +545,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label25, 3);
             this.label25.Location = new System.Drawing.Point(203, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(129, 30);
+            this.label25.Size = new System.Drawing.Size(125, 30);
             this.label25.TabIndex = 28;
             this.label25.Text = "Match Quality";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -558,7 +570,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label24, 3);
             this.label24.Location = new System.Drawing.Point(203, 150);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(129, 30);
+            this.label24.Size = new System.Drawing.Size(125, 30);
             this.label24.TabIndex = 25;
             this.label24.Text = "Match Date";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -591,7 +603,7 @@
             this.p1WinButton.Enabled = false;
             this.p1WinButton.Location = new System.Drawing.Point(203, 63);
             this.p1WinButton.Name = "p1WinButton";
-            this.p1WinButton.Size = new System.Drawing.Size(39, 24);
+            this.p1WinButton.Size = new System.Drawing.Size(37, 24);
             this.p1WinButton.TabIndex = 2;
             this.p1WinButton.Text = "P1 Win";
             this.p1WinButton.UseVisualStyleBackColor = true;
@@ -603,7 +615,7 @@
             this.ManualDescBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ManualDescBox.Location = new System.Drawing.Point(203, 123);
             this.ManualDescBox.Name = "ManualDescBox";
-            this.ManualDescBox.Size = new System.Drawing.Size(129, 20);
+            this.ManualDescBox.Size = new System.Drawing.Size(125, 20);
             this.ManualDescBox.TabIndex = 5;
             // 
             // label23
@@ -615,7 +627,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label23, 3);
             this.label23.Location = new System.Drawing.Point(203, 90);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(129, 30);
+            this.label23.Size = new System.Drawing.Size(125, 30);
             this.label23.TabIndex = 24;
             this.label23.Text = "Match Description";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -624,9 +636,9 @@
             // 
             this.drawButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.drawButton.Enabled = false;
-            this.drawButton.Location = new System.Drawing.Point(248, 63);
+            this.drawButton.Location = new System.Drawing.Point(246, 63);
             this.drawButton.Name = "drawButton";
-            this.drawButton.Size = new System.Drawing.Size(39, 24);
+            this.drawButton.Size = new System.Drawing.Size(38, 24);
             this.drawButton.TabIndex = 3;
             this.drawButton.Text = "Draw";
             this.drawButton.UseVisualStyleBackColor = true;
@@ -636,9 +648,9 @@
             // 
             this.p2WinButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p2WinButton.Enabled = false;
-            this.p2WinButton.Location = new System.Drawing.Point(293, 63);
+            this.p2WinButton.Location = new System.Drawing.Point(290, 63);
             this.p2WinButton.Name = "p2WinButton";
-            this.p2WinButton.Size = new System.Drawing.Size(39, 24);
+            this.p2WinButton.Size = new System.Drawing.Size(38, 24);
             this.p2WinButton.TabIndex = 4;
             this.p2WinButton.Text = "P2 Win";
             this.p2WinButton.UseVisualStyleBackColor = true;
@@ -676,9 +688,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(458, 30);
+            this.label4.Location = new System.Drawing.Point(454, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(89, 30);
+            this.label4.Size = new System.Drawing.Size(93, 30);
             this.label4.TabIndex = 3;
             this.label4.Text = "Player 2";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -689,9 +701,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(458, 180);
+            this.label12.Location = new System.Drawing.Point(454, 180);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(89, 30);
+            this.label12.Size = new System.Drawing.Size(93, 30);
             this.label12.TabIndex = 22;
             this.label12.Text = "W/L/D";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -702,9 +714,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(458, 150);
+            this.label8.Location = new System.Drawing.Point(454, 150);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(89, 30);
+            this.label8.Size = new System.Drawing.Size(93, 30);
             this.label8.TabIndex = 18;
             this.label8.Text = "Score";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -715,9 +727,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(458, 120);
+            this.label9.Location = new System.Drawing.Point(454, 120);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(89, 30);
+            this.label9.Size = new System.Drawing.Size(93, 30);
             this.label9.TabIndex = 14;
             this.label9.Text = "Sigma";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -728,9 +740,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(458, 90);
+            this.label10.Location = new System.Drawing.Point(454, 90);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(89, 30);
+            this.label10.Size = new System.Drawing.Size(93, 30);
             this.label10.TabIndex = 13;
             this.label10.Text = "Mu";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -742,9 +754,9 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.player2Selector, 2);
             this.player2Selector.Dock = System.Windows.Forms.DockStyle.Fill;
             this.player2Selector.FormattingEnabled = true;
-            this.player2Selector.Location = new System.Drawing.Point(338, 63);
+            this.player2Selector.Location = new System.Drawing.Point(334, 63);
             this.player2Selector.Name = "player2Selector";
-            this.player2Selector.Size = new System.Drawing.Size(209, 21);
+            this.player2Selector.Size = new System.Drawing.Size(213, 21);
             this.player2Selector.TabIndex = 1;
             this.player2Selector.SelectedIndexChanged += new System.EventHandler(this.player2Box_SelectedIndexChanged);
             // 
@@ -753,7 +765,7 @@
             this.p2MuDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2MuDisplay.Location = new System.Drawing.Point(338, 93);
+            this.p2MuDisplay.Location = new System.Drawing.Point(334, 93);
             this.p2MuDisplay.Name = "p2MuDisplay";
             this.p2MuDisplay.ReadOnly = true;
             this.p2MuDisplay.Size = new System.Drawing.Size(114, 20);
@@ -764,7 +776,7 @@
             this.p2SigmaDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2SigmaDisplay.Location = new System.Drawing.Point(338, 123);
+            this.p2SigmaDisplay.Location = new System.Drawing.Point(334, 123);
             this.p2SigmaDisplay.Name = "p2SigmaDisplay";
             this.p2SigmaDisplay.ReadOnly = true;
             this.p2SigmaDisplay.Size = new System.Drawing.Size(114, 20);
@@ -775,7 +787,7 @@
             this.p2ScoreDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2ScoreDisplay.Location = new System.Drawing.Point(338, 153);
+            this.p2ScoreDisplay.Location = new System.Drawing.Point(334, 153);
             this.p2ScoreDisplay.Name = "p2ScoreDisplay";
             this.p2ScoreDisplay.ReadOnly = true;
             this.p2ScoreDisplay.Size = new System.Drawing.Size(114, 20);
@@ -786,7 +798,7 @@
             this.p2WLDBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2WLDBox.Location = new System.Drawing.Point(338, 183);
+            this.p2WLDBox.Location = new System.Drawing.Point(334, 183);
             this.p2WLDBox.Name = "p2WLDBox";
             this.p2WLDBox.ReadOnly = true;
             this.p2WLDBox.Size = new System.Drawing.Size(114, 20);
@@ -1309,10 +1321,6 @@
             this.historyGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.historyGridView_CellContentClick);
             this.historyGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.historyGridView_CurrentCellDirtyStateChanged);
             // 
-            // matchBindingSource
-            // 
-            this.matchBindingSource.DataSource = typeof(Match);
-            // 
             // historyMoveTourneyButton
             // 
             this.historyMoveTourneyButton.Dock = System.Windows.Forms.DockStyle.Fill;
@@ -1466,87 +1474,6 @@
             this.leaderBoardGrid.Size = new System.Drawing.Size(550, 311);
             this.leaderBoardGrid.TabIndex = 0;
             // 
-            // teamDataGridViewTextBoxColumn
-            // 
-            this.teamDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.teamDataGridViewTextBoxColumn.DataPropertyName = "Team";
-            this.teamDataGridViewTextBoxColumn.HeaderText = "Team";
-            this.teamDataGridViewTextBoxColumn.Name = "teamDataGridViewTextBoxColumn";
-            this.teamDataGridViewTextBoxColumn.ReadOnly = true;
-            this.teamDataGridViewTextBoxColumn.Width = 59;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // charactersDataGridViewTextBoxColumn
-            // 
-            this.charactersDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.charactersDataGridViewTextBoxColumn.DataPropertyName = "Characters";
-            this.charactersDataGridViewTextBoxColumn.HeaderText = "Characters";
-            this.charactersDataGridViewTextBoxColumn.Name = "charactersDataGridViewTextBoxColumn";
-            this.charactersDataGridViewTextBoxColumn.ReadOnly = true;
-            this.charactersDataGridViewTextBoxColumn.Width = 5;
-            // 
-            // winsDataGridViewTextBoxColumn
-            // 
-            this.winsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.winsDataGridViewTextBoxColumn.DataPropertyName = "Wins";
-            this.winsDataGridViewTextBoxColumn.HeaderText = "Wins";
-            this.winsDataGridViewTextBoxColumn.Name = "winsDataGridViewTextBoxColumn";
-            this.winsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.winsDataGridViewTextBoxColumn.Width = 56;
-            // 
-            // lossesDataGridViewTextBoxColumn
-            // 
-            this.lossesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.lossesDataGridViewTextBoxColumn.DataPropertyName = "Losses";
-            this.lossesDataGridViewTextBoxColumn.HeaderText = "Losses";
-            this.lossesDataGridViewTextBoxColumn.Name = "lossesDataGridViewTextBoxColumn";
-            this.lossesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lossesDataGridViewTextBoxColumn.Width = 65;
-            // 
-            // drawsDataGridViewTextBoxColumn
-            // 
-            this.drawsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.drawsDataGridViewTextBoxColumn.DataPropertyName = "Draws";
-            this.drawsDataGridViewTextBoxColumn.HeaderText = "Draws";
-            this.drawsDataGridViewTextBoxColumn.Name = "drawsDataGridViewTextBoxColumn";
-            this.drawsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.drawsDataGridViewTextBoxColumn.Width = 62;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "TotalGames";
-            this.dataGridViewTextBoxColumn9.HeaderText = "TotalGames";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 89;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "WinPercent";
-            this.dataGridViewTextBoxColumn8.HeaderText = "WinPercent";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 88;
-            // 
-            // scoreDataGridViewTextBoxColumn
-            // 
-            this.scoreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.scoreDataGridViewTextBoxColumn.DataPropertyName = "Score";
-            this.scoreDataGridViewTextBoxColumn.HeaderText = "Score";
-            this.scoreDataGridViewTextBoxColumn.Name = "scoreDataGridViewTextBoxColumn";
-            this.scoreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.scoreDataGridViewTextBoxColumn.Width = 60;
-            // 
             // LastMatch
             // 
             this.LastMatch.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
@@ -1555,10 +1482,6 @@
             this.LastMatch.Name = "LastMatch";
             this.LastMatch.ReadOnly = true;
             this.LastMatch.Width = 85;
-            // 
-            // personBindingSource
-            // 
-            this.personBindingSource.DataSource = typeof(Person);
             // 
             // exportButton
             // 
@@ -1945,6 +1868,95 @@
             this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
             this.dataGridViewTextBoxColumn14.Width = 58;
             // 
+            // matchBindingSource
+            // 
+            this.matchBindingSource.DataSource = typeof(Match);
+            // 
+            // teamDataGridViewTextBoxColumn
+            // 
+            this.teamDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.teamDataGridViewTextBoxColumn.DataPropertyName = "Team";
+            this.teamDataGridViewTextBoxColumn.HeaderText = "Team";
+            this.teamDataGridViewTextBoxColumn.Name = "teamDataGridViewTextBoxColumn";
+            this.teamDataGridViewTextBoxColumn.ReadOnly = true;
+            this.teamDataGridViewTextBoxColumn.Width = 59;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // charactersDataGridViewTextBoxColumn
+            // 
+            this.charactersDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.charactersDataGridViewTextBoxColumn.DataPropertyName = "Characters";
+            this.charactersDataGridViewTextBoxColumn.HeaderText = "Characters";
+            this.charactersDataGridViewTextBoxColumn.Name = "charactersDataGridViewTextBoxColumn";
+            this.charactersDataGridViewTextBoxColumn.ReadOnly = true;
+            this.charactersDataGridViewTextBoxColumn.Width = 5;
+            // 
+            // winsDataGridViewTextBoxColumn
+            // 
+            this.winsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.winsDataGridViewTextBoxColumn.DataPropertyName = "Wins";
+            this.winsDataGridViewTextBoxColumn.HeaderText = "Wins";
+            this.winsDataGridViewTextBoxColumn.Name = "winsDataGridViewTextBoxColumn";
+            this.winsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.winsDataGridViewTextBoxColumn.Width = 56;
+            // 
+            // lossesDataGridViewTextBoxColumn
+            // 
+            this.lossesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.lossesDataGridViewTextBoxColumn.DataPropertyName = "Losses";
+            this.lossesDataGridViewTextBoxColumn.HeaderText = "Losses";
+            this.lossesDataGridViewTextBoxColumn.Name = "lossesDataGridViewTextBoxColumn";
+            this.lossesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lossesDataGridViewTextBoxColumn.Width = 65;
+            // 
+            // drawsDataGridViewTextBoxColumn
+            // 
+            this.drawsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.drawsDataGridViewTextBoxColumn.DataPropertyName = "Draws";
+            this.drawsDataGridViewTextBoxColumn.HeaderText = "Draws";
+            this.drawsDataGridViewTextBoxColumn.Name = "drawsDataGridViewTextBoxColumn";
+            this.drawsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.drawsDataGridViewTextBoxColumn.Width = 62;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "TotalGames";
+            this.dataGridViewTextBoxColumn9.HeaderText = "TotalGames";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 89;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "WinPercent";
+            this.dataGridViewTextBoxColumn8.HeaderText = "WinPercent";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 88;
+            // 
+            // scoreDataGridViewTextBoxColumn
+            // 
+            this.scoreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.scoreDataGridViewTextBoxColumn.DataPropertyName = "Score";
+            this.scoreDataGridViewTextBoxColumn.HeaderText = "Score";
+            this.scoreDataGridViewTextBoxColumn.Name = "scoreDataGridViewTextBoxColumn";
+            this.scoreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.scoreDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataSource = typeof(Person);
+            // 
             // SkillKeeper
             // 
             this.AllowDrop = true;
@@ -1976,12 +1988,10 @@
             this.historyTableLayoutPanel2.ResumeLayout(false);
             this.historyTableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.historyGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.matchBindingSource)).EndInit();
             this.leaderboardTab.ResumeLayout(false);
             this.leaderboardTabTableLayoutPanel.ResumeLayout(false);
             this.leaderboardTabTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leaderBoardGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             this.settingsTab.ResumeLayout(false);
             this.settingsTabTableLayoutPanel.ResumeLayout(false);
             this.settingsTabTableLayoutPanel.PerformLayout();
@@ -1989,6 +1999,8 @@
             this.aboutTabTableLayoutPanel.ResumeLayout(false);
             this.aboutTabTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matchBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2126,23 +2138,23 @@
         private System.Windows.Forms.Label label37;
         private System.Windows.Forms.TextBox settingsDecayIntBox;
         private System.Windows.Forms.Label label38;
-		private System.Windows.Forms.TableLayoutPanel fileTabTableLayoutPanel;
-		private System.Windows.Forms.ProgressBar progressBar1;
-		private System.Windows.Forms.TableLayoutPanel manualResultsTableLayoutPanel;
-		private System.Windows.Forms.ComboBox player2Selector;
-		private System.Windows.Forms.TextBox p2MuDisplay;
-		private System.Windows.Forms.TextBox p2SigmaDisplay;
-		private System.Windows.Forms.TextBox p2ScoreDisplay;
-		private System.Windows.Forms.TextBox p2WLDBox;
-		private System.Windows.Forms.TableLayoutPanel addPlayerTabTableLayoutPanel;
-		private System.Windows.Forms.TableLayoutPanel viewModifyPlayerTableLayoutPanel;
-		private System.Windows.Forms.Button fileSaveButton;
-		private System.Windows.Forms.TableLayoutPanel settingsTabTableLayoutPanel;
-		private System.Windows.Forms.TableLayoutPanel aboutTabTableLayoutPanel;
-		private System.Windows.Forms.PictureBox pictureBox1;
-		private System.Windows.Forms.TextBox textBox1;
-		private System.Windows.Forms.TableLayoutPanel historyTableLayoutPanel2;
-		private System.Windows.Forms.TableLayoutPanel leaderboardTabTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel fileTabTableLayoutPanel;
+        private System.Windows.Forms.ProgressBar progressBar1;
+        private System.Windows.Forms.TableLayoutPanel manualResultsTableLayoutPanel;
+        private System.Windows.Forms.ComboBox player2Selector;
+        private System.Windows.Forms.TextBox p2MuDisplay;
+        private System.Windows.Forms.TextBox p2SigmaDisplay;
+        private System.Windows.Forms.TextBox p2ScoreDisplay;
+        private System.Windows.Forms.TextBox p2WLDBox;
+        private System.Windows.Forms.TableLayoutPanel addPlayerTabTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel viewModifyPlayerTableLayoutPanel;
+        private System.Windows.Forms.Button fileSaveButton;
+        private System.Windows.Forms.TableLayoutPanel settingsTabTableLayoutPanel;
+        private System.Windows.Forms.TableLayoutPanel aboutTabTableLayoutPanel;
+        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TableLayoutPanel historyTableLayoutPanel2;
+        private System.Windows.Forms.TableLayoutPanel leaderboardTabTableLayoutPanel;
         private System.Windows.Forms.DataGridViewTextBoxColumn teamDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn charactersDataGridViewTextBoxColumn;
@@ -2160,7 +2172,8 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn timestampDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.Button fileImportSmashGGButton;
     }
-        private System.Windows.Forms.BindingSource personBindingSource;
+}
         
 
