@@ -42,7 +42,6 @@ namespace SkillKeeper
             events = gg.GetEvents();
             eventSelector.DataSource = getEventNames(events);
         }
-        //TODO: Change brackets
         private void eventSelector_SelectedIndexChanged(object sender, EventArgs e)
         {
             Event selected = events.Single(c => c.name == eventSelector.Text);

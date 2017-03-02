@@ -74,7 +74,8 @@ namespace SkillKeeper
                 ip.ID = e.id.ToString();
                 ip.Name = e.name;
                 ip.SKLink = getMatch(e.name);
-                challongePlayerList.Add(ip);
+                if (!challongePlayerList.Any(c => c.Name == e.name))
+                    challongePlayerList.Add(ip);
             }
             importPlayerBindingSource.DataSource = new BindingList<ImportPlayer>(challongePlayerList);
         }
@@ -157,18 +158,18 @@ namespace SkillKeeper
             {
                 if (s.completedAt != null)
                 {
-                    createMatch(s.entrant1Id, s.entrant2Id, s.winnerId);
+                    createMatch(s.entrant1Id, s.entrant2Id, s.winnerId, s.completedAt);
                 }
             }
 
         }
         //TODO: Fix for Smash gg
-        private void createMatch(int? p1ID, int? p2ID, int? WinnerID)
+        private void createMatch(int? p1ID, int? p2ID, int? WinnerID, int? time)
         {
             Match m = new Match();
 
             //m.Description = curTourney.FullChallongeUrl.Split('.', '/').Skip(2).FirstOrDefault() + " - " + eventSelector.Text;
-            m.Timestamp = DateTime.Now;
+            m.Timestamp = new DateTime(1970, 1, 1, 0, 0, 0).AddSeconds(Convert.ToDouble(time));
 
             foreach (ImportPlayer p in challongePlayerList)
             {
