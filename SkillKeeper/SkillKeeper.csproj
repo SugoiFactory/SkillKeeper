@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
@@ -9,10 +9,10 @@
     <AppDesignerFolder>Properties</AppDesignerFolder>
     <RootNamespace>SkillKeeper</RootNamespace>
     <AssemblyName>SkillKeeper</AssemblyName>
-    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <IsWebBootstrapper>false</IsWebBootstrapper>
-    <PublishUrl>C:\Users\Tony Feng Cheng\Documents\skillkeeper\</PublishUrl>
+    <PublishUrl>D:\mydocs\Proj\SkillKeeper\</PublishUrl>
     <Install>true</Install>
     <InstallFrom>Disk</InstallFrom>
     <UpdateEnabled>false</UpdateEnabled>
@@ -25,11 +25,12 @@
     <ProductName>SkillKeeper92</ProductName>
     <PublisherName>Sugoi Factory</PublisherName>
     <OpenBrowserOnPublish>false</OpenBrowserOnPublish>
-    <ApplicationRevision>1</ApplicationRevision>
+    <ApplicationRevision>6</ApplicationRevision>
     <ApplicationVersion>1.0.2.1</ApplicationVersion>
     <UseApplicationTrust>false</UseApplicationTrust>
     <PublishWizardCompleted>true</PublishWizardCompleted>
-    <BootstrapperEnabled>false</BootstrapperEnabled>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <TargetFrameworkProfile />
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
     <PlatformTarget>AnyCPU</PlatformTarget>
@@ -69,13 +70,17 @@
   <PropertyGroup>
     <TargetZone>LocalIntranet</TargetZone>
   </PropertyGroup>
-  <PropertyGroup />
   <PropertyGroup>
-    <ApplicationManifest>Properties\app.manifest</ApplicationManifest>
+    <ApplicationManifest>app.manifest</ApplicationManifest>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject>
+    </StartupObject>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="RestSharp">
-      <HintPath>..\packages\RestSharp.104.4.0\lib\net4-client\RestSharp.dll</HintPath>
+    <Reference Include="RestSharp, Version=105.2.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\RestSharp.105.2.3\lib\net452\RestSharp.dll</HintPath>
+      <Private>True</Private>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -109,6 +114,24 @@
       <DependentUpon>SKChallongeLoader.cs</DependentUpon>
     </Compile>
     <Compile Include="ImportPlayer.cs" />
+    <Compile Include="SKSmashGGEventSelector.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKSmashGGEventSelector.Designer.cs">
+      <DependentUpon>SKSmashGGEventSelector.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SKSmashGGImporter.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKSmashGGImporter.Designer.cs">
+      <DependentUpon>SKSmashGGImporter.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SKSmashGGLoader.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SKSmashGGLoader.Designer.cs">
+      <DependentUpon>SKSmashGGLoader.cs</DependentUpon>
+    </Compile>
     <Compile Include="SKTioImporter.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -118,11 +141,11 @@
     <Compile Include="Toolbox.cs" />
     <Compile Include="Match.cs" />
     <Compile Include="Person.cs" />
-    <Compile Include="SkillKeeper.cs">
+    <Compile Include="MainWindow.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="SkillKeeper.Designer.cs">
-      <DependentUpon>SkillKeeper.cs</DependentUpon>
+    <Compile Include="MainWindow.Designer.cs">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
@@ -135,8 +158,8 @@
     <EmbeddedResource Include="SKChallongeLoader.resx">
       <DependentUpon>SKChallongeLoader.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="SkillKeeper.resx">
-      <DependentUpon>SkillKeeper.cs</DependentUpon>
+    <EmbeddedResource Include="MainWindow.resx">
+      <DependentUpon>MainWindow.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
@@ -148,9 +171,20 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
+    <EmbeddedResource Include="SKSmashGGEventSelector.resx">
+      <DependentUpon>SKSmashGGEventSelector.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SKSmashGGImporter.resx">
+      <DependentUpon>SKSmashGGImporter.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SKSmashGGLoader.resx">
+      <DependentUpon>SKSmashGGLoader.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="SKTioImporter.resx">
       <DependentUpon>SKTioImporter.cs</DependentUpon>
     </EmbeddedResource>
+    <None Include="app.manifest" />
+    <None Include="packages.config" />
     <None Include="Properties\app.manifest" />
     <None Include="Properties\DataSources\Match.datasource" />
     <None Include="Properties\DataSources\Person.datasource" />
@@ -178,6 +212,10 @@
       <Project>{15ad1345-984c-48ed-af9a-2eab44e5aa2b}</Project>
       <Name>Skills</Name>
     </ProjectReference>
+    <ProjectReference Include="..\SmashGGApiWrapper\SmashGGApiWrapper.csproj">
+      <Project>{576e23eb-1031-41e8-b70a-111da13ba556}</Project>
+      <Name>SmashGGApiWrapper</Name>
+    </ProjectReference>
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5">
@@ -202,54 +240,5 @@
   <ItemGroup>
     <Content Include="bird.ico" />
   </ItemGroup>
-  <ItemGroup>
-    <PublishFile Include="bird.ico">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Exclude</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>File</FileType>
-    </PublishFile>
-    <PublishFile Include="ChallongeApiWrapper">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="Moserware.Skills">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-    <PublishFile Include="RestSharp">
-      <Visible>False</Visible>
-      <Group>
-      </Group>
-      <TargetPath>
-      </TargetPath>
-      <PublishState>Include</PublishState>
-      <IncludeHash>True</IncludeHash>
-      <FileType>Assembly</FileType>
-    </PublishFile>
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
 </Project>
