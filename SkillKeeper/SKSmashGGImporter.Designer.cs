@@ -31,10 +31,10 @@
             this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SKSmashGGImporter));
             this.importPlayerList = new System.Windows.Forms.DataGridView();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.sKLinkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             this.importPlayerBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.importButton = new System.Windows.Forms.Button();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.sKLinkDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewComboBoxColumn();
             ((System.ComponentModel.ISupportInitialize)(this.importPlayerList)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.importPlayerBindingSource)).BeginInit();
             this.SuspendLayout();
@@ -58,20 +58,6 @@
             this.importPlayerList.TabIndex = 0;
             this.importPlayerList.CurrentCellDirtyStateChanged += new System.EventHandler(this.importPlayerList_CurrentCellDirtyStateChanged);
             // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            // 
-            // sKLinkDataGridViewTextBoxColumn
-            // 
-            this.sKLinkDataGridViewTextBoxColumn.DataPropertyName = "SKLink";
-            this.sKLinkDataGridViewTextBoxColumn.HeaderText = "Link to Player";
-            this.sKLinkDataGridViewTextBoxColumn.Name = "sKLinkDataGridViewTextBoxColumn";
-            this.sKLinkDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
-            this.sKLinkDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
-            // 
             // importPlayerBindingSource
             // 
             this.importPlayerBindingSource.DataSource = typeof(SkillKeeper.ImportPlayer);
@@ -86,6 +72,24 @@
             this.importButton.Text = "Import";
             this.importButton.UseVisualStyleBackColor = true;
             this.importButton.Click += new System.EventHandler(this.importButton_Click);
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // sKLinkDataGridViewTextBoxColumn
+            // 
+            this.sKLinkDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.sKLinkDataGridViewTextBoxColumn.DataPropertyName = "SKLink";
+            this.sKLinkDataGridViewTextBoxColumn.HeaderText = "Link to Player";
+            this.sKLinkDataGridViewTextBoxColumn.Name = "sKLinkDataGridViewTextBoxColumn";
+            this.sKLinkDataGridViewTextBoxColumn.Resizable = System.Windows.Forms.DataGridViewTriState.True;
+            this.sKLinkDataGridViewTextBoxColumn.SortMode = System.Windows.Forms.DataGridViewColumnSortMode.Automatic;
+            this.sKLinkDataGridViewTextBoxColumn.Width = 96;
             // 
             // SKSmashGGImporter
             // 
@@ -107,8 +111,8 @@
 
         private System.Windows.Forms.DataGridView importPlayerList;
         private System.Windows.Forms.BindingSource importPlayerBindingSource;
+        private System.Windows.Forms.Button importButton;
         private System.Windows.Forms.DataGridViewTextBoxColumn nameDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewComboBoxColumn sKLinkDataGridViewTextBoxColumn;
-        private System.Windows.Forms.Button importButton;
     }
 }
