@@ -38,12 +38,12 @@
             this.fileUpdateButton = new System.Windows.Forms.Button();
             this.fileLoadButton = new System.Windows.Forms.Button();
             this.fileNewButton = new System.Windows.Forms.Button();
-            this.fileImportGlickoButton = new System.Windows.Forms.Button();
-            this.fileImportChallongeButton = new System.Windows.Forms.Button();
-            this.fileImportTioButton = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.progressLabel = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.fileImportSmashGGButton = new System.Windows.Forms.Button();
+            this.fileImportTioButton = new System.Windows.Forms.Button();
+            this.fileImportChallongeButton = new System.Windows.Forms.Button();
+            this.fileImportGlickoButton = new System.Windows.Forms.Button();
             this.resultsTab = new System.Windows.Forms.TabPage();
             this.manualResultsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.matchQualBox = new System.Windows.Forms.TextBox();
@@ -117,6 +117,7 @@
             this.historyGridView = new System.Windows.Forms.DataGridView();
             this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.TourneyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.timestampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
@@ -162,7 +163,6 @@
             this.label29 = new System.Windows.Forms.Label();
             this.aboutTab = new System.Windows.Forms.TabPage();
             this.aboutTabTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -170,11 +170,12 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
             this.openWorldDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveWorldDialog = new System.Windows.Forms.SaveFileDialog();
             this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.exportCSVDialog = new System.Windows.Forms.SaveFileDialog();
-            this.label39 = new System.Windows.Forms.Label();
             this.tabControl1.SuspendLayout();
             this.fileTab.SuspendLayout();
             this.fileTabTableLayoutPanel.SuspendLayout();
@@ -234,6 +235,8 @@
             // fileTabTableLayoutPanel
             // 
             this.fileTabTableLayoutPanel.AutoSize = true;
+            this.fileTabTableLayoutPanel.BackgroundImage = global::SkillKeeper.Properties.Resources._20170302_203445;
+            this.fileTabTableLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.fileTabTableLayoutPanel.ColumnCount = 6;
             this.fileTabTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.fileTabTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
@@ -246,23 +249,24 @@
             this.fileTabTableLayoutPanel.Controls.Add(this.fileUpdateButton, 3, 1);
             this.fileTabTableLayoutPanel.Controls.Add(this.fileLoadButton, 2, 1);
             this.fileTabTableLayoutPanel.Controls.Add(this.fileNewButton, 1, 1);
-            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportGlickoButton, 3, 2);
-            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportChallongeButton, 2, 2);
-            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportTioButton, 1, 2);
-            this.fileTabTableLayoutPanel.Controls.Add(this.progressBar1, 0, 5);
-            this.fileTabTableLayoutPanel.Controls.Add(this.progressLabel, 0, 4);
-            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportSmashGGButton, 4, 2);
+            this.fileTabTableLayoutPanel.Controls.Add(this.progressLabel, 0, 5);
+            this.fileTabTableLayoutPanel.Controls.Add(this.progressBar1, 0, 6);
+            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportSmashGGButton, 1, 3);
+            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportTioButton, 4, 3);
+            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportChallongeButton, 1, 2);
+            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportGlickoButton, 4, 2);
             this.fileTabTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fileTabTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.fileTabTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.fileTabTableLayoutPanel.Name = "fileTabTableLayoutPanel";
-            this.fileTabTableLayoutPanel.RowCount = 6;
+            this.fileTabTableLayoutPanel.RowCount = 7;
             this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-            this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.fileTabTableLayoutPanel.Size = new System.Drawing.Size(550, 369);
             this.fileTabTableLayoutPanel.TabIndex = 10;
             // 
@@ -322,38 +326,15 @@
             this.fileNewButton.UseVisualStyleBackColor = true;
             this.fileNewButton.Click += new System.EventHandler(this.fileNewButton_Click);
             // 
-            // fileImportGlickoButton
+            // progressLabel
             // 
-            this.fileImportGlickoButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fileImportGlickoButton.Location = new System.Drawing.Point(278, 100);
-            this.fileImportGlickoButton.Name = "fileImportGlickoButton";
-            this.fileImportGlickoButton.Size = new System.Drawing.Size(89, 42);
-            this.fileImportGlickoButton.TabIndex = 5;
-            this.fileImportGlickoButton.Text = "Import GlickoMan File";
-            this.fileImportGlickoButton.UseVisualStyleBackColor = true;
-            this.fileImportGlickoButton.Click += new System.EventHandler(this.fileImportGlickoButton_Click);
-            // 
-            // fileImportChallongeButton
-            // 
-            this.fileImportChallongeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fileImportChallongeButton.Location = new System.Drawing.Point(183, 103);
-            this.fileImportChallongeButton.Name = "fileImportChallongeButton";
-            this.fileImportChallongeButton.Size = new System.Drawing.Size(89, 36);
-            this.fileImportChallongeButton.TabIndex = 4;
-            this.fileImportChallongeButton.Text = "Import Challonge Bracket";
-            this.fileImportChallongeButton.UseVisualStyleBackColor = true;
-            this.fileImportChallongeButton.Click += new System.EventHandler(this.fileImportChallongeButton_Click);
-            // 
-            // fileImportTioButton
-            // 
-            this.fileImportTioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fileImportTioButton.Location = new System.Drawing.Point(88, 110);
-            this.fileImportTioButton.Name = "fileImportTioButton";
-            this.fileImportTioButton.Size = new System.Drawing.Size(89, 23);
-            this.fileImportTioButton.TabIndex = 3;
-            this.fileImportTioButton.Text = "Import TIO File";
-            this.fileImportTioButton.UseVisualStyleBackColor = true;
-            this.fileImportTioButton.Click += new System.EventHandler(this.fileImportTioButton_Click);
+            this.progressLabel.AutoSize = true;
+            this.progressLabel.Location = new System.Drawing.Point(3, 320);
+            this.progressLabel.Name = "progressLabel";
+            this.progressLabel.Size = new System.Drawing.Size(48, 13);
+            this.progressLabel.TabIndex = 8;
+            this.progressLabel.Text = "Progress";
+            this.progressLabel.Visible = false;
             // 
             // progressBar1
             // 
@@ -361,32 +342,60 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.fileTabTableLayoutPanel.SetColumnSpan(this.progressBar1, 6);
-            this.progressBar1.Location = new System.Drawing.Point(3, 346);
+            this.progressBar1.Location = new System.Drawing.Point(3, 349);
             this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(544, 20);
+            this.progressBar1.Size = new System.Drawing.Size(544, 17);
             this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar1.TabIndex = 7;
             this.progressBar1.Visible = false;
             // 
-            // progressLabel
-            // 
-            this.progressLabel.AutoSize = true;
-            this.progressLabel.Location = new System.Drawing.Point(3, 324);
-            this.progressLabel.Name = "progressLabel";
-            this.progressLabel.Size = new System.Drawing.Size(48, 13);
-            this.progressLabel.TabIndex = 8;
-            this.progressLabel.Text = "Progress";
-            this.progressLabel.Visible = false;
-            // 
             // fileImportSmashGGButton
             // 
-            this.fileImportSmashGGButton.Location = new System.Drawing.Point(373, 95);
+            this.fileImportSmashGGButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fileTabTableLayoutPanel.SetColumnSpan(this.fileImportSmashGGButton, 2);
+            this.fileImportSmashGGButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileImportSmashGGButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.fileImportSmashGGButton.Location = new System.Drawing.Point(88, 154);
             this.fileImportSmashGGButton.Name = "fileImportSmashGGButton";
-            this.fileImportSmashGGButton.Size = new System.Drawing.Size(89, 53);
+            this.fileImportSmashGGButton.Size = new System.Drawing.Size(184, 53);
             this.fileImportSmashGGButton.TabIndex = 10;
             this.fileImportSmashGGButton.Text = "Import SmashGG Bracket";
             this.fileImportSmashGGButton.UseVisualStyleBackColor = true;
             this.fileImportSmashGGButton.Click += new System.EventHandler(this.fileImportSmashGGButton_Click);
+            // 
+            // fileImportTioButton
+            // 
+            this.fileImportTioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fileImportTioButton.Location = new System.Drawing.Point(373, 169);
+            this.fileImportTioButton.Name = "fileImportTioButton";
+            this.fileImportTioButton.Size = new System.Drawing.Size(89, 23);
+            this.fileImportTioButton.TabIndex = 3;
+            this.fileImportTioButton.Text = "Import TIO File";
+            this.fileImportTioButton.UseVisualStyleBackColor = true;
+            this.fileImportTioButton.Click += new System.EventHandler(this.fileImportTioButton_Click);
+            // 
+            // fileImportChallongeButton
+            // 
+            this.fileTabTableLayoutPanel.SetColumnSpan(this.fileImportChallongeButton, 2);
+            this.fileImportChallongeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileImportChallongeButton.Location = new System.Drawing.Point(88, 95);
+            this.fileImportChallongeButton.Name = "fileImportChallongeButton";
+            this.fileImportChallongeButton.Size = new System.Drawing.Size(184, 53);
+            this.fileImportChallongeButton.TabIndex = 4;
+            this.fileImportChallongeButton.Text = "Import Challonge Bracket";
+            this.fileImportChallongeButton.UseVisualStyleBackColor = true;
+            this.fileImportChallongeButton.Click += new System.EventHandler(this.fileImportChallongeButton_Click);
+            // 
+            // fileImportGlickoButton
+            // 
+            this.fileImportGlickoButton.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fileImportGlickoButton.Location = new System.Drawing.Point(373, 100);
+            this.fileImportGlickoButton.Name = "fileImportGlickoButton";
+            this.fileImportGlickoButton.Size = new System.Drawing.Size(89, 42);
+            this.fileImportGlickoButton.TabIndex = 5;
+            this.fileImportGlickoButton.Text = "Import GlickoMan File";
+            this.fileImportGlickoButton.UseVisualStyleBackColor = true;
+            this.fileImportGlickoButton.Click += new System.EventHandler(this.fileImportGlickoButton_Click);
             // 
             // resultsTab
             // 
@@ -410,7 +419,7 @@
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.36842F));
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579F));
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
+            this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
             this.manualResultsTableLayoutPanel.Controls.Add(this.matchQualBox, 2, 1);
             this.manualResultsTableLayoutPanel.Controls.Add(this.label11, 0, 6);
             this.manualResultsTableLayoutPanel.Controls.Add(this.label7, 0, 5);
@@ -462,7 +471,7 @@
             this.matchQualBox.Location = new System.Drawing.Point(193, 33);
             this.matchQualBox.Name = "matchQualBox";
             this.matchQualBox.ReadOnly = true;
-            this.matchQualBox.Size = new System.Drawing.Size(139, 20);
+            this.matchQualBox.Size = new System.Drawing.Size(117, 20);
             this.matchQualBox.TabIndex = 27;
             // 
             // label11
@@ -521,7 +530,7 @@
             this.manualDatePicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.manualDatePicker.Location = new System.Drawing.Point(193, 183);
             this.manualDatePicker.Name = "manualDatePicker";
-            this.manualDatePicker.Size = new System.Drawing.Size(139, 20);
+            this.manualDatePicker.Size = new System.Drawing.Size(117, 20);
             this.manualDatePicker.TabIndex = 6;
             // 
             // label5
@@ -546,7 +555,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label25, 3);
             this.label25.Location = new System.Drawing.Point(193, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(139, 30);
+            this.label25.Size = new System.Drawing.Size(117, 30);
             this.label25.TabIndex = 28;
             this.label25.Text = "Match Quality";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -571,7 +580,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label24, 3);
             this.label24.Location = new System.Drawing.Point(193, 150);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(139, 30);
+            this.label24.Size = new System.Drawing.Size(117, 30);
             this.label24.TabIndex = 25;
             this.label24.Text = "Match Date";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -604,7 +613,7 @@
             this.p1WinButton.Enabled = false;
             this.p1WinButton.Location = new System.Drawing.Point(193, 63);
             this.p1WinButton.Name = "p1WinButton";
-            this.p1WinButton.Size = new System.Drawing.Size(32, 24);
+            this.p1WinButton.Size = new System.Drawing.Size(26, 24);
             this.p1WinButton.TabIndex = 2;
             this.p1WinButton.Text = "P1 Win";
             this.p1WinButton.UseVisualStyleBackColor = true;
@@ -616,7 +625,7 @@
             this.ManualDescBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ManualDescBox.Location = new System.Drawing.Point(193, 123);
             this.ManualDescBox.Name = "ManualDescBox";
-            this.ManualDescBox.Size = new System.Drawing.Size(139, 20);
+            this.ManualDescBox.Size = new System.Drawing.Size(117, 20);
             this.ManualDescBox.TabIndex = 5;
             // 
             // label23
@@ -628,7 +637,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label23, 3);
             this.label23.Location = new System.Drawing.Point(193, 90);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(139, 30);
+            this.label23.Size = new System.Drawing.Size(117, 30);
             this.label23.TabIndex = 24;
             this.label23.Text = "Match Description";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -637,9 +646,9 @@
             // 
             this.drawButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.drawButton.Enabled = false;
-            this.drawButton.Location = new System.Drawing.Point(231, 63);
+            this.drawButton.Location = new System.Drawing.Point(225, 63);
             this.drawButton.Name = "drawButton";
-            this.drawButton.Size = new System.Drawing.Size(63, 24);
+            this.drawButton.Size = new System.Drawing.Size(53, 24);
             this.drawButton.TabIndex = 3;
             this.drawButton.Text = "Draw";
             this.drawButton.UseVisualStyleBackColor = true;
@@ -649,9 +658,9 @@
             // 
             this.p2WinButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p2WinButton.Enabled = false;
-            this.p2WinButton.Location = new System.Drawing.Point(300, 63);
+            this.p2WinButton.Location = new System.Drawing.Point(284, 63);
             this.p2WinButton.Name = "p2WinButton";
-            this.p2WinButton.Size = new System.Drawing.Size(32, 24);
+            this.p2WinButton.Size = new System.Drawing.Size(26, 24);
             this.p2WinButton.TabIndex = 4;
             this.p2WinButton.Text = "P2 Win";
             this.p2WinButton.UseVisualStyleBackColor = true;
@@ -689,9 +698,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(448, 30);
+            this.label4.Location = new System.Drawing.Point(426, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 30);
+            this.label4.Size = new System.Drawing.Size(121, 30);
             this.label4.TabIndex = 3;
             this.label4.Text = "Player 2";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -702,9 +711,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(448, 180);
+            this.label12.Location = new System.Drawing.Point(426, 180);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(99, 30);
+            this.label12.Size = new System.Drawing.Size(121, 30);
             this.label12.TabIndex = 22;
             this.label12.Text = "W/L/D";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -715,9 +724,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(448, 150);
+            this.label8.Location = new System.Drawing.Point(426, 150);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 30);
+            this.label8.Size = new System.Drawing.Size(121, 30);
             this.label8.TabIndex = 18;
             this.label8.Text = "Score";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -728,9 +737,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(448, 120);
+            this.label9.Location = new System.Drawing.Point(426, 120);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 30);
+            this.label9.Size = new System.Drawing.Size(121, 30);
             this.label9.TabIndex = 14;
             this.label9.Text = "Sigma";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -741,9 +750,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(448, 90);
+            this.label10.Location = new System.Drawing.Point(426, 90);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 30);
+            this.label10.Size = new System.Drawing.Size(121, 30);
             this.label10.TabIndex = 13;
             this.label10.Text = "Mu";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -755,9 +764,9 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.player2Selector, 2);
             this.player2Selector.Dock = System.Windows.Forms.DockStyle.Fill;
             this.player2Selector.FormattingEnabled = true;
-            this.player2Selector.Location = new System.Drawing.Point(338, 63);
+            this.player2Selector.Location = new System.Drawing.Point(316, 63);
             this.player2Selector.Name = "player2Selector";
-            this.player2Selector.Size = new System.Drawing.Size(209, 21);
+            this.player2Selector.Size = new System.Drawing.Size(231, 21);
             this.player2Selector.TabIndex = 1;
             this.player2Selector.SelectedIndexChanged += new System.EventHandler(this.player2Box_SelectedIndexChanged);
             // 
@@ -766,7 +775,7 @@
             this.p2MuDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2MuDisplay.Location = new System.Drawing.Point(338, 93);
+            this.p2MuDisplay.Location = new System.Drawing.Point(316, 93);
             this.p2MuDisplay.Name = "p2MuDisplay";
             this.p2MuDisplay.ReadOnly = true;
             this.p2MuDisplay.Size = new System.Drawing.Size(104, 20);
@@ -777,7 +786,7 @@
             this.p2SigmaDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2SigmaDisplay.Location = new System.Drawing.Point(338, 123);
+            this.p2SigmaDisplay.Location = new System.Drawing.Point(316, 123);
             this.p2SigmaDisplay.Name = "p2SigmaDisplay";
             this.p2SigmaDisplay.ReadOnly = true;
             this.p2SigmaDisplay.Size = new System.Drawing.Size(104, 20);
@@ -788,7 +797,7 @@
             this.p2ScoreDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2ScoreDisplay.Location = new System.Drawing.Point(338, 153);
+            this.p2ScoreDisplay.Location = new System.Drawing.Point(316, 153);
             this.p2ScoreDisplay.Name = "p2ScoreDisplay";
             this.p2ScoreDisplay.ReadOnly = true;
             this.p2ScoreDisplay.Size = new System.Drawing.Size(104, 20);
@@ -799,7 +808,7 @@
             this.p2WLDBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2WLDBox.Location = new System.Drawing.Point(338, 183);
+            this.p2WLDBox.Location = new System.Drawing.Point(316, 183);
             this.p2WLDBox.Name = "p2WLDBox";
             this.p2WLDBox.ReadOnly = true;
             this.p2WLDBox.Size = new System.Drawing.Size(104, 20);
@@ -1301,11 +1310,13 @@
             // 
             this.historyGridView.AllowUserToAddRows = false;
             this.historyGridView.AllowUserToDeleteRows = false;
+            this.historyGridView.AllowUserToOrderColumns = true;
             this.historyGridView.AutoGenerateColumns = false;
             this.historyGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.historyGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
+            this.TourneyName,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn13,
             this.timestampDataGridViewTextBoxColumn,
@@ -1338,9 +1349,17 @@
             this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
             this.dataGridViewTextBoxColumn12.Width = 67;
             // 
+            // TourneyName
+            // 
+            this.TourneyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TourneyName.DataPropertyName = "TourneyName";
+            this.TourneyName.HeaderText = "Tournament";
+            this.TourneyName.Name = "TourneyName";
+            this.TourneyName.Width = 89;
+            // 
             // dataGridViewTextBoxColumn10
             // 
-            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.ColumnHeader;
             this.dataGridViewTextBoxColumn10.DataPropertyName = "Description";
             this.dataGridViewTextBoxColumn10.HeaderText = "Description";
             this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
@@ -1876,15 +1895,6 @@
             this.aboutTabTableLayoutPanel.Size = new System.Drawing.Size(556, 375);
             this.aboutTabTableLayoutPanel.TabIndex = 9;
             // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(3, 105);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(251, 13);
-            this.label35.TabIndex = 7;
-            this.label35.Text = "Challonge C#  API Wrapper by Jas \"Fizzi\" Laferriere";
-            // 
             // label36
             // 
             this.label36.AutoSize = true;
@@ -1958,6 +1968,15 @@
             this.textBox1.Size = new System.Drawing.Size(550, 164);
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = resources.GetString("textBox1.Text");
+            // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(3, 105);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(251, 13);
+            this.label35.TabIndex = 7;
+            this.label35.Text = "Challonge C#  API Wrapper by Jas \"Fizzi\" Laferriere";
             // 
             // label39
             // 
@@ -2177,14 +2196,15 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastMatch;
         private System.Windows.Forms.DateTimePicker historyMoveDatePicker;
+        private System.Windows.Forms.Button fileImportSmashGGButton;
+        private System.Windows.Forms.Label label39;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TourneyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn timestampDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.Button fileImportSmashGGButton;
-        private System.Windows.Forms.Label label39;
     }
 }
         

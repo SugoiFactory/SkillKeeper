@@ -14,6 +14,7 @@ namespace SkillKeeper
         private String player1, player2;
         private UInt16 winner = 0;
         private Int32 p1Score, p2Score, p1score2, p2score2;
+        private String tourneyName;
         private String id = "000";
 
         public DateTime Timestamp
@@ -21,7 +22,11 @@ namespace SkillKeeper
             get { return timestamp; }
             set { timestamp = value; }
         }
-
+        public String TourneyName
+        {
+            get { return tourneyName; }
+            set { tourneyName = value; }
+        }
         public String Description
         {
             get { return description; }

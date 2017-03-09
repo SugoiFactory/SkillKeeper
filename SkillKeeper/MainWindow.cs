@@ -1172,7 +1172,7 @@ namespace SkillKeeper
         {
             if (historyGridView.SelectedRows.Count > 0)
             {
-                historyDatePicker.Value = DateTime.Parse(historyGridView.SelectedRows[0].Cells[4].Value.ToString());
+                historyDatePicker.Value = DateTime.Parse(historyGridView.SelectedRows[0].Cells[5].Value.ToString());
                 historyDeleteMatchButton.Enabled = true;
                 historyDeleteTournamentButton.Enabled = true;
                 if (historyDatePicker.Value != historyMoveDatePicker.Value)
@@ -1195,19 +1195,19 @@ namespace SkillKeeper
 
         private void historyMoveTourneyButton_Click(object sender, EventArgs e)
         {
-            String tourneyName = historyGridView.SelectedRows[0].Cells[3].Value.ToString();
-            foreach (Match m in matchList)
+            String tourneyName = historyGridView.SelectedRows[0].Cells[2].Value.ToString();
+            foreach (var m in matchList)
             {
-                if (m.Description == tourneyName)
+                if (m.TourneyName == tourneyName)
                     m.Timestamp = historyMoveDatePicker.Value;
             }
 
             historyDatePicker.Value = historyMoveDatePicker.Value;
             matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-            // Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
             requireSave = true;
             scoresChanged = true;
-            // buildHistory();
+            buildHistory();
         }
 
         private void historyApplyButton_Click(object sender, EventArgs e)
@@ -1251,7 +1251,7 @@ namespace SkillKeeper
 
         private void historyDeleteTournamentButton_Click(object sender, EventArgs e)
         {
-            String tourneyName = historyGridView.SelectedRows[0].Cells[3].Value.ToString();
+            String tourneyName = historyGridView.SelectedRows[0].Cells[2].Value.ToString();
             Boolean allDeleted = false;
             while (!allDeleted)
             {

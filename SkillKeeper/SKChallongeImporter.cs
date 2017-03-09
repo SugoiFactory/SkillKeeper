@@ -196,9 +196,9 @@ namespace SkillKeeper
         {
             Match m = new Match();
 
-            m.Description = curTourney.FullChallongeUrl.Split('.', '/').Skip(2).FirstOrDefault() + " - " + eventSelector.Text;
+            m.Description =  curTourney.FullChallongeUrl.Split('.', '/').Skip(2).FirstOrDefault() + " - " + eventSelector.Text;
             m.Timestamp = eventDatePicker.Value;
-
+            m.TourneyName = eventSelector.Text;
             foreach (ImportPlayer p in challongePlayerList)
             {
                 if (p.ID == p1ID)
