@@ -9,4 +9,4 @@ Current Todo list:
 - [ ] Multiple worlds stored to one file? Requested by Dank
 - [ ] Set user score manually default to 0 for 0-0 matches
   - [ ] requires a sigma/mu calculation to determine uncertainty
-- [ ] 
+- [ ] Fix Move Match button enable/disable logic 

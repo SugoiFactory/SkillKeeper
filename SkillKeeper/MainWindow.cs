@@ -1410,5 +1410,22 @@ namespace SkillKeeper
             modifySelector.Text = leaderBoardGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
             tabControl1.SelectedTab = tabControl1.TabPages[3];
         }
+
+        private void historyMoveMatchButton_Click(object sender, EventArgs e)
+        {
+            String p1 = historyGridView.SelectedRows[0].Cells[0].Value.ToString();
+            String p2 = historyGridView.SelectedRows[0].Cells[1].Value.ToString();
+            String tourneyName = historyGridView.SelectedRows[0].Cells[2].Value.ToString();
+            String description = historyGridView.SelectedRows[0].Cells[3].Value.ToString();
+            Match m = matchList.First(c => c.TourneyName == tourneyName && c.Description == description && c.Player1 == p1 && c.Player2 == p2);
+            m.Timestamp = historyMoveDatePicker.Value;
+
+            historyDatePicker.Value = historyMoveDatePicker.Value;
+            matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
+            requireSave = true;
+            scoresChanged = true;
+            buildHistory();
+        }
     }
 }

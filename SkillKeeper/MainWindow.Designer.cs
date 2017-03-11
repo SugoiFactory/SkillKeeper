@@ -176,6 +176,7 @@
             this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.historyMoveMatchButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.fileTab.SuspendLayout();
             this.fileTabTableLayoutPanel.SuspendLayout();
@@ -216,7 +217,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(564, 401);
+            this.tabControl1.Size = new System.Drawing.Size(744, 401);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_SelectedIndexChanged);
             // 
@@ -337,9 +338,7 @@
             // 
             // progressBar1
             // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
+            this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.None;
             this.fileTabTableLayoutPanel.SetColumnSpan(this.progressBar1, 6);
             this.progressBar1.Location = new System.Drawing.Point(3, 349);
             this.progressBar1.Name = "progressBar1";
@@ -420,7 +419,7 @@
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.36842F));
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579F));
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 144F));
+            this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
             this.manualResultsTableLayoutPanel.Controls.Add(this.matchQualBox, 2, 1);
             this.manualResultsTableLayoutPanel.Controls.Add(this.label11, 0, 6);
             this.manualResultsTableLayoutPanel.Controls.Add(this.label7, 0, 5);
@@ -472,7 +471,7 @@
             this.matchQualBox.Location = new System.Drawing.Point(193, 33);
             this.matchQualBox.Name = "matchQualBox";
             this.matchQualBox.ReadOnly = true;
-            this.matchQualBox.Size = new System.Drawing.Size(98, 20);
+            this.matchQualBox.Size = new System.Drawing.Size(92, 20);
             this.matchQualBox.TabIndex = 27;
             // 
             // label11
@@ -531,7 +530,7 @@
             this.manualDatePicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.manualDatePicker.Location = new System.Drawing.Point(193, 183);
             this.manualDatePicker.Name = "manualDatePicker";
-            this.manualDatePicker.Size = new System.Drawing.Size(98, 20);
+            this.manualDatePicker.Size = new System.Drawing.Size(92, 20);
             this.manualDatePicker.TabIndex = 6;
             // 
             // label5
@@ -556,7 +555,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label25, 3);
             this.label25.Location = new System.Drawing.Point(193, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(98, 30);
+            this.label25.Size = new System.Drawing.Size(92, 30);
             this.label25.TabIndex = 28;
             this.label25.Text = "Match Quality";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -581,7 +580,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label24, 3);
             this.label24.Location = new System.Drawing.Point(193, 150);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(98, 30);
+            this.label24.Size = new System.Drawing.Size(92, 30);
             this.label24.TabIndex = 25;
             this.label24.Text = "Match Date";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -614,7 +613,7 @@
             this.p1WinButton.Enabled = false;
             this.p1WinButton.Location = new System.Drawing.Point(193, 63);
             this.p1WinButton.Name = "p1WinButton";
-            this.p1WinButton.Size = new System.Drawing.Size(21, 24);
+            this.p1WinButton.Size = new System.Drawing.Size(20, 24);
             this.p1WinButton.TabIndex = 2;
             this.p1WinButton.Text = "P1 Win";
             this.p1WinButton.UseVisualStyleBackColor = true;
@@ -626,7 +625,7 @@
             this.ManualDescBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ManualDescBox.Location = new System.Drawing.Point(193, 123);
             this.ManualDescBox.Name = "ManualDescBox";
-            this.ManualDescBox.Size = new System.Drawing.Size(98, 20);
+            this.ManualDescBox.Size = new System.Drawing.Size(92, 20);
             this.ManualDescBox.TabIndex = 5;
             // 
             // label23
@@ -638,7 +637,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label23, 3);
             this.label23.Location = new System.Drawing.Point(193, 90);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(98, 30);
+            this.label23.Size = new System.Drawing.Size(92, 30);
             this.label23.TabIndex = 24;
             this.label23.Text = "Match Description";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -647,9 +646,9 @@
             // 
             this.drawButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.drawButton.Enabled = false;
-            this.drawButton.Location = new System.Drawing.Point(220, 63);
+            this.drawButton.Location = new System.Drawing.Point(219, 63);
             this.drawButton.Name = "drawButton";
-            this.drawButton.Size = new System.Drawing.Size(44, 24);
+            this.drawButton.Size = new System.Drawing.Size(40, 24);
             this.drawButton.TabIndex = 3;
             this.drawButton.Text = "Draw";
             this.drawButton.UseVisualStyleBackColor = true;
@@ -659,9 +658,9 @@
             // 
             this.p2WinButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p2WinButton.Enabled = false;
-            this.p2WinButton.Location = new System.Drawing.Point(270, 63);
+            this.p2WinButton.Location = new System.Drawing.Point(265, 63);
             this.p2WinButton.Name = "p2WinButton";
-            this.p2WinButton.Size = new System.Drawing.Size(21, 24);
+            this.p2WinButton.Size = new System.Drawing.Size(20, 24);
             this.p2WinButton.TabIndex = 4;
             this.p2WinButton.Text = "P2 Win";
             this.p2WinButton.UseVisualStyleBackColor = true;
@@ -699,9 +698,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(407, 30);
+            this.label4.Location = new System.Drawing.Point(401, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(140, 30);
+            this.label4.Size = new System.Drawing.Size(146, 30);
             this.label4.TabIndex = 3;
             this.label4.Text = "Player 2";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -712,9 +711,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(407, 180);
+            this.label12.Location = new System.Drawing.Point(401, 180);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(140, 30);
+            this.label12.Size = new System.Drawing.Size(146, 30);
             this.label12.TabIndex = 22;
             this.label12.Text = "W/L/D";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -725,9 +724,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(407, 150);
+            this.label8.Location = new System.Drawing.Point(401, 150);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(140, 30);
+            this.label8.Size = new System.Drawing.Size(146, 30);
             this.label8.TabIndex = 18;
             this.label8.Text = "Score";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -738,9 +737,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(407, 120);
+            this.label9.Location = new System.Drawing.Point(401, 120);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(140, 30);
+            this.label9.Size = new System.Drawing.Size(146, 30);
             this.label9.TabIndex = 14;
             this.label9.Text = "Sigma";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -751,9 +750,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(407, 90);
+            this.label10.Location = new System.Drawing.Point(401, 90);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(140, 30);
+            this.label10.Size = new System.Drawing.Size(146, 30);
             this.label10.TabIndex = 13;
             this.label10.Text = "Mu";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -765,9 +764,9 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.player2Selector, 2);
             this.player2Selector.Dock = System.Windows.Forms.DockStyle.Fill;
             this.player2Selector.FormattingEnabled = true;
-            this.player2Selector.Location = new System.Drawing.Point(297, 63);
+            this.player2Selector.Location = new System.Drawing.Point(291, 63);
             this.player2Selector.Name = "player2Selector";
-            this.player2Selector.Size = new System.Drawing.Size(250, 21);
+            this.player2Selector.Size = new System.Drawing.Size(256, 21);
             this.player2Selector.TabIndex = 1;
             this.player2Selector.SelectedIndexChanged += new System.EventHandler(this.player2Box_SelectedIndexChanged);
             // 
@@ -776,7 +775,7 @@
             this.p2MuDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2MuDisplay.Location = new System.Drawing.Point(297, 93);
+            this.p2MuDisplay.Location = new System.Drawing.Point(291, 93);
             this.p2MuDisplay.Name = "p2MuDisplay";
             this.p2MuDisplay.ReadOnly = true;
             this.p2MuDisplay.Size = new System.Drawing.Size(104, 20);
@@ -787,7 +786,7 @@
             this.p2SigmaDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2SigmaDisplay.Location = new System.Drawing.Point(297, 123);
+            this.p2SigmaDisplay.Location = new System.Drawing.Point(291, 123);
             this.p2SigmaDisplay.Name = "p2SigmaDisplay";
             this.p2SigmaDisplay.ReadOnly = true;
             this.p2SigmaDisplay.Size = new System.Drawing.Size(104, 20);
@@ -798,7 +797,7 @@
             this.p2ScoreDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2ScoreDisplay.Location = new System.Drawing.Point(297, 153);
+            this.p2ScoreDisplay.Location = new System.Drawing.Point(291, 153);
             this.p2ScoreDisplay.Name = "p2ScoreDisplay";
             this.p2ScoreDisplay.ReadOnly = true;
             this.p2ScoreDisplay.Size = new System.Drawing.Size(104, 20);
@@ -809,7 +808,7 @@
             this.p2WLDBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2WLDBox.Location = new System.Drawing.Point(297, 183);
+            this.p2WLDBox.Location = new System.Drawing.Point(291, 183);
             this.p2WLDBox.Name = "p2WLDBox";
             this.p2WLDBox.ReadOnly = true;
             this.p2WLDBox.Size = new System.Drawing.Size(104, 20);
@@ -1263,7 +1262,7 @@
             this.historyTab.Controls.Add(this.historyTableLayoutPanel2);
             this.historyTab.Location = new System.Drawing.Point(4, 22);
             this.historyTab.Name = "historyTab";
-            this.historyTab.Size = new System.Drawing.Size(556, 375);
+            this.historyTab.Size = new System.Drawing.Size(736, 375);
             this.historyTab.TabIndex = 6;
             this.historyTab.Text = "History";
             this.historyTab.UseVisualStyleBackColor = true;
@@ -1271,16 +1270,18 @@
             // 
             // historyTableLayoutPanel2
             // 
-            this.historyTableLayoutPanel2.ColumnCount = 5;
+            this.historyTableLayoutPanel2.ColumnCount = 6;
             this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
             this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
-            this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.historyTableLayoutPanel2.Controls.Add(this.historyMoveMatchButton, 5, 2);
             this.historyTableLayoutPanel2.Controls.Add(this.label27, 0, 0);
             this.historyTableLayoutPanel2.Controls.Add(this.historyGridView, 0, 1);
-            this.historyTableLayoutPanel2.Controls.Add(this.historyMoveTourneyButton, 3, 2);
-            this.historyTableLayoutPanel2.Controls.Add(this.historyMoveDatePicker, 4, 2);
+            this.historyTableLayoutPanel2.Controls.Add(this.historyMoveTourneyButton, 4, 2);
+            this.historyTableLayoutPanel2.Controls.Add(this.historyMoveDatePicker, 3, 2);
             this.historyTableLayoutPanel2.Controls.Add(this.historyViewAllCheck, 3, 0);
             this.historyTableLayoutPanel2.Controls.Add(this.historyApplyButton, 0, 2);
             this.historyTableLayoutPanel2.Controls.Add(this.historyDatePicker, 1, 0);
@@ -1293,7 +1294,8 @@
             this.historyTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.historyTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.historyTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.historyTableLayoutPanel2.Size = new System.Drawing.Size(556, 375);
+            this.historyTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.historyTableLayoutPanel2.Size = new System.Drawing.Size(736, 375);
             this.historyTableLayoutPanel2.TabIndex = 9;
             // 
             // label27
@@ -1329,7 +1331,7 @@
             this.historyGridView.MultiSelect = false;
             this.historyGridView.Name = "historyGridView";
             this.historyGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.historyGridView.Size = new System.Drawing.Size(550, 311);
+            this.historyGridView.Size = new System.Drawing.Size(730, 311);
             this.historyGridView.TabIndex = 0;
             this.historyGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.historyGridView_CellContentClick);
             this.historyGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.historyGridView_CurrentCellDirtyStateChanged);
@@ -1338,9 +1340,9 @@
             // 
             this.historyMoveTourneyButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.historyMoveTourneyButton.Enabled = false;
-            this.historyMoveTourneyButton.Location = new System.Drawing.Point(278, 349);
+            this.historyMoveTourneyButton.Location = new System.Drawing.Point(463, 349);
             this.historyMoveTourneyButton.Name = "historyMoveTourneyButton";
-            this.historyMoveTourneyButton.Size = new System.Drawing.Size(179, 23);
+            this.historyMoveTourneyButton.Size = new System.Drawing.Size(137, 23);
             this.historyMoveTourneyButton.TabIndex = 6;
             this.historyMoveTourneyButton.Text = "Move tournament date";
             this.historyMoveTourneyButton.UseVisualStyleBackColor = true;
@@ -1349,9 +1351,9 @@
             // historyMoveDatePicker
             // 
             this.historyMoveDatePicker.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.historyMoveDatePicker.Location = new System.Drawing.Point(463, 349);
+            this.historyMoveDatePicker.Location = new System.Drawing.Point(278, 349);
             this.historyMoveDatePicker.Name = "historyMoveDatePicker";
-            this.historyMoveDatePicker.Size = new System.Drawing.Size(90, 20);
+            this.historyMoveDatePicker.Size = new System.Drawing.Size(179, 20);
             this.historyMoveDatePicker.TabIndex = 5;
             this.historyMoveDatePicker.ValueChanged += new System.EventHandler(this.historyMoveDatePicker_ValueChanged);
             // 
@@ -1990,12 +1992,24 @@
             // 
             this.personBindingSource.DataSource = typeof(SkillKeeper.Person);
             // 
+            // historyMoveMatchButton
+            // 
+            this.historyMoveMatchButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.historyMoveMatchButton.Enabled = false;
+            this.historyMoveMatchButton.Location = new System.Drawing.Point(606, 349);
+            this.historyMoveMatchButton.Name = "historyMoveMatchButton";
+            this.historyMoveMatchButton.Size = new System.Drawing.Size(127, 23);
+            this.historyMoveMatchButton.TabIndex = 9;
+            this.historyMoveMatchButton.Text = "Move Match Date";
+            this.historyMoveMatchButton.UseVisualStyleBackColor = true;
+            this.historyMoveMatchButton.Click += new System.EventHandler(this.historyMoveMatchButton_Click);
+            // 
             // MainWindow
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 401);
+            this.ClientSize = new System.Drawing.Size(744, 401);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(580, 440);
@@ -2208,6 +2222,7 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn timestampDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
+        private System.Windows.Forms.Button historyMoveMatchButton;
     }
 }
         
