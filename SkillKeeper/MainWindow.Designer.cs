@@ -235,7 +235,6 @@
             // fileTabTableLayoutPanel
             // 
             this.fileTabTableLayoutPanel.AutoSize = true;
-            this.fileTabTableLayoutPanel.BackgroundImage = global::SkillKeeper.Properties.Resources._20170302_203445;
             this.fileTabTableLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.fileTabTableLayoutPanel.ColumnCount = 6;
             this.fileTabTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
@@ -252,9 +251,9 @@
             this.fileTabTableLayoutPanel.Controls.Add(this.progressLabel, 0, 5);
             this.fileTabTableLayoutPanel.Controls.Add(this.progressBar1, 0, 6);
             this.fileTabTableLayoutPanel.Controls.Add(this.fileImportSmashGGButton, 1, 3);
-            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportTioButton, 4, 3);
+            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportTioButton, 3, 3);
             this.fileTabTableLayoutPanel.Controls.Add(this.fileImportChallongeButton, 1, 2);
-            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportGlickoButton, 4, 2);
+            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportGlickoButton, 3, 2);
             this.fileTabTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fileTabTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.fileTabTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
@@ -365,10 +364,11 @@
             // 
             // fileImportTioButton
             // 
-            this.fileImportTioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fileImportTioButton.Location = new System.Drawing.Point(373, 169);
+            this.fileTabTableLayoutPanel.SetColumnSpan(this.fileImportTioButton, 2);
+            this.fileImportTioButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileImportTioButton.Location = new System.Drawing.Point(278, 154);
             this.fileImportTioButton.Name = "fileImportTioButton";
-            this.fileImportTioButton.Size = new System.Drawing.Size(89, 23);
+            this.fileImportTioButton.Size = new System.Drawing.Size(184, 53);
             this.fileImportTioButton.TabIndex = 3;
             this.fileImportTioButton.Text = "Import TIO File";
             this.fileImportTioButton.UseVisualStyleBackColor = true;
@@ -388,10 +388,11 @@
             // 
             // fileImportGlickoButton
             // 
-            this.fileImportGlickoButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fileImportGlickoButton.Location = new System.Drawing.Point(373, 100);
+            this.fileTabTableLayoutPanel.SetColumnSpan(this.fileImportGlickoButton, 2);
+            this.fileImportGlickoButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileImportGlickoButton.Location = new System.Drawing.Point(278, 95);
             this.fileImportGlickoButton.Name = "fileImportGlickoButton";
-            this.fileImportGlickoButton.Size = new System.Drawing.Size(89, 42);
+            this.fileImportGlickoButton.Size = new System.Drawing.Size(184, 53);
             this.fileImportGlickoButton.TabIndex = 5;
             this.fileImportGlickoButton.Text = "Import GlickoMan File";
             this.fileImportGlickoButton.UseVisualStyleBackColor = true;
@@ -419,7 +420,7 @@
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.36842F));
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579F));
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 125F));
+            this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 128F));
             this.manualResultsTableLayoutPanel.Controls.Add(this.matchQualBox, 2, 1);
             this.manualResultsTableLayoutPanel.Controls.Add(this.label11, 0, 6);
             this.manualResultsTableLayoutPanel.Controls.Add(this.label7, 0, 5);
@@ -471,7 +472,7 @@
             this.matchQualBox.Location = new System.Drawing.Point(193, 33);
             this.matchQualBox.Name = "matchQualBox";
             this.matchQualBox.ReadOnly = true;
-            this.matchQualBox.Size = new System.Drawing.Size(117, 20);
+            this.matchQualBox.Size = new System.Drawing.Size(115, 20);
             this.matchQualBox.TabIndex = 27;
             // 
             // label11
@@ -530,7 +531,7 @@
             this.manualDatePicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.manualDatePicker.Location = new System.Drawing.Point(193, 183);
             this.manualDatePicker.Name = "manualDatePicker";
-            this.manualDatePicker.Size = new System.Drawing.Size(117, 20);
+            this.manualDatePicker.Size = new System.Drawing.Size(115, 20);
             this.manualDatePicker.TabIndex = 6;
             // 
             // label5
@@ -555,7 +556,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label25, 3);
             this.label25.Location = new System.Drawing.Point(193, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(117, 30);
+            this.label25.Size = new System.Drawing.Size(115, 30);
             this.label25.TabIndex = 28;
             this.label25.Text = "Match Quality";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -580,7 +581,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label24, 3);
             this.label24.Location = new System.Drawing.Point(193, 150);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(117, 30);
+            this.label24.Size = new System.Drawing.Size(115, 30);
             this.label24.TabIndex = 25;
             this.label24.Text = "Match Date";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -625,7 +626,7 @@
             this.ManualDescBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ManualDescBox.Location = new System.Drawing.Point(193, 123);
             this.ManualDescBox.Name = "ManualDescBox";
-            this.ManualDescBox.Size = new System.Drawing.Size(117, 20);
+            this.ManualDescBox.Size = new System.Drawing.Size(115, 20);
             this.ManualDescBox.TabIndex = 5;
             // 
             // label23
@@ -637,7 +638,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label23, 3);
             this.label23.Location = new System.Drawing.Point(193, 90);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(117, 30);
+            this.label23.Size = new System.Drawing.Size(115, 30);
             this.label23.TabIndex = 24;
             this.label23.Text = "Match Description";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -648,7 +649,7 @@
             this.drawButton.Enabled = false;
             this.drawButton.Location = new System.Drawing.Point(225, 63);
             this.drawButton.Name = "drawButton";
-            this.drawButton.Size = new System.Drawing.Size(53, 24);
+            this.drawButton.Size = new System.Drawing.Size(51, 24);
             this.drawButton.TabIndex = 3;
             this.drawButton.Text = "Draw";
             this.drawButton.UseVisualStyleBackColor = true;
@@ -658,7 +659,7 @@
             // 
             this.p2WinButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p2WinButton.Enabled = false;
-            this.p2WinButton.Location = new System.Drawing.Point(284, 63);
+            this.p2WinButton.Location = new System.Drawing.Point(282, 63);
             this.p2WinButton.Name = "p2WinButton";
             this.p2WinButton.Size = new System.Drawing.Size(26, 24);
             this.p2WinButton.TabIndex = 4;
@@ -698,9 +699,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(426, 30);
+            this.label4.Location = new System.Drawing.Point(424, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(121, 30);
+            this.label4.Size = new System.Drawing.Size(123, 30);
             this.label4.TabIndex = 3;
             this.label4.Text = "Player 2";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -711,9 +712,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(426, 180);
+            this.label12.Location = new System.Drawing.Point(424, 180);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(121, 30);
+            this.label12.Size = new System.Drawing.Size(123, 30);
             this.label12.TabIndex = 22;
             this.label12.Text = "W/L/D";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -724,9 +725,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(426, 150);
+            this.label8.Location = new System.Drawing.Point(424, 150);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(121, 30);
+            this.label8.Size = new System.Drawing.Size(123, 30);
             this.label8.TabIndex = 18;
             this.label8.Text = "Score";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -737,9 +738,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(426, 120);
+            this.label9.Location = new System.Drawing.Point(424, 120);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(121, 30);
+            this.label9.Size = new System.Drawing.Size(123, 30);
             this.label9.TabIndex = 14;
             this.label9.Text = "Sigma";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -750,9 +751,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(426, 90);
+            this.label10.Location = new System.Drawing.Point(424, 90);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(121, 30);
+            this.label10.Size = new System.Drawing.Size(123, 30);
             this.label10.TabIndex = 13;
             this.label10.Text = "Mu";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -764,9 +765,9 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.player2Selector, 2);
             this.player2Selector.Dock = System.Windows.Forms.DockStyle.Fill;
             this.player2Selector.FormattingEnabled = true;
-            this.player2Selector.Location = new System.Drawing.Point(316, 63);
+            this.player2Selector.Location = new System.Drawing.Point(314, 63);
             this.player2Selector.Name = "player2Selector";
-            this.player2Selector.Size = new System.Drawing.Size(231, 21);
+            this.player2Selector.Size = new System.Drawing.Size(233, 21);
             this.player2Selector.TabIndex = 1;
             this.player2Selector.SelectedIndexChanged += new System.EventHandler(this.player2Box_SelectedIndexChanged);
             // 
@@ -775,7 +776,7 @@
             this.p2MuDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2MuDisplay.Location = new System.Drawing.Point(316, 93);
+            this.p2MuDisplay.Location = new System.Drawing.Point(314, 93);
             this.p2MuDisplay.Name = "p2MuDisplay";
             this.p2MuDisplay.ReadOnly = true;
             this.p2MuDisplay.Size = new System.Drawing.Size(104, 20);
@@ -786,7 +787,7 @@
             this.p2SigmaDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2SigmaDisplay.Location = new System.Drawing.Point(316, 123);
+            this.p2SigmaDisplay.Location = new System.Drawing.Point(314, 123);
             this.p2SigmaDisplay.Name = "p2SigmaDisplay";
             this.p2SigmaDisplay.ReadOnly = true;
             this.p2SigmaDisplay.Size = new System.Drawing.Size(104, 20);
@@ -797,7 +798,7 @@
             this.p2ScoreDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2ScoreDisplay.Location = new System.Drawing.Point(316, 153);
+            this.p2ScoreDisplay.Location = new System.Drawing.Point(314, 153);
             this.p2ScoreDisplay.Name = "p2ScoreDisplay";
             this.p2ScoreDisplay.ReadOnly = true;
             this.p2ScoreDisplay.Size = new System.Drawing.Size(104, 20);
@@ -808,7 +809,7 @@
             this.p2WLDBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2WLDBox.Location = new System.Drawing.Point(316, 183);
+            this.p2WLDBox.Location = new System.Drawing.Point(314, 183);
             this.p2WLDBox.Name = "p2WLDBox";
             this.p2WLDBox.ReadOnly = true;
             this.p2WLDBox.Size = new System.Drawing.Size(104, 20);
