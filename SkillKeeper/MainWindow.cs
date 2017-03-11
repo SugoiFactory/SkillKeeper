@@ -422,7 +422,9 @@ namespace SkillKeeper
                     Match match = new Match();
                     match.Timestamp = DateTime.Parse(m.Attribute("Timestamp").Value);
                     match.Order = UInt32.Parse(m.Attribute("Order").Value);
-                    if(m.Attribute("Description") != null)
+                    if (m.Attribute("Tournament") != null)
+                        match.TourneyName = m.Attribute("Tournament").Value;
+                    if (m.Attribute("Description") != null)
                         match.Description = m.Attribute("Description").Value;
                     if (m.Attribute("ID") != null)
                         match.ID = m.Attribute("ID").Value;
@@ -511,6 +513,7 @@ namespace SkillKeeper
                             new XAttribute("ID", match.ID),
                             new XAttribute("Timestamp", match.Timestamp.ToString()),
                             new XAttribute("Order", match.Order),
+                            new XAttribute("Tournament", match.TourneyName),
                             new XAttribute("Description", match.Description),
                             new XAttribute("Player1", match.Player1),
                             new XAttribute("Player2", match.Player2),
@@ -551,6 +554,7 @@ namespace SkillKeeper
                                                         new XAttribute("ID", match.ID),
                                                         new XAttribute("Timestamp", match.Timestamp.ToString()),
                                                         new XAttribute("Order", match.Order),
+                                                        new XAttribute("Tournament", match.TourneyName),
                                                         new XAttribute("Description", match.Description),
                                                         new XAttribute("Player1", match.Player1),
                                                         new XAttribute("Player2", match.Player2),

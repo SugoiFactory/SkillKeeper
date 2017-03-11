@@ -8,4 +8,5 @@ Current Todo list:
   - [ ] Challonge (Probably will do some sort of -1 rule or something)
 - [ ] Multiple worlds stored to one file? Requested by Dank
 - [ ] Set user score manually default to 0 for 0-0 matches
-  - [ ] requires a mu calculation
+  - [ ] requires a sigma/mu calculation to determine uncertainty
+- [ ] 
