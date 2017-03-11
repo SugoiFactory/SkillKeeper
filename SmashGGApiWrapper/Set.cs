@@ -57,7 +57,7 @@ namespace SmashGGApiWrapper
         public double? updatedAtMicro { get; set; }
         public object startAt { get; set; }
         public int? startedAt { get; set; }
-        public int? completedAt { get; set; }
+        public long? completedAt { get; set; }
         public object adminViewedAt { get; set; }
         public object adminMessagedAt { get; set; }
         public object progressionPlacement { get; set; }

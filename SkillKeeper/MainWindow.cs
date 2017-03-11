@@ -1394,5 +1394,17 @@ namespace SkillKeeper
         {
 
         }
+
+        private void leaderBoardGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void leaderBoardGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Console.Write("There name is ");
+            Console.WriteLine(leaderBoardGrid.Rows[e.RowIndex].Cells[1].Value.ToString());
+            modifySelector.Text = leaderBoardGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
+            tabControl1.SelectedTab = tabControl1.TabPages[3];
+        }
     }
 }

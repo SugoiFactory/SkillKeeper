@@ -158,7 +158,7 @@ namespace SkillKeeper
             {
                 if (s.completedAt != null)
                 {
-                    createMatch(s.entrant1Id, s.entrant2Id, s.winnerId, s.completedAt, s.fullRoundText, p.name, group.displayIdentifier);
+                    createMatch(s.entrant1Id, s.entrant2Id, s.winnerId, s.updatedAt, s.fullRoundText, p.name, group.displayIdentifier);
                 }
             }
 
