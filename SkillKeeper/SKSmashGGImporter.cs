@@ -158,7 +158,7 @@ namespace SkillKeeper
             {
                 if (s.completedAt != null)
                 {
-                    createMatch(s.entrant1Id, s.entrant2Id, s.winnerId, s.completedAt, s.fullRoundText, p.name, group.displayIdentifier);
+                    createMatch(s.entrant1Id, s.entrant2Id, s.winnerId, s.updatedAt, s.fullRoundText, p.name, group.displayIdentifier);
                 }
             }
 
@@ -168,6 +168,7 @@ namespace SkillKeeper
         {
             Match m = new Match();
             m.Description = string.Format("{0} - {1} {2} - {3}", curTourney.name, phase, round, matchInfo);
+            m.TourneyName = curTourney.name;
             if (round.Equals("1"))
             {
                 m.Description = m.Description = string.Format("{0} - {1} - {2}", curTourney.name, phase, matchInfo);

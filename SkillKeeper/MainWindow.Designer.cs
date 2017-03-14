@@ -38,12 +38,12 @@
             this.fileUpdateButton = new System.Windows.Forms.Button();
             this.fileLoadButton = new System.Windows.Forms.Button();
             this.fileNewButton = new System.Windows.Forms.Button();
-            this.fileImportGlickoButton = new System.Windows.Forms.Button();
-            this.fileImportChallongeButton = new System.Windows.Forms.Button();
-            this.fileImportTioButton = new System.Windows.Forms.Button();
-            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.progressLabel = new System.Windows.Forms.Label();
+            this.progressBar1 = new System.Windows.Forms.ProgressBar();
             this.fileImportSmashGGButton = new System.Windows.Forms.Button();
+            this.fileImportTioButton = new System.Windows.Forms.Button();
+            this.fileImportChallongeButton = new System.Windows.Forms.Button();
+            this.fileImportGlickoButton = new System.Windows.Forms.Button();
             this.resultsTab = new System.Windows.Forms.TabPage();
             this.manualResultsTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.matchQualBox = new System.Windows.Forms.TextBox();
@@ -115,13 +115,6 @@
             this.historyTableLayoutPanel2 = new System.Windows.Forms.TableLayoutPanel();
             this.label27 = new System.Windows.Forms.Label();
             this.historyGridView = new System.Windows.Forms.DataGridView();
-            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.timestampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.matchBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.historyMoveTourneyButton = new System.Windows.Forms.Button();
             this.historyMoveDatePicker = new System.Windows.Forms.DateTimePicker();
             this.historyViewAllCheck = new System.Windows.Forms.CheckBox();
@@ -133,17 +126,7 @@
             this.leaderboardTabTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
             this.label30 = new System.Windows.Forms.Label();
             this.leaderBoardGrid = new System.Windows.Forms.DataGridView();
-            this.teamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.charactersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.winsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lossesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.drawsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.LastMatch = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.exportButton = new System.Windows.Forms.Button();
             this.leaderboardDatePicker = new System.Windows.Forms.DateTimePicker();
             this.settingsTab = new System.Windows.Forms.TabPage();
@@ -162,7 +145,6 @@
             this.label29 = new System.Windows.Forms.Label();
             this.aboutTab = new System.Windows.Forms.TabPage();
             this.aboutTabTableLayoutPanel = new System.Windows.Forms.TableLayoutPanel();
-            this.label35 = new System.Windows.Forms.Label();
             this.label36 = new System.Windows.Forms.Label();
             this.label34 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -170,11 +152,31 @@
             this.label32 = new System.Windows.Forms.Label();
             this.label33 = new System.Windows.Forms.Label();
             this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label35 = new System.Windows.Forms.Label();
+            this.label39 = new System.Windows.Forms.Label();
             this.openWorldDialog = new System.Windows.Forms.OpenFileDialog();
             this.saveWorldDialog = new System.Windows.Forms.SaveFileDialog();
             this.importFileDialog = new System.Windows.Forms.OpenFileDialog();
             this.exportCSVDialog = new System.Windows.Forms.SaveFileDialog();
-            this.label39 = new System.Windows.Forms.Label();
+            this.TourneyName = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn11 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn12 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn10 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn13 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.timestampDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn14 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.matchBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.teamDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.nameDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.charactersDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.winsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.lossesDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.drawsDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn9 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.dataGridViewTextBoxColumn8 = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.scoreDataGridViewTextBoxColumn = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.personBindingSource = new System.Windows.Forms.BindingSource(this.components);
+            this.historyMoveMatchButton = new System.Windows.Forms.Button();
             this.tabControl1.SuspendLayout();
             this.fileTab.SuspendLayout();
             this.fileTabTableLayoutPanel.SuspendLayout();
@@ -188,16 +190,16 @@
             this.historyTab.SuspendLayout();
             this.historyTableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.historyGridView)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.matchBindingSource)).BeginInit();
             this.leaderboardTab.SuspendLayout();
             this.leaderboardTabTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leaderBoardGrid)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.settingsTab.SuspendLayout();
             this.settingsTabTableLayoutPanel.SuspendLayout();
             this.aboutTab.SuspendLayout();
             this.aboutTabTableLayoutPanel.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matchBindingSource)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // tabControl1
@@ -215,7 +217,7 @@
             this.tabControl1.Margin = new System.Windows.Forms.Padding(6);
             this.tabControl1.Name = "tabControl1";
             this.tabControl1.SelectedIndex = 0;
-            this.tabControl1.Size = new System.Drawing.Size(564, 401);
+            this.tabControl1.Size = new System.Drawing.Size(744, 401);
             this.tabControl1.TabIndex = 0;
             this.tabControl1.SelectedIndexChanged += new System.EventHandler(this.TabControl1_SelectedIndexChanged);
             // 
@@ -234,6 +236,7 @@
             // fileTabTableLayoutPanel
             // 
             this.fileTabTableLayoutPanel.AutoSize = true;
+            this.fileTabTableLayoutPanel.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
             this.fileTabTableLayoutPanel.ColumnCount = 6;
             this.fileTabTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.fileTabTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 95F));
@@ -246,23 +249,24 @@
             this.fileTabTableLayoutPanel.Controls.Add(this.fileUpdateButton, 3, 1);
             this.fileTabTableLayoutPanel.Controls.Add(this.fileLoadButton, 2, 1);
             this.fileTabTableLayoutPanel.Controls.Add(this.fileNewButton, 1, 1);
+            this.fileTabTableLayoutPanel.Controls.Add(this.progressLabel, 0, 5);
+            this.fileTabTableLayoutPanel.Controls.Add(this.progressBar1, 0, 6);
+            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportSmashGGButton, 1, 3);
+            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportTioButton, 3, 3);
+            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportChallongeButton, 1, 2);
             this.fileTabTableLayoutPanel.Controls.Add(this.fileImportGlickoButton, 3, 2);
-            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportChallongeButton, 2, 2);
-            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportTioButton, 1, 2);
-            this.fileTabTableLayoutPanel.Controls.Add(this.progressBar1, 0, 5);
-            this.fileTabTableLayoutPanel.Controls.Add(this.progressLabel, 0, 4);
-            this.fileTabTableLayoutPanel.Controls.Add(this.fileImportSmashGGButton, 4, 2);
             this.fileTabTableLayoutPanel.Dock = System.Windows.Forms.DockStyle.Fill;
             this.fileTabTableLayoutPanel.Location = new System.Drawing.Point(3, 3);
             this.fileTabTableLayoutPanel.Margin = new System.Windows.Forms.Padding(0);
             this.fileTabTableLayoutPanel.Name = "fileTabTableLayoutPanel";
-            this.fileTabTableLayoutPanel.RowCount = 6;
+            this.fileTabTableLayoutPanel.RowCount = 7;
             this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 63F));
             this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
-            this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 19F));
+            this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 59F));
+            this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 110F));
             this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 26F));
+            this.fileTabTableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
             this.fileTabTableLayoutPanel.Size = new System.Drawing.Size(550, 369);
             this.fileTabTableLayoutPanel.TabIndex = 10;
             // 
@@ -322,71 +326,76 @@
             this.fileNewButton.UseVisualStyleBackColor = true;
             this.fileNewButton.Click += new System.EventHandler(this.fileNewButton_Click);
             // 
-            // fileImportGlickoButton
-            // 
-            this.fileImportGlickoButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fileImportGlickoButton.Location = new System.Drawing.Point(278, 100);
-            this.fileImportGlickoButton.Name = "fileImportGlickoButton";
-            this.fileImportGlickoButton.Size = new System.Drawing.Size(89, 42);
-            this.fileImportGlickoButton.TabIndex = 5;
-            this.fileImportGlickoButton.Text = "Import GlickoMan File";
-            this.fileImportGlickoButton.UseVisualStyleBackColor = true;
-            this.fileImportGlickoButton.Click += new System.EventHandler(this.fileImportGlickoButton_Click);
-            // 
-            // fileImportChallongeButton
-            // 
-            this.fileImportChallongeButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fileImportChallongeButton.Location = new System.Drawing.Point(183, 103);
-            this.fileImportChallongeButton.Name = "fileImportChallongeButton";
-            this.fileImportChallongeButton.Size = new System.Drawing.Size(89, 36);
-            this.fileImportChallongeButton.TabIndex = 4;
-            this.fileImportChallongeButton.Text = "Import Challonge Bracket";
-            this.fileImportChallongeButton.UseVisualStyleBackColor = true;
-            this.fileImportChallongeButton.Click += new System.EventHandler(this.fileImportChallongeButton_Click);
-            // 
-            // fileImportTioButton
-            // 
-            this.fileImportTioButton.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.fileImportTioButton.Location = new System.Drawing.Point(88, 110);
-            this.fileImportTioButton.Name = "fileImportTioButton";
-            this.fileImportTioButton.Size = new System.Drawing.Size(89, 23);
-            this.fileImportTioButton.TabIndex = 3;
-            this.fileImportTioButton.Text = "Import TIO File";
-            this.fileImportTioButton.UseVisualStyleBackColor = true;
-            this.fileImportTioButton.Click += new System.EventHandler(this.fileImportTioButton_Click);
-            // 
-            // progressBar1
-            // 
-            this.progressBar1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
-            | System.Windows.Forms.AnchorStyles.Left) 
-            | System.Windows.Forms.AnchorStyles.Right)));
-            this.fileTabTableLayoutPanel.SetColumnSpan(this.progressBar1, 6);
-            this.progressBar1.Location = new System.Drawing.Point(3, 346);
-            this.progressBar1.Name = "progressBar1";
-            this.progressBar1.Size = new System.Drawing.Size(544, 20);
-            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
-            this.progressBar1.TabIndex = 7;
-            this.progressBar1.Visible = false;
-            // 
             // progressLabel
             // 
             this.progressLabel.AutoSize = true;
-            this.progressLabel.Location = new System.Drawing.Point(3, 324);
+            this.progressLabel.Location = new System.Drawing.Point(3, 320);
             this.progressLabel.Name = "progressLabel";
             this.progressLabel.Size = new System.Drawing.Size(48, 13);
             this.progressLabel.TabIndex = 8;
             this.progressLabel.Text = "Progress";
             this.progressLabel.Visible = false;
             // 
+            // progressBar1
+            // 
+            this.progressBar1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.fileTabTableLayoutPanel.SetColumnSpan(this.progressBar1, 6);
+            this.progressBar1.Location = new System.Drawing.Point(3, 349);
+            this.progressBar1.Name = "progressBar1";
+            this.progressBar1.Size = new System.Drawing.Size(544, 17);
+            this.progressBar1.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar1.TabIndex = 7;
+            this.progressBar1.Visible = false;
+            // 
             // fileImportSmashGGButton
             // 
-            this.fileImportSmashGGButton.Location = new System.Drawing.Point(373, 95);
+            this.fileImportSmashGGButton.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Stretch;
+            this.fileTabTableLayoutPanel.SetColumnSpan(this.fileImportSmashGGButton, 2);
+            this.fileImportSmashGGButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileImportSmashGGButton.ImageAlign = System.Drawing.ContentAlignment.TopLeft;
+            this.fileImportSmashGGButton.Location = new System.Drawing.Point(88, 154);
             this.fileImportSmashGGButton.Name = "fileImportSmashGGButton";
-            this.fileImportSmashGGButton.Size = new System.Drawing.Size(89, 53);
+            this.fileImportSmashGGButton.Size = new System.Drawing.Size(184, 53);
             this.fileImportSmashGGButton.TabIndex = 10;
             this.fileImportSmashGGButton.Text = "Import SmashGG Bracket";
             this.fileImportSmashGGButton.UseVisualStyleBackColor = true;
             this.fileImportSmashGGButton.Click += new System.EventHandler(this.fileImportSmashGGButton_Click);
+            // 
+            // fileImportTioButton
+            // 
+            this.fileTabTableLayoutPanel.SetColumnSpan(this.fileImportTioButton, 2);
+            this.fileImportTioButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileImportTioButton.Location = new System.Drawing.Point(278, 154);
+            this.fileImportTioButton.Name = "fileImportTioButton";
+            this.fileImportTioButton.Size = new System.Drawing.Size(184, 53);
+            this.fileImportTioButton.TabIndex = 3;
+            this.fileImportTioButton.Text = "Import TIO File";
+            this.fileImportTioButton.UseVisualStyleBackColor = true;
+            this.fileImportTioButton.Click += new System.EventHandler(this.fileImportTioButton_Click);
+            // 
+            // fileImportChallongeButton
+            // 
+            this.fileTabTableLayoutPanel.SetColumnSpan(this.fileImportChallongeButton, 2);
+            this.fileImportChallongeButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileImportChallongeButton.Location = new System.Drawing.Point(88, 95);
+            this.fileImportChallongeButton.Name = "fileImportChallongeButton";
+            this.fileImportChallongeButton.Size = new System.Drawing.Size(184, 53);
+            this.fileImportChallongeButton.TabIndex = 4;
+            this.fileImportChallongeButton.Text = "Import Challonge Bracket";
+            this.fileImportChallongeButton.UseVisualStyleBackColor = true;
+            this.fileImportChallongeButton.Click += new System.EventHandler(this.fileImportChallongeButton_Click);
+            // 
+            // fileImportGlickoButton
+            // 
+            this.fileTabTableLayoutPanel.SetColumnSpan(this.fileImportGlickoButton, 2);
+            this.fileImportGlickoButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.fileImportGlickoButton.Location = new System.Drawing.Point(278, 95);
+            this.fileImportGlickoButton.Name = "fileImportGlickoButton";
+            this.fileImportGlickoButton.Size = new System.Drawing.Size(184, 53);
+            this.fileImportGlickoButton.TabIndex = 5;
+            this.fileImportGlickoButton.Text = "Import GlickoMan File";
+            this.fileImportGlickoButton.UseVisualStyleBackColor = true;
+            this.fileImportGlickoButton.Click += new System.EventHandler(this.fileImportGlickoButton_Click);
             // 
             // resultsTab
             // 
@@ -410,7 +419,7 @@
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 47.36842F));
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 26.31579F));
             this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 110F));
-            this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 104F));
+            this.manualResultsTableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 151F));
             this.manualResultsTableLayoutPanel.Controls.Add(this.matchQualBox, 2, 1);
             this.manualResultsTableLayoutPanel.Controls.Add(this.label11, 0, 6);
             this.manualResultsTableLayoutPanel.Controls.Add(this.label7, 0, 5);
@@ -462,7 +471,7 @@
             this.matchQualBox.Location = new System.Drawing.Point(193, 33);
             this.matchQualBox.Name = "matchQualBox";
             this.matchQualBox.ReadOnly = true;
-            this.matchQualBox.Size = new System.Drawing.Size(139, 20);
+            this.matchQualBox.Size = new System.Drawing.Size(92, 20);
             this.matchQualBox.TabIndex = 27;
             // 
             // label11
@@ -521,7 +530,7 @@
             this.manualDatePicker.Dock = System.Windows.Forms.DockStyle.Fill;
             this.manualDatePicker.Location = new System.Drawing.Point(193, 183);
             this.manualDatePicker.Name = "manualDatePicker";
-            this.manualDatePicker.Size = new System.Drawing.Size(139, 20);
+            this.manualDatePicker.Size = new System.Drawing.Size(92, 20);
             this.manualDatePicker.TabIndex = 6;
             // 
             // label5
@@ -546,7 +555,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label25, 3);
             this.label25.Location = new System.Drawing.Point(193, 0);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(139, 30);
+            this.label25.Size = new System.Drawing.Size(92, 30);
             this.label25.TabIndex = 28;
             this.label25.Text = "Match Quality";
             this.label25.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -571,7 +580,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label24, 3);
             this.label24.Location = new System.Drawing.Point(193, 150);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(139, 30);
+            this.label24.Size = new System.Drawing.Size(92, 30);
             this.label24.TabIndex = 25;
             this.label24.Text = "Match Date";
             this.label24.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -604,7 +613,7 @@
             this.p1WinButton.Enabled = false;
             this.p1WinButton.Location = new System.Drawing.Point(193, 63);
             this.p1WinButton.Name = "p1WinButton";
-            this.p1WinButton.Size = new System.Drawing.Size(32, 24);
+            this.p1WinButton.Size = new System.Drawing.Size(20, 24);
             this.p1WinButton.TabIndex = 2;
             this.p1WinButton.Text = "P1 Win";
             this.p1WinButton.UseVisualStyleBackColor = true;
@@ -616,7 +625,7 @@
             this.ManualDescBox.Dock = System.Windows.Forms.DockStyle.Fill;
             this.ManualDescBox.Location = new System.Drawing.Point(193, 123);
             this.ManualDescBox.Name = "ManualDescBox";
-            this.ManualDescBox.Size = new System.Drawing.Size(139, 20);
+            this.ManualDescBox.Size = new System.Drawing.Size(92, 20);
             this.ManualDescBox.TabIndex = 5;
             // 
             // label23
@@ -628,7 +637,7 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.label23, 3);
             this.label23.Location = new System.Drawing.Point(193, 90);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(139, 30);
+            this.label23.Size = new System.Drawing.Size(92, 30);
             this.label23.TabIndex = 24;
             this.label23.Text = "Match Description";
             this.label23.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -637,9 +646,9 @@
             // 
             this.drawButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.drawButton.Enabled = false;
-            this.drawButton.Location = new System.Drawing.Point(231, 63);
+            this.drawButton.Location = new System.Drawing.Point(219, 63);
             this.drawButton.Name = "drawButton";
-            this.drawButton.Size = new System.Drawing.Size(63, 24);
+            this.drawButton.Size = new System.Drawing.Size(40, 24);
             this.drawButton.TabIndex = 3;
             this.drawButton.Text = "Draw";
             this.drawButton.UseVisualStyleBackColor = true;
@@ -649,9 +658,9 @@
             // 
             this.p2WinButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.p2WinButton.Enabled = false;
-            this.p2WinButton.Location = new System.Drawing.Point(300, 63);
+            this.p2WinButton.Location = new System.Drawing.Point(265, 63);
             this.p2WinButton.Name = "p2WinButton";
-            this.p2WinButton.Size = new System.Drawing.Size(32, 24);
+            this.p2WinButton.Size = new System.Drawing.Size(20, 24);
             this.p2WinButton.TabIndex = 4;
             this.p2WinButton.Text = "P2 Win";
             this.p2WinButton.UseVisualStyleBackColor = true;
@@ -689,9 +698,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(448, 30);
+            this.label4.Location = new System.Drawing.Point(401, 30);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 30);
+            this.label4.Size = new System.Drawing.Size(146, 30);
             this.label4.TabIndex = 3;
             this.label4.Text = "Player 2";
             this.label4.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -702,9 +711,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(448, 180);
+            this.label12.Location = new System.Drawing.Point(401, 180);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(99, 30);
+            this.label12.Size = new System.Drawing.Size(146, 30);
             this.label12.TabIndex = 22;
             this.label12.Text = "W/L/D";
             this.label12.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -715,9 +724,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(448, 150);
+            this.label8.Location = new System.Drawing.Point(401, 150);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(99, 30);
+            this.label8.Size = new System.Drawing.Size(146, 30);
             this.label8.TabIndex = 18;
             this.label8.Text = "Score";
             this.label8.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -728,9 +737,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(448, 120);
+            this.label9.Location = new System.Drawing.Point(401, 120);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 30);
+            this.label9.Size = new System.Drawing.Size(146, 30);
             this.label9.TabIndex = 14;
             this.label9.Text = "Sigma";
             this.label9.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -741,9 +750,9 @@
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(448, 90);
+            this.label10.Location = new System.Drawing.Point(401, 90);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(99, 30);
+            this.label10.Size = new System.Drawing.Size(146, 30);
             this.label10.TabIndex = 13;
             this.label10.Text = "Mu";
             this.label10.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
@@ -755,9 +764,9 @@
             this.manualResultsTableLayoutPanel.SetColumnSpan(this.player2Selector, 2);
             this.player2Selector.Dock = System.Windows.Forms.DockStyle.Fill;
             this.player2Selector.FormattingEnabled = true;
-            this.player2Selector.Location = new System.Drawing.Point(338, 63);
+            this.player2Selector.Location = new System.Drawing.Point(291, 63);
             this.player2Selector.Name = "player2Selector";
-            this.player2Selector.Size = new System.Drawing.Size(209, 21);
+            this.player2Selector.Size = new System.Drawing.Size(256, 21);
             this.player2Selector.TabIndex = 1;
             this.player2Selector.SelectedIndexChanged += new System.EventHandler(this.player2Box_SelectedIndexChanged);
             // 
@@ -766,7 +775,7 @@
             this.p2MuDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2MuDisplay.Location = new System.Drawing.Point(338, 93);
+            this.p2MuDisplay.Location = new System.Drawing.Point(291, 93);
             this.p2MuDisplay.Name = "p2MuDisplay";
             this.p2MuDisplay.ReadOnly = true;
             this.p2MuDisplay.Size = new System.Drawing.Size(104, 20);
@@ -777,7 +786,7 @@
             this.p2SigmaDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2SigmaDisplay.Location = new System.Drawing.Point(338, 123);
+            this.p2SigmaDisplay.Location = new System.Drawing.Point(291, 123);
             this.p2SigmaDisplay.Name = "p2SigmaDisplay";
             this.p2SigmaDisplay.ReadOnly = true;
             this.p2SigmaDisplay.Size = new System.Drawing.Size(104, 20);
@@ -788,7 +797,7 @@
             this.p2ScoreDisplay.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2ScoreDisplay.Location = new System.Drawing.Point(338, 153);
+            this.p2ScoreDisplay.Location = new System.Drawing.Point(291, 153);
             this.p2ScoreDisplay.Name = "p2ScoreDisplay";
             this.p2ScoreDisplay.ReadOnly = true;
             this.p2ScoreDisplay.Size = new System.Drawing.Size(104, 20);
@@ -799,7 +808,7 @@
             this.p2WLDBox.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.p2WLDBox.Location = new System.Drawing.Point(338, 183);
+            this.p2WLDBox.Location = new System.Drawing.Point(291, 183);
             this.p2WLDBox.Name = "p2WLDBox";
             this.p2WLDBox.ReadOnly = true;
             this.p2WLDBox.Size = new System.Drawing.Size(104, 20);
@@ -1253,7 +1262,7 @@
             this.historyTab.Controls.Add(this.historyTableLayoutPanel2);
             this.historyTab.Location = new System.Drawing.Point(4, 22);
             this.historyTab.Name = "historyTab";
-            this.historyTab.Size = new System.Drawing.Size(556, 375);
+            this.historyTab.Size = new System.Drawing.Size(736, 375);
             this.historyTab.TabIndex = 6;
             this.historyTab.Text = "History";
             this.historyTab.UseVisualStyleBackColor = true;
@@ -1261,16 +1270,18 @@
             // 
             // historyTableLayoutPanel2
             // 
-            this.historyTableLayoutPanel2.ColumnCount = 5;
+            this.historyTableLayoutPanel2.ColumnCount = 6;
             this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 69F));
             this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 106F));
             this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 185F));
-            this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 96F));
+            this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 143F));
+            this.historyTableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 49F));
+            this.historyTableLayoutPanel2.Controls.Add(this.historyMoveMatchButton, 5, 2);
             this.historyTableLayoutPanel2.Controls.Add(this.label27, 0, 0);
             this.historyTableLayoutPanel2.Controls.Add(this.historyGridView, 0, 1);
-            this.historyTableLayoutPanel2.Controls.Add(this.historyMoveTourneyButton, 3, 2);
-            this.historyTableLayoutPanel2.Controls.Add(this.historyMoveDatePicker, 4, 2);
+            this.historyTableLayoutPanel2.Controls.Add(this.historyMoveTourneyButton, 4, 2);
+            this.historyTableLayoutPanel2.Controls.Add(this.historyMoveDatePicker, 3, 2);
             this.historyTableLayoutPanel2.Controls.Add(this.historyViewAllCheck, 3, 0);
             this.historyTableLayoutPanel2.Controls.Add(this.historyApplyButton, 0, 2);
             this.historyTableLayoutPanel2.Controls.Add(this.historyDatePicker, 1, 0);
@@ -1283,7 +1294,8 @@
             this.historyTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
             this.historyTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.historyTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 29F));
-            this.historyTableLayoutPanel2.Size = new System.Drawing.Size(556, 375);
+            this.historyTableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.historyTableLayoutPanel2.Size = new System.Drawing.Size(736, 375);
             this.historyTableLayoutPanel2.TabIndex = 9;
             // 
             // label27
@@ -1301,11 +1313,13 @@
             // 
             this.historyGridView.AllowUserToAddRows = false;
             this.historyGridView.AllowUserToDeleteRows = false;
+            this.historyGridView.AllowUserToOrderColumns = true;
             this.historyGridView.AutoGenerateColumns = false;
             this.historyGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.historyGridView.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.dataGridViewTextBoxColumn11,
             this.dataGridViewTextBoxColumn12,
+            this.TourneyName,
             this.dataGridViewTextBoxColumn10,
             this.dataGridViewTextBoxColumn13,
             this.timestampDataGridViewTextBoxColumn,
@@ -1317,70 +1331,18 @@
             this.historyGridView.MultiSelect = false;
             this.historyGridView.Name = "historyGridView";
             this.historyGridView.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.historyGridView.Size = new System.Drawing.Size(550, 311);
+            this.historyGridView.Size = new System.Drawing.Size(730, 311);
             this.historyGridView.TabIndex = 0;
             this.historyGridView.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.historyGridView_CellContentClick);
             this.historyGridView.CurrentCellDirtyStateChanged += new System.EventHandler(this.historyGridView_CurrentCellDirtyStateChanged);
-            // 
-            // dataGridViewTextBoxColumn11
-            // 
-            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn11.DataPropertyName = "Player1";
-            this.dataGridViewTextBoxColumn11.HeaderText = "Player1";
-            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
-            this.dataGridViewTextBoxColumn11.Width = 67;
-            // 
-            // dataGridViewTextBoxColumn12
-            // 
-            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn12.DataPropertyName = "Player2";
-            this.dataGridViewTextBoxColumn12.HeaderText = "Player2";
-            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
-            this.dataGridViewTextBoxColumn12.Width = 67;
-            // 
-            // dataGridViewTextBoxColumn10
-            // 
-            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn10.DataPropertyName = "Description";
-            this.dataGridViewTextBoxColumn10.HeaderText = "Description";
-            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
-            this.dataGridViewTextBoxColumn10.Width = 85;
-            // 
-            // dataGridViewTextBoxColumn13
-            // 
-            this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn13.DataPropertyName = "Winner";
-            this.dataGridViewTextBoxColumn13.HeaderText = "Winner";
-            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
-            this.dataGridViewTextBoxColumn13.Width = 66;
-            // 
-            // timestampDataGridViewTextBoxColumn
-            // 
-            this.timestampDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.timestampDataGridViewTextBoxColumn.DataPropertyName = "Timestamp";
-            this.timestampDataGridViewTextBoxColumn.HeaderText = "Timestamp";
-            this.timestampDataGridViewTextBoxColumn.Name = "timestampDataGridViewTextBoxColumn";
-            this.timestampDataGridViewTextBoxColumn.Width = 83;
-            // 
-            // dataGridViewTextBoxColumn14
-            // 
-            this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn14.DataPropertyName = "Order";
-            this.dataGridViewTextBoxColumn14.HeaderText = "Order";
-            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
-            this.dataGridViewTextBoxColumn14.Width = 58;
-            // 
-            // matchBindingSource
-            // 
-            this.matchBindingSource.DataSource = typeof(SkillKeeper.Match);
             // 
             // historyMoveTourneyButton
             // 
             this.historyMoveTourneyButton.Dock = System.Windows.Forms.DockStyle.Fill;
             this.historyMoveTourneyButton.Enabled = false;
-            this.historyMoveTourneyButton.Location = new System.Drawing.Point(278, 349);
+            this.historyMoveTourneyButton.Location = new System.Drawing.Point(463, 349);
             this.historyMoveTourneyButton.Name = "historyMoveTourneyButton";
-            this.historyMoveTourneyButton.Size = new System.Drawing.Size(179, 23);
+            this.historyMoveTourneyButton.Size = new System.Drawing.Size(137, 23);
             this.historyMoveTourneyButton.TabIndex = 6;
             this.historyMoveTourneyButton.Text = "Move tournament date";
             this.historyMoveTourneyButton.UseVisualStyleBackColor = true;
@@ -1389,9 +1351,9 @@
             // historyMoveDatePicker
             // 
             this.historyMoveDatePicker.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.historyMoveDatePicker.Location = new System.Drawing.Point(463, 349);
+            this.historyMoveDatePicker.Location = new System.Drawing.Point(278, 349);
             this.historyMoveDatePicker.Name = "historyMoveDatePicker";
-            this.historyMoveDatePicker.Size = new System.Drawing.Size(90, 20);
+            this.historyMoveDatePicker.Size = new System.Drawing.Size(179, 20);
             this.historyMoveDatePicker.TabIndex = 5;
             this.historyMoveDatePicker.ValueChanged += new System.EventHandler(this.historyMoveDatePicker_ValueChanged);
             // 
@@ -1526,87 +1488,8 @@
             this.leaderBoardGrid.ShowEditingIcon = false;
             this.leaderBoardGrid.Size = new System.Drawing.Size(550, 311);
             this.leaderBoardGrid.TabIndex = 0;
-            // 
-            // teamDataGridViewTextBoxColumn
-            // 
-            this.teamDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.teamDataGridViewTextBoxColumn.DataPropertyName = "Team";
-            this.teamDataGridViewTextBoxColumn.HeaderText = "Team";
-            this.teamDataGridViewTextBoxColumn.Name = "teamDataGridViewTextBoxColumn";
-            this.teamDataGridViewTextBoxColumn.ReadOnly = true;
-            this.teamDataGridViewTextBoxColumn.Width = 59;
-            // 
-            // nameDataGridViewTextBoxColumn
-            // 
-            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
-            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
-            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
-            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
-            this.nameDataGridViewTextBoxColumn.Width = 60;
-            // 
-            // charactersDataGridViewTextBoxColumn
-            // 
-            this.charactersDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
-            this.charactersDataGridViewTextBoxColumn.DataPropertyName = "Characters";
-            this.charactersDataGridViewTextBoxColumn.HeaderText = "Characters";
-            this.charactersDataGridViewTextBoxColumn.Name = "charactersDataGridViewTextBoxColumn";
-            this.charactersDataGridViewTextBoxColumn.ReadOnly = true;
-            this.charactersDataGridViewTextBoxColumn.Width = 5;
-            // 
-            // winsDataGridViewTextBoxColumn
-            // 
-            this.winsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.winsDataGridViewTextBoxColumn.DataPropertyName = "Wins";
-            this.winsDataGridViewTextBoxColumn.HeaderText = "Wins";
-            this.winsDataGridViewTextBoxColumn.Name = "winsDataGridViewTextBoxColumn";
-            this.winsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.winsDataGridViewTextBoxColumn.Width = 56;
-            // 
-            // lossesDataGridViewTextBoxColumn
-            // 
-            this.lossesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.lossesDataGridViewTextBoxColumn.DataPropertyName = "Losses";
-            this.lossesDataGridViewTextBoxColumn.HeaderText = "Losses";
-            this.lossesDataGridViewTextBoxColumn.Name = "lossesDataGridViewTextBoxColumn";
-            this.lossesDataGridViewTextBoxColumn.ReadOnly = true;
-            this.lossesDataGridViewTextBoxColumn.Width = 65;
-            // 
-            // drawsDataGridViewTextBoxColumn
-            // 
-            this.drawsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.drawsDataGridViewTextBoxColumn.DataPropertyName = "Draws";
-            this.drawsDataGridViewTextBoxColumn.HeaderText = "Draws";
-            this.drawsDataGridViewTextBoxColumn.Name = "drawsDataGridViewTextBoxColumn";
-            this.drawsDataGridViewTextBoxColumn.ReadOnly = true;
-            this.drawsDataGridViewTextBoxColumn.Width = 62;
-            // 
-            // dataGridViewTextBoxColumn9
-            // 
-            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn9.DataPropertyName = "TotalGames";
-            this.dataGridViewTextBoxColumn9.HeaderText = "TotalGames";
-            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
-            this.dataGridViewTextBoxColumn9.ReadOnly = true;
-            this.dataGridViewTextBoxColumn9.Width = 89;
-            // 
-            // dataGridViewTextBoxColumn8
-            // 
-            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.dataGridViewTextBoxColumn8.DataPropertyName = "WinPercent";
-            this.dataGridViewTextBoxColumn8.HeaderText = "WinPercent";
-            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
-            this.dataGridViewTextBoxColumn8.ReadOnly = true;
-            this.dataGridViewTextBoxColumn8.Width = 88;
-            // 
-            // scoreDataGridViewTextBoxColumn
-            // 
-            this.scoreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
-            this.scoreDataGridViewTextBoxColumn.DataPropertyName = "Score";
-            this.scoreDataGridViewTextBoxColumn.HeaderText = "Score";
-            this.scoreDataGridViewTextBoxColumn.Name = "scoreDataGridViewTextBoxColumn";
-            this.scoreDataGridViewTextBoxColumn.ReadOnly = true;
-            this.scoreDataGridViewTextBoxColumn.Width = 60;
+            this.leaderBoardGrid.CellContentDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.leaderBoardGrid_CellContentDoubleClick);
+            this.leaderBoardGrid.CellDoubleClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.leaderBoardGrid_CellDoubleClick);
             // 
             // LastMatch
             // 
@@ -1616,10 +1499,6 @@
             this.LastMatch.Name = "LastMatch";
             this.LastMatch.ReadOnly = true;
             this.LastMatch.Width = 85;
-            // 
-            // personBindingSource
-            // 
-            this.personBindingSource.DataSource = typeof(SkillKeeper.Person);
             // 
             // exportButton
             // 
@@ -1876,15 +1755,6 @@
             this.aboutTabTableLayoutPanel.Size = new System.Drawing.Size(556, 375);
             this.aboutTabTableLayoutPanel.TabIndex = 9;
             // 
-            // label35
-            // 
-            this.label35.AutoSize = true;
-            this.label35.Location = new System.Drawing.Point(3, 105);
-            this.label35.Name = "label35";
-            this.label35.Size = new System.Drawing.Size(251, 13);
-            this.label35.TabIndex = 7;
-            this.label35.Text = "Challonge C#  API Wrapper by Jas \"Fizzi\" Laferriere";
-            // 
             // label36
             // 
             this.label36.AutoSize = true;
@@ -1959,6 +1829,15 @@
             this.textBox1.TabIndex = 1;
             this.textBox1.Text = resources.GetString("textBox1.Text");
             // 
+            // label35
+            // 
+            this.label35.AutoSize = true;
+            this.label35.Location = new System.Drawing.Point(3, 105);
+            this.label35.Name = "label35";
+            this.label35.Size = new System.Drawing.Size(251, 13);
+            this.label35.TabIndex = 7;
+            this.label35.Text = "Challonge C#  API Wrapper by Jas \"Fizzi\" Laferriere";
+            // 
             // label39
             // 
             this.label39.AutoSize = true;
@@ -1968,12 +1847,169 @@
             this.label39.TabIndex = 9;
             this.label39.Text = "Smash.GG C# API Wrapper by Nicholas \"_ThreeFold\" McNew";
             // 
+            // TourneyName
+            // 
+            this.TourneyName.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.TourneyName.DataPropertyName = "TourneyName";
+            this.TourneyName.HeaderText = "Tournament";
+            this.TourneyName.Name = "TourneyName";
+            this.TourneyName.Width = 89;
+            // 
+            // dataGridViewTextBoxColumn11
+            // 
+            this.dataGridViewTextBoxColumn11.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn11.DataPropertyName = "Player1";
+            this.dataGridViewTextBoxColumn11.HeaderText = "Player1";
+            this.dataGridViewTextBoxColumn11.Name = "dataGridViewTextBoxColumn11";
+            this.dataGridViewTextBoxColumn11.Width = 67;
+            // 
+            // dataGridViewTextBoxColumn12
+            // 
+            this.dataGridViewTextBoxColumn12.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn12.DataPropertyName = "Player2";
+            this.dataGridViewTextBoxColumn12.HeaderText = "Player2";
+            this.dataGridViewTextBoxColumn12.Name = "dataGridViewTextBoxColumn12";
+            this.dataGridViewTextBoxColumn12.Width = 67;
+            // 
+            // dataGridViewTextBoxColumn10
+            // 
+            this.dataGridViewTextBoxColumn10.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn10.DataPropertyName = "Description";
+            this.dataGridViewTextBoxColumn10.HeaderText = "Description";
+            this.dataGridViewTextBoxColumn10.Name = "dataGridViewTextBoxColumn10";
+            this.dataGridViewTextBoxColumn10.Width = 85;
+            // 
+            // dataGridViewTextBoxColumn13
+            // 
+            this.dataGridViewTextBoxColumn13.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn13.DataPropertyName = "Winner";
+            this.dataGridViewTextBoxColumn13.HeaderText = "Winner";
+            this.dataGridViewTextBoxColumn13.Name = "dataGridViewTextBoxColumn13";
+            this.dataGridViewTextBoxColumn13.Width = 66;
+            // 
+            // timestampDataGridViewTextBoxColumn
+            // 
+            this.timestampDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.timestampDataGridViewTextBoxColumn.DataPropertyName = "Timestamp";
+            this.timestampDataGridViewTextBoxColumn.HeaderText = "Timestamp";
+            this.timestampDataGridViewTextBoxColumn.Name = "timestampDataGridViewTextBoxColumn";
+            this.timestampDataGridViewTextBoxColumn.Width = 83;
+            // 
+            // dataGridViewTextBoxColumn14
+            // 
+            this.dataGridViewTextBoxColumn14.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn14.DataPropertyName = "Order";
+            this.dataGridViewTextBoxColumn14.HeaderText = "Order";
+            this.dataGridViewTextBoxColumn14.Name = "dataGridViewTextBoxColumn14";
+            this.dataGridViewTextBoxColumn14.Width = 58;
+            // 
+            // matchBindingSource
+            // 
+            this.matchBindingSource.DataSource = typeof(SkillKeeper.Match);
+            // 
+            // teamDataGridViewTextBoxColumn
+            // 
+            this.teamDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.teamDataGridViewTextBoxColumn.DataPropertyName = "Team";
+            this.teamDataGridViewTextBoxColumn.HeaderText = "Team";
+            this.teamDataGridViewTextBoxColumn.Name = "teamDataGridViewTextBoxColumn";
+            this.teamDataGridViewTextBoxColumn.ReadOnly = true;
+            this.teamDataGridViewTextBoxColumn.Width = 59;
+            // 
+            // nameDataGridViewTextBoxColumn
+            // 
+            this.nameDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.nameDataGridViewTextBoxColumn.DataPropertyName = "Name";
+            this.nameDataGridViewTextBoxColumn.HeaderText = "Name";
+            this.nameDataGridViewTextBoxColumn.Name = "nameDataGridViewTextBoxColumn";
+            this.nameDataGridViewTextBoxColumn.ReadOnly = true;
+            this.nameDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // charactersDataGridViewTextBoxColumn
+            // 
+            this.charactersDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCellsExceptHeader;
+            this.charactersDataGridViewTextBoxColumn.DataPropertyName = "Characters";
+            this.charactersDataGridViewTextBoxColumn.HeaderText = "Characters";
+            this.charactersDataGridViewTextBoxColumn.Name = "charactersDataGridViewTextBoxColumn";
+            this.charactersDataGridViewTextBoxColumn.ReadOnly = true;
+            this.charactersDataGridViewTextBoxColumn.Width = 5;
+            // 
+            // winsDataGridViewTextBoxColumn
+            // 
+            this.winsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.winsDataGridViewTextBoxColumn.DataPropertyName = "Wins";
+            this.winsDataGridViewTextBoxColumn.HeaderText = "Wins";
+            this.winsDataGridViewTextBoxColumn.Name = "winsDataGridViewTextBoxColumn";
+            this.winsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.winsDataGridViewTextBoxColumn.Width = 56;
+            // 
+            // lossesDataGridViewTextBoxColumn
+            // 
+            this.lossesDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.lossesDataGridViewTextBoxColumn.DataPropertyName = "Losses";
+            this.lossesDataGridViewTextBoxColumn.HeaderText = "Losses";
+            this.lossesDataGridViewTextBoxColumn.Name = "lossesDataGridViewTextBoxColumn";
+            this.lossesDataGridViewTextBoxColumn.ReadOnly = true;
+            this.lossesDataGridViewTextBoxColumn.Width = 65;
+            // 
+            // drawsDataGridViewTextBoxColumn
+            // 
+            this.drawsDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.drawsDataGridViewTextBoxColumn.DataPropertyName = "Draws";
+            this.drawsDataGridViewTextBoxColumn.HeaderText = "Draws";
+            this.drawsDataGridViewTextBoxColumn.Name = "drawsDataGridViewTextBoxColumn";
+            this.drawsDataGridViewTextBoxColumn.ReadOnly = true;
+            this.drawsDataGridViewTextBoxColumn.Width = 62;
+            // 
+            // dataGridViewTextBoxColumn9
+            // 
+            this.dataGridViewTextBoxColumn9.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn9.DataPropertyName = "TotalGames";
+            this.dataGridViewTextBoxColumn9.HeaderText = "TotalGames";
+            this.dataGridViewTextBoxColumn9.Name = "dataGridViewTextBoxColumn9";
+            this.dataGridViewTextBoxColumn9.ReadOnly = true;
+            this.dataGridViewTextBoxColumn9.Width = 89;
+            // 
+            // dataGridViewTextBoxColumn8
+            // 
+            this.dataGridViewTextBoxColumn8.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.dataGridViewTextBoxColumn8.DataPropertyName = "WinPercent";
+            this.dataGridViewTextBoxColumn8.HeaderText = "WinPercent";
+            this.dataGridViewTextBoxColumn8.Name = "dataGridViewTextBoxColumn8";
+            this.dataGridViewTextBoxColumn8.ReadOnly = true;
+            this.dataGridViewTextBoxColumn8.Width = 88;
+            // 
+            // scoreDataGridViewTextBoxColumn
+            // 
+            this.scoreDataGridViewTextBoxColumn.AutoSizeMode = System.Windows.Forms.DataGridViewAutoSizeColumnMode.AllCells;
+            this.scoreDataGridViewTextBoxColumn.DataPropertyName = "Score";
+            this.scoreDataGridViewTextBoxColumn.HeaderText = "Score";
+            this.scoreDataGridViewTextBoxColumn.Name = "scoreDataGridViewTextBoxColumn";
+            this.scoreDataGridViewTextBoxColumn.ReadOnly = true;
+            this.scoreDataGridViewTextBoxColumn.Width = 60;
+            // 
+            // personBindingSource
+            // 
+            this.personBindingSource.DataSource = typeof(SkillKeeper.Person);
+            // 
+            // historyMoveMatchButton
+            // 
+            this.historyMoveMatchButton.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.historyMoveMatchButton.Enabled = false;
+            this.historyMoveMatchButton.Location = new System.Drawing.Point(606, 349);
+            this.historyMoveMatchButton.Name = "historyMoveMatchButton";
+            this.historyMoveMatchButton.Size = new System.Drawing.Size(127, 23);
+            this.historyMoveMatchButton.TabIndex = 9;
+            this.historyMoveMatchButton.Text = "Move Match Date";
+            this.historyMoveMatchButton.UseVisualStyleBackColor = true;
+            this.historyMoveMatchButton.Click += new System.EventHandler(this.historyMoveMatchButton_Click);
+            // 
             // MainWindow
             // 
             this.AllowDrop = true;
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(564, 401);
+            this.ClientSize = new System.Drawing.Size(744, 401);
             this.Controls.Add(this.tabControl1);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.MinimumSize = new System.Drawing.Size(580, 440);
@@ -1999,12 +2035,10 @@
             this.historyTableLayoutPanel2.ResumeLayout(false);
             this.historyTableLayoutPanel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.historyGridView)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.matchBindingSource)).EndInit();
             this.leaderboardTab.ResumeLayout(false);
             this.leaderboardTabTableLayoutPanel.ResumeLayout(false);
             this.leaderboardTabTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.leaderBoardGrid)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             this.settingsTab.ResumeLayout(false);
             this.settingsTabTableLayoutPanel.ResumeLayout(false);
             this.settingsTabTableLayoutPanel.PerformLayout();
@@ -2012,6 +2046,8 @@
             this.aboutTabTableLayoutPanel.ResumeLayout(false);
             this.aboutTabTableLayoutPanel.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.matchBindingSource)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.personBindingSource)).EndInit();
             this.ResumeLayout(false);
 
         }
@@ -2177,14 +2213,16 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn scoreDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn LastMatch;
         private System.Windows.Forms.DateTimePicker historyMoveDatePicker;
+        private System.Windows.Forms.Button fileImportSmashGGButton;
+        private System.Windows.Forms.Label label39;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn11;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn12;
+        private System.Windows.Forms.DataGridViewTextBoxColumn TourneyName;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn10;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn13;
         private System.Windows.Forms.DataGridViewTextBoxColumn timestampDataGridViewTextBoxColumn;
         private System.Windows.Forms.DataGridViewTextBoxColumn dataGridViewTextBoxColumn14;
-        private System.Windows.Forms.Button fileImportSmashGGButton;
-        private System.Windows.Forms.Label label39;
+        private System.Windows.Forms.Button historyMoveMatchButton;
     }
 }
         

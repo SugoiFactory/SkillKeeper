@@ -59,5 +59,25 @@ namespace SkillKeeper.Properties {
                 resourceCulture = value;
             }
         }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap _20170302_203445 {
+            get {
+                object obj = ResourceManager.GetObject("20170302_203445", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
+        
+        /// <summary>
+        ///   Looks up a localized resource of type System.Drawing.Bitmap.
+        /// </summary>
+        internal static System.Drawing.Bitmap yQaTXN1H_400x400 {
+            get {
+                object obj = ResourceManager.GetObject("yQaTXN1H_400x400", resourceCulture);
+                return ((System.Drawing.Bitmap)(obj));
+            }
+        }
     }
 }

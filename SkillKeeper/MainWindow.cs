@@ -422,7 +422,9 @@ namespace SkillKeeper
                     Match match = new Match();
                     match.Timestamp = DateTime.Parse(m.Attribute("Timestamp").Value);
                     match.Order = UInt32.Parse(m.Attribute("Order").Value);
-                    if(m.Attribute("Description") != null)
+                    if (m.Attribute("Tournament") != null)
+                        match.TourneyName = m.Attribute("Tournament").Value;
+                    if (m.Attribute("Description") != null)
                         match.Description = m.Attribute("Description").Value;
                     if (m.Attribute("ID") != null)
                         match.ID = m.Attribute("ID").Value;
@@ -511,6 +513,7 @@ namespace SkillKeeper
                             new XAttribute("ID", match.ID),
                             new XAttribute("Timestamp", match.Timestamp.ToString()),
                             new XAttribute("Order", match.Order),
+                            new XAttribute("Tournament", match.TourneyName),
                             new XAttribute("Description", match.Description),
                             new XAttribute("Player1", match.Player1),
                             new XAttribute("Player2", match.Player2),
@@ -551,6 +554,7 @@ namespace SkillKeeper
                                                         new XAttribute("ID", match.ID),
                                                         new XAttribute("Timestamp", match.Timestamp.ToString()),
                                                         new XAttribute("Order", match.Order),
+                                                        new XAttribute("Tournament", match.TourneyName),
                                                         new XAttribute("Description", match.Description),
                                                         new XAttribute("Player1", match.Player1),
                                                         new XAttribute("Player2", match.Player2),
@@ -1172,7 +1176,7 @@ namespace SkillKeeper
         {
             if (historyGridView.SelectedRows.Count > 0)
             {
-                historyDatePicker.Value = DateTime.Parse(historyGridView.SelectedRows[0].Cells[4].Value.ToString());
+                historyDatePicker.Value = DateTime.Parse(historyGridView.SelectedRows[0].Cells[5].Value.ToString());
                 historyDeleteMatchButton.Enabled = true;
                 historyDeleteTournamentButton.Enabled = true;
                 if (historyDatePicker.Value != historyMoveDatePicker.Value)
@@ -1195,19 +1199,19 @@ namespace SkillKeeper
 
         private void historyMoveTourneyButton_Click(object sender, EventArgs e)
         {
-            String tourneyName = historyGridView.SelectedRows[0].Cells[3].Value.ToString();
-            foreach (Match m in matchList)
+            String tourneyName = historyGridView.SelectedRows[0].Cells[2].Value.ToString();
+            foreach (var m in matchList)
             {
-                if (m.Description == tourneyName)
+                if (m.TourneyName == tourneyName)
                     m.Timestamp = historyMoveDatePicker.Value;
             }
 
             historyDatePicker.Value = historyMoveDatePicker.Value;
             matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
-            // Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
             requireSave = true;
             scoresChanged = true;
-            // buildHistory();
+            buildHistory();
         }
 
         private void historyApplyButton_Click(object sender, EventArgs e)
@@ -1251,7 +1255,7 @@ namespace SkillKeeper
 
         private void historyDeleteTournamentButton_Click(object sender, EventArgs e)
         {
-            String tourneyName = historyGridView.SelectedRows[0].Cells[3].Value.ToString();
+            String tourneyName = historyGridView.SelectedRows[0].Cells[2].Value.ToString();
             Boolean allDeleted = false;
             while (!allDeleted)
             {
@@ -1393,6 +1397,35 @@ namespace SkillKeeper
         private void fileTabTableLayoutPanel_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void leaderBoardGrid_CellContentDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+        }
+
+        private void leaderBoardGrid_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        {
+            Console.Write("There name is ");
+            Console.WriteLine(leaderBoardGrid.Rows[e.RowIndex].Cells[1].Value.ToString());
+            modifySelector.Text = leaderBoardGrid.Rows[e.RowIndex].Cells[1].Value.ToString();
+            tabControl1.SelectedTab = tabControl1.TabPages[3];
+        }
+
+        private void historyMoveMatchButton_Click(object sender, EventArgs e)
+        {
+            String p1 = historyGridView.SelectedRows[0].Cells[0].Value.ToString();
+            String p2 = historyGridView.SelectedRows[0].Cells[1].Value.ToString();
+            String tourneyName = historyGridView.SelectedRows[0].Cells[2].Value.ToString();
+            String description = historyGridView.SelectedRows[0].Cells[3].Value.ToString();
+            Match m = matchList.First(c => c.TourneyName == tourneyName && c.Description == description && c.Player1 == p1 && c.Player2 == p2);
+            m.Timestamp = historyMoveDatePicker.Value;
+
+            historyDatePicker.Value = historyMoveDatePicker.Value;
+            matchList = matchList.OrderBy(s => s.Timestamp).ThenBy(s => s.Order).ToList();
+            Toolbox.recalcMatches(playerList, matchList, startMu, startSigma, multiplier, decay, decayValue);
+            requireSave = true;
+            scoresChanged = true;
+            buildHistory();
         }
     }
 }
