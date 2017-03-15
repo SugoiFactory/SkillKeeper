@@ -21,13 +21,10 @@ namespace SkillKeeper
         private List<String> playerNames = new List<String>();
         private List<ImportPlayer> challongePlayerList = new List<ImportPlayer>();
         private List<String> eventList = new List<String>();
-        private String tournamentName = "";
 
         private List<String> addAlts = new List<String>();
 
         private Tournament curTourney = new Tournament();
-
-        private Tournament specifiedTournament;
 
         public int phaseID { get; set; }
         public int eventID { get; set; }
@@ -156,14 +153,13 @@ namespace SkillKeeper
 
             foreach (Set s in portal.GetMatches(group.id))
             {
-                if (s.completedAt != null)
-                {
-                    createMatch(s.entrant1Id, s.entrant2Id, s.winnerId, s.updatedAt, s.fullRoundText, p.name, group.displayIdentifier);
+                if (s.completedAt != null && s.completedAt != -62169955200) // Value is a stand-in value for Smash.gg bye rounds, supposedly will be fixed, but for now it lives on
+                { 
+                    createMatch(s.entrant1Id, s.entrant2Id, s.winnerId, Convert.ToInt32(s.completedAt), s.fullRoundText, p.name, group.displayIdentifier);
                 }
             }
 
         }
-        //TODO: Fix for Smash gg
         private void createMatch(int? p1ID, int? p2ID, int? WinnerID, int? time, string matchInfo, string phase, string round)
         {
             Match m = new Match();

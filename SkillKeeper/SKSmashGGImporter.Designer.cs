@@ -60,7 +60,7 @@
             // 
             // importPlayerBindingSource
             // 
-            this.importPlayerBindingSource.DataSource = typeof(SkillKeeper.ImportPlayer);
+            this.importPlayerBindingSource.DataSource = typeof(ImportPlayer);
             // 
             // importButton
             // 
