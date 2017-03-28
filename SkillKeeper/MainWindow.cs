@@ -554,7 +554,7 @@ namespace SkillKeeper
                                                         new XAttribute("ID", match.ID),
                                                         new XAttribute("Timestamp", match.Timestamp.ToString()),
                                                         new XAttribute("Order", match.Order),
-                                                        new XAttribute("Tournament", match.TourneyName),
+                                                        new XAttribute("Tournament", match.TourneyName ?? match.Description),
                                                         new XAttribute("Description", match.Description),
                                                         new XAttribute("Player1", match.Player1),
                                                         new XAttribute("Player2", match.Player2),
