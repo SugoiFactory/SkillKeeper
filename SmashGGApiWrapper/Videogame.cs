@@ -10,7 +10,7 @@ namespace SmashGGApiWrapper
         public string displayName { get; set; }
         public int minPerEntry { get; set; }
         public int maxPerEntry { get; set; }
-        public bool enabled { get; set; }
+        public object enabled { get; set; }
         public string slug { get; set; }
         public object isCardGame { get; set; }
         public object characterTerm { get; set; }
