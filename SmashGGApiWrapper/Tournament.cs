@@ -50,7 +50,7 @@ namespace SmashGGApiWrapper
         public string venueAddress { get; set; }
         public string region { get; set; }
         public string hashtag { get; set; }
-        public bool showCity { get; set; }
+        public object showCity { get; set; }
         public int attendeeLocationInfo { get; set; }
         public int attendeeContactInfo { get; set; }
         //public AttendeeFieldConfig attendeeFieldConfig { get; set; }
